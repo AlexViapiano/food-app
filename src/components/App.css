@@ -1,5 +1,16 @@
 body *, body *:before, body *:after { box-sizing: inherit; } 
 
+body {
+  background-color: pink;
+}
+
+.inner {
+  background-color: yellow;
+  padding-top: 0;
+  margin-top: 0;
+
+}
+
 .title-wrapper {
   background-color: #000;
   max-width: 100%;
@@ -23,4 +34,11 @@ body *, body *:before, body *:after { box-sizing: inherit; }
   justify-content: space-between;
   align-items: center;
   padding: 0 5% 0 5%;
+}
+
+.App-children-wrapper {
+  background-color: white;
+  
+  max-width: 95%;
+
 }

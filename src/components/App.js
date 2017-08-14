@@ -25,15 +25,13 @@ class App extends Component {
             <i className="fa fa-bars fa-2x menu-icon"
               onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
             />
-            
             <Search />
-
-
           </div>
 
           <Menu show={isMenuOpen} closeMenu={this.closeMenu}/>
-
-          {this.props.children}
+          <div className="App-children-wrapper">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

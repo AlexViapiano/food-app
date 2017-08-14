@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import api from '../../api';
+import HomeSearchButton from '../elements/HomeSearchButton';
 import './Home.css';
 
 export default class Home extends Component {
@@ -18,7 +19,7 @@ export default class Home extends Component {
 
         <div className="inner">
           <div className="content">
-            
+            <HomeSearchButton />
           </div>
         </div>
       </div>
