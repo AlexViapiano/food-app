@@ -19,7 +19,7 @@ export default class HomeSearchButton extends Component {
     	<div>
 		  <div className="home-search-button">
         <Link to={`/bites`}>
-		    <button className="GetBites" type="button">Find Food Near You! </button>
+		    <button className="GetBites" type="button">Find Food Near You!</button>
         </Link>
 		  </div>
 

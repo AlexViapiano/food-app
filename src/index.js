@@ -7,6 +7,7 @@ import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 //note: Bites = search results
 import Bites from './components/pages/Bites';
+import Search from './components/elements/Search';
 import './index.css';
 
 
@@ -17,6 +18,8 @@ const routes = (
         <Route path="/bites" component={Bites}/>
         {/*<Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>*/}
+        <Route path="/search" component={Search}/>
+
       </Route>
     </Router>
 );

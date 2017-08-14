@@ -1,6 +1,6 @@
-mport React, {Component} from 'react';
+import React, {Component} from 'react';
 import './Signup.css';
-//import auth from '../../auth';
+import auth from '../../auth';
 
 const ENTER = 13;
 

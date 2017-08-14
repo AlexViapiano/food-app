@@ -13,29 +13,29 @@ export default class Login extends Component {
     };
   }
   
-  _handleLogin = () => {
-    let { email: {value: email}, password: {value: password} } = this.refs;
-    if (email && password) {
-      //auth.login(email, password)
-      .then(console.log(email))
-      .then(this.setState({email: email}))
-      .then(console.log(this.state, "state after setState email"))
-      .then(res => this.props.router.push('/'))
-      .catch(console.error)
-    }
-    else {
-      this.setState({ error: "Please enter an email and password"})
-    }
-  }
+  // _handleLogin = () => {
+  //   let { email: {value: email}, password: {value: password} } = this.refs;
+  //   if (email && password) {
+  //     //auth.login(email, password)
+  //     .then(console.log(email))
+  //     .then(this.setState({email: email}))
+  //     .then(console.log(this.state, "state after setState email"))
+  //     .then(res => this.props.router.push('/'))
+  //     .catch(console.error)
+  //   }
+  //   else {
+  //     this.setState({ error: "Please enter an email and password"})
+  //   }
+  // }
   
-  _handleTyping = (e) => {
-    if (this.state && this.state.error) {
-      this.setState({ error: null })
-    }
-    if (e.keyCode===ENTER) {
-      this._handleLogin();
-    }
-  }
+  // _handleTyping = (e) => {
+  //   if (this.state && this.state.error) {
+  //     this.setState({ error: null })
+  //   }
+  //   if (e.keyCode===ENTER) {
+  //     this._handleLogin();
+  //   }
+  // }
 
   render() {
     return (
