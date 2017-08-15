@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
-// var BitesInfo = 
- 
-// ... 
  
 export class MapContainer extends Component {
   constructor(props) {
@@ -14,28 +10,32 @@ export class MapContainer extends Component {
   }
   componentWillMount() {
     this.setState({
-      mapInitialCenter: {lat: "43", lng: "-73"}
+      mapInitialCenter: {lat: "45", lng: "-73"}
     })
   }
 
   componentDidUpdate(prevProps, prevState) {
-/*
-    if(this.state.bitesInfo && (this.state.bitesInfo[0] === prevState.bitesInfo[0]) {
+    var firstBite = this.props.bitesInfo[0]
+    var prevBite = prevProps.bitesInfo[0]
+    console.log(prevBite, "prevBite")
+    console.log(firstBite, "firstBite")
+
+    if(firstBite && (firstBite.geometry === prevBite.geometry)) {
       return false
     } else {
       this.setState({
-        mapInitialCenter: this.state.bitesInfo[0].geometry.location
+        mapInitialCenter: firstBite.geometry.location
       })
     }
-    */
+    
 
-    let temp = (this.state.bitesInfo)?this.props.bitesInfo:{lat:25, lng:-43};
+    /*let temp = (this.state.bitesInfo)?this.props.bitesInfo:{lat:25, lng:-43};
     if(this.state.mapInitialCenter){
       console.log('attempt', this.props.bitesInfo)
       this.setState({
           mapInitialCenter: temp
       })
-  }
+  }*/
     
     //console.log(prevState, "prevState")
     //console.log(prevProps, "prevProps")
