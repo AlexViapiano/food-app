@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Search from '../elements/Search';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 import {browserHistory as history} from 'react-router'
 // import api from '../../api';
-import HomeSearchButton from '../elements/HomeSearchButton';
-import api from '../../api';
+//import HomeSearchButton from '../elements/HomeSearchButton';
+//import api from '../../api';
 import './Home.css';
 
 export default class Home extends Component {
@@ -19,7 +19,6 @@ export default class Home extends Component {
    _handleSearch = (address) => {
 
       history.push(`/bites/${address}`)
-
   }
   
 

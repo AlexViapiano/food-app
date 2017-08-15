@@ -6,7 +6,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 // import auth from '../../auth';
 
 
-const ENTER = 13;
+//const ENTER = 13;
 
 export default class Search extends Component {
   constructor(props) {
