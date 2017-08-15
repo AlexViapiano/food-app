@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
-import auth from '../../auth';
+//import auth from '../../auth';
 import './BiteCard.css';
 
 export default class BiteCard extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      
     };
   }
 
   render() {
 
-    let { name, id, open_now, address } = this.props
+    let { name, address } = this.props
     // console.log(this.state)
     return (
       <div className="biteCardDiv">

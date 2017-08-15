@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {browserHistory as history} from 'react-router';
+//import {browserHistory as history} from 'react-router';
 import { Link } from 'react-router';
 import Menu from './modals/Menu';
 // import Search from './elements/Search';
-import api from '../api';
+//import api from '../api';
 import './App.css';
 
 class App extends Component {

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './Search.css';
-import api from '../../api';
+//import api from '../../api';
 
 // import auth from '../../auth';
 
 
-const ENTER = 13;
+//const ENTER = 13;
 
 export default class Search extends Component {
   constructor(props) {

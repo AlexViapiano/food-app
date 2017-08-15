@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import api from '../../api';
 import BiteCard from '../elements/BiteCard';
-import Search from '../elements/Search';
-import auth from '../../auth';
+//import Search from '../elements/Search';
+//import auth from '../../auth';
 import MapContainer from '../elements/map';
 import { Link } from 'react-router';
 import './Bites.css';
@@ -20,11 +20,9 @@ export default class Bites extends Component {
 
   componentWillMount() {
 
-    // console.log(this.props.params.address) 
 
     api.postAddress(this.props.params.address)
     .then(res => {
-          // console.log(res.body, "res.body inside api call");
           this.setState({ 
                bites: res.body
           })
@@ -32,10 +30,8 @@ export default class Bites extends Component {
   }
    
   render() {
-    // let { bites } = this.state
     let bites = this.state.bites 
-    console.log(bites, "bites")
-    // console.log(this.props, "this.props")
+
     return (
       <div className="bitesPage">
         <Link to={`/`}>Change Location</Link>

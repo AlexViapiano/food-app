@@ -33,9 +33,8 @@ class Api {
   postAddress = (address) => (
     superagent
   /* Need to .post their search terms*/
-    .post(`${API_HOST}/search`)
+    .post(`${API_HOST}/places/search`)
     .send({address})
-    .then(console.log(address, "address in api call"))
     )
 }
 
