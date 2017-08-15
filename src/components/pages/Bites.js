@@ -3,6 +3,7 @@ import api from '../../api';
 import BiteCard from '../elements/BiteCard';
 import Search from '../elements/Search';
 import auth from '../../auth';
+import MapContainer from '../elements/map';
 import './Bites.css';
 
 
@@ -25,6 +26,7 @@ export default class Bites extends Component {
     })
   }
   
+
   // componentWillMount() {
 
   // }
@@ -61,12 +63,11 @@ export default class Bites extends Component {
     return (
       <div className="bitesPage">
         <Search _handleSearch={this._handleSearch}/>
-          <div className="bitesMap">
-            <p>this will be the map</p>
-
-
-            
+        <div className="test">  
+          <div className="map-container">
+            <MapContainer />
           </div>
+        </div>
         <div className="bites-wrapper">
               { bites.map(b =>
                 <BiteCard
