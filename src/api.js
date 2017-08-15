@@ -35,7 +35,6 @@ class Api {
   /* Need to .post their search terms*/
     .post(`${API_HOST}/search`)
     .send({address})
-    .then(console.log(address, "address in api call"))
     )
 }
 

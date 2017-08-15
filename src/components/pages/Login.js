@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 //import auth from '../../auth'
 import './Login.css';
 
-const ENTER = 13;
+//const ENTER = 13;
 
 export default class Login extends Component {
 
