@@ -43,10 +43,8 @@ export class MapContainer extends Component {
           style={{width: '90%', height: '50%', position: 'absolute'}}>
           <Map className="map"
             google={this.props.google} 
-            // style={{width: '90%', height: '50%', position: 'fixed'}}
             initialCenter={this.props.bitesInfo[0].geometry.location}
             zoom={15}>
-
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />
               
@@ -68,7 +66,11 @@ export class MapContainer extends Component {
             </InfoWindow>
 
           </Map>
+<<<<<<< HEAD
           </div>
+=======
+        </div>
+>>>>>>> 7c5238812ae2fc810ac6787237cba4026f5a68bc
         );
     } 
   }
