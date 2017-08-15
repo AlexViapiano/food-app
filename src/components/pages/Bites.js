@@ -59,13 +59,16 @@ export default class Bites extends Component {
 
    
   render() {
-    let { bites } = this.state
+    // let { bites } = this.state
+    let bites = this.state.bites 
+    // let bites = "hi, I'm bites"
+    console.log(this, "bites")
     return (
       <div className="bitesPage">
         <Search _handleSearch={this._handleSearch}/>
         <div className="test">  
           <div className="map-container">
-            <MapContainer />
+            <MapContainer bitesInfo={bites}/>
           </div>
         </div>
         <div className="bites-wrapper">
