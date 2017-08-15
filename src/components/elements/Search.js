@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Search.css';
-//import api from '../../api';
+import api from '../../api';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 // import auth from '../../auth';
 
@@ -10,9 +11,8 @@ import './Search.css';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-   };
+    this.state = {},
+    this.onChange = (address) => this.setState({ address })
    // console.log(this, "this in search")
   this._handleSearch = this.props._handleSearch.bind(this);
  }
@@ -35,21 +35,16 @@ export default class Search extends Component {
   }
 
   render() {
+    const inputProps = {
+      value: this.state.address,
+      onChange: this.onChange,
+    }
   	return(
 
-  			<form className="searchForm">
-		        <input type="text" 
-		          ref="keyword" 
-		          placeholder="your current address" 
-              className="search-box-input"
-		          onKeyUp={this._handleTyping}
-
-		        />
-		        <button className="search-box-button"
-		        onClick={this.search}>&#x1f50d;</button>
-
-		    </form>
-
+  			<form onSubmit={this.search}>
+          <PlacesAutocomplete inputProps={inputProps} />
+          <button type ="submit">Submit</button>
+        </form>
 
   		)
   }
