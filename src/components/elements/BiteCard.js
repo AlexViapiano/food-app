@@ -17,14 +17,15 @@ export default class BiteCard extends Component {
     // console.log(this.state)
     return (
       <div className="biteCardDiv">
-      <Link to={`/bites`}>
-        <div className="bite-card">
-          <h2>{ name }</h2>
-          <p>{address}</p>
+        <Link to={`/bites/${id}`}>
+          <div className="bite-card">
+            <h2>{ name }</h2>
+            <p>{address}</p>
+            
 
-        </div>
+          </div>
         </Link>  
-        </div>
+      </div>
     );
   }
 

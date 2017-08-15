@@ -27,8 +27,8 @@ export class MapContainer extends Component {
         mapInitialCenter: firstBite.geometry.location
       })
     }
+  }
     
-
 
 render() {
   if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {

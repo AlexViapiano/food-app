@@ -20,53 +20,22 @@ export default class Bites extends Component {
 
   componentWillMount() {
 
-    console.log(this.props.params.address) 
+    // console.log(this.props.params.address) 
 
     api.postAddress(this.props.params.address)
     .then(res => {
-          console.log(res.body, "res.body inside api call");
+          // console.log(res.body, "res.body inside api call");
           this.setState({ 
                bites: res.body
           })
     })
   }
-
-  // componentDidMount() {
-  //   this.fetchBitesData()
-  // }
-  
-  // fetchBitesData = () => {
-  //     Promise.all([
-  //       api.call(),
-  //       api.call()
-  //     ])
-  //     .then(res => {
-  //       this.setState({
-          
-  //       })
-  //     })
-  //     .catch(console.error)
-
-  // }
-
-  //    _fetchBite = () => {
-  //   api.get()
-  //   .then(res => {
-  //     this.setState({  })
-  //   })
-  //   .catch(console.error)
-  // }
-
-  
-
-  
-
    
   render() {
     // let { bites } = this.state
     let bites = this.state.bites 
-    // let bites = "hi, I'm bites"
-    console.log(this.props, "this.props")
+    console.log(bites, "bites")
+    // console.log(this.props, "this.props")
     return (
       <div className="bitesPage">
         <Link to={`/`}>Change Location</Link>
@@ -112,8 +81,8 @@ export default class Bites extends Component {
                   name={b.name}
                   open_now={b.opening_hours}
                   address={b.vicinity}
-                /> 
-            )}
+                />
+              )}
         </div>
       </div>
       
