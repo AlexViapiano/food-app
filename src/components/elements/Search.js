@@ -13,7 +13,7 @@ export default class Search extends Component {
     this.state = {
 
    };
-   console.log(this, "this in search")
+   // console.log(this, "this in search")
   this._handleSearch = this.props._handleSearch.bind(this);
  }
  _handleTyping = (e) => {
@@ -23,9 +23,9 @@ export default class Search extends Component {
         error: null 
     })
     }
-    if (e.keyCode===ENTER) {
-      this._handleSearch()
-    }
+    // if (e.keyCode===ENTER) {
+    //   this._handleSearch()
+    // }
   }
 
   search = (e) => {

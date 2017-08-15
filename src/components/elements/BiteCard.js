@@ -13,14 +13,15 @@ export default class BiteCard extends Component {
 
   render() {
 
-    let { name, description, id } = this.props
+    let { name, id, open_now, address } = this.props
     // console.log(this.state)
     return (
       <div className="biteCardDiv">
-      <Link to={`/bites/${id}`}>
+      <Link to={`/bites`}>
         <div className="bite-card">
           <h2>{ name }</h2>
-          <p>{ description }</p>
+          <p>{address}</p>
+
         </div>
         </Link>  
         </div>
