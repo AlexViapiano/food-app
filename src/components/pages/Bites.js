@@ -4,6 +4,7 @@ import BiteCard from '../elements/BiteCard';
 import Search from '../elements/Search';
 import auth from '../../auth';
 import MapContainer from '../elements/map';
+import { Link } from 'react-router';
 import './Bites.css';
 
 
@@ -16,8 +17,12 @@ export default class Bites extends Component {
     };
   }
 
-   _handleSearch = (address) => {
-    api.postAddress(address)
+
+  componentWillMount() {
+
+    console.log(this.props.params.address) 
+
+    api.postAddress(this.props.params.address)
     .then(res => {
           console.log(res.body, "res.body inside api call");
           this.setState({ 
@@ -25,11 +30,6 @@ export default class Bites extends Component {
           })
     })
   }
-  
-
-  // componentWillMount() {
-
-  // }
 
   // componentDidMount() {
   //   this.fetchBitesData()
@@ -57,20 +57,53 @@ export default class Bites extends Component {
   //   .catch(console.error)
   // }
 
+  
+
+  
+
    
   render() {
     // let { bites } = this.state
     let bites = this.state.bites 
     // let bites = "hi, I'm bites"
-    console.log(this, "bites")
+    console.log(this.props, "this.props")
     return (
       <div className="bitesPage">
-        <Search _handleSearch={this._handleSearch}/>
+        <Link to={`/`}>Change Location</Link>
+        <br></br>
         <div className="test">  
           <div className="map-container">
-            <MapContainer bitesInfo={bites}/>
+            {bites !== [] ? <MapContainer bitesInfo={bites}/> : null}  
           </div>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="bites-wrapper">
               { bites.map(b =>
                 <BiteCard
@@ -81,9 +114,7 @@ export default class Bites extends Component {
                   address={b.vicinity}
                 /> 
             )}
-       
         </div>
- 
       </div>
       
     ); 
