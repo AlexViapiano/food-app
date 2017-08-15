@@ -39,14 +39,17 @@ export class MapContainer extends Component {
     } 
     else {
       return (
+        <div className="map-wrapper"
+          style={{width: '90%', height: '50%', position: 'absolute'}}>
           <Map className="map"
             google={this.props.google} 
-            style={{width: '90%', height: '50%', position: 'relative'}}
+            // style={{width: '90%', height: '50%', position: 'fixed'}}
             initialCenter={this.props.bitesInfo[0].geometry.location}
             zoom={15}>
 
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />
+              
 
             { this.props.bitesInfo.map(b =>
               <Marker onClick={this.onMarkerClick}
@@ -65,6 +68,7 @@ export class MapContainer extends Component {
             </InfoWindow>
 
           </Map>
+          </div>
         );
     } 
   }
