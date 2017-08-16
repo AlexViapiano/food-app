@@ -43,7 +43,7 @@ export class MapContainer extends Component {
           style={{width: '90%', height: '50%', position: 'absolute'}}>
           <Map className="map"
             google={this.props.google} 
-            initialCenter={this.props.bitesInfo[0].geometry.location}
+            initialCenter={this.props.initialCenter}
             zoom={15}>
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Search.css';
 //import api from '../../api';
-import PlacesAutocomplete from 'react-places-autocomplete';
+// import PlacesAutocomplete from 'react-places-autocomplete';
 
 // import auth from '../../auth';
 
@@ -32,16 +32,24 @@ export default class Search extends Component {
 
   render() {
     const inputProps = {
-      value: this.state.address,
+      value: this.state.address || "",
       onChange: this.onChange,
     }
+
   	return(
 
-  			<form onSubmit={this.search}>
-          <PlacesAutocomplete inputProps={inputProps} />
-          <button type="submit">Submit</button>
+        <form className="searchForm">
+            <input type="text" 
+              ref="keyword" 
+              placeholder="your current address" 
+              className="search-box-input"
+              onKeyUp={this._handleTyping}
+            />
+            <button className="search-box-button"
+            onClick={this.search}>&#x1f50d;</button>
         </form>
-
   		)
   }
 }
+      
+
