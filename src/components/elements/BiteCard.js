@@ -14,7 +14,7 @@ export default class BiteCard extends Component {
   render() {
 
     let { name, address, place_id } = this.props
-    console.log(this.props.place_id, "biteCard this.props")
+    //console.log(this.props.place_id, "biteCard this.props")
 
     return (
       <div className="biteCardDiv">
