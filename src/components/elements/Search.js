@@ -31,10 +31,10 @@ export default class Search extends Component {
   }
 
   render() {
-    const inputProps = {
-      value: this.state.address || "",
-      onChange: this.onChange,
-    }
+    // const inputProps = {
+    //   value: this.state.address || "",
+    //   onChange: this.onChange,
+    // }
 
   	return(
 
