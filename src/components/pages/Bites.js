@@ -23,6 +23,9 @@ export default class Bites extends Component {
 
     api.postAddress(this.props.params.address)
     .then(res => {
+
+      console.log(res, "Bites res");
+
           this.setState({ 
                bites: res.body
           })
@@ -72,11 +75,10 @@ export default class Bites extends Component {
         <div className="bites-wrapper">
               { bites.map(b =>
                 <BiteCard
-                  key={b.place_id}
                   id={b.id}
                   name={b.name}
-                  open_now={b.opening_hours}
                   address={b.vicinity}
+                  place_id={b.place_id}
                 />
               )}
         </div>

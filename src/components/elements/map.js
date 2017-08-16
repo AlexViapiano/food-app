@@ -65,12 +65,9 @@ export class MapContainer extends Component {
                 </div>
             </InfoWindow>
 
-          </Map>
-<<<<<<< HEAD
+            </Map>
           </div>
-=======
-        </div>
->>>>>>> 7c5238812ae2fc810ac6787237cba4026f5a68bc
+
         );
     } 
   }

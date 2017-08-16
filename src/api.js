@@ -36,6 +36,15 @@ class Api {
     .post(`${API_HOST}/places/search`)
     .send({address})
     )
+
+  getPlaceInfo = (id) => (
+    superagent
+    .get(`${API_HOST}/places/${id}`)
+    .then(console.log(id, "id"))
+    )
+
 }
+
+
 
 export default new Api();
