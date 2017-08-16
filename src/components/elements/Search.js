@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Search.css';
 //import api from '../../api';
-import PlacesAutocomplete from 'react-places-autocomplete';
+// import PlacesAutocomplete from 'react-places-autocomplete';
 
 // import auth from '../../auth';
 
@@ -12,10 +12,11 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {}
-    this.onChange = (address) => this.setState({ address })
+
    // console.log(this, "this in search")
   this._handleSearch = this.props._handleSearch.bind(this);
  }
+
  _handleTyping = (e) => {
     
     if (this.state && this.state.error) {
@@ -27,21 +28,30 @@ export default class Search extends Component {
 
   search = (e) => {
     e.preventDefault();
-    this.props._handleSearch(this.state.address)
+    this.props._handleSearch(this.refs.keyword.value)
   }
 
   render() {
-    const inputProps = {
-      value: this.state.address,
-      onChange: this.onChange,
-    }
+
+
   	return(
 
-  			<form onSubmit={this.search}>
-          <PlacesAutocomplete inputProps={inputProps} />
-          <button type="submit">Submit</button>
+        <form className="searchForm">
+            <input type="text" 
+              ref="keyword" 
+              placeholder="your current address" 
+              className="search-box-input"
+            />
+            <button className="search-box-button"
+            onClick={this.search}>&#x1f50d;</button>
         </form>
-
   		)
   }
 }
+      
+// const inputProps = {
+//   value: this.state.address || "",
+//   onChange: this.onChange,
+// }
+
+//onKeyUp={this._handleTyping}

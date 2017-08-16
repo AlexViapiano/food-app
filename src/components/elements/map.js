@@ -35,8 +35,6 @@ export class MapContainer extends Component {
 
   render() {
 
-    let initialCenter = this.props.initialLocationInfo;
-
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
        return null;
     } 
@@ -46,10 +44,11 @@ export class MapContainer extends Component {
           style={{width: '90%', height: '50%', position: 'absolute'}}>
           <Map className="map"
             google={this.props.google} 
-            initialCenter={initialCenter}
+            initialCenter={this.props.initialCenter}
             zoom={15}>
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />
+              
 
             { this.props.bitesInfo.map(b =>
               <Marker onClick={this.onMarkerClick}
@@ -67,8 +66,9 @@ export class MapContainer extends Component {
                 </div>
             </InfoWindow>
 
-          </Map>
-        </div>
+            </Map>
+          </div>
+
         );
     } 
   }

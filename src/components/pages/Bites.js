@@ -13,14 +13,13 @@ export default class Bites extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bites: [],
-      initialLocation: {}
+      bites: [], 
+      initialCenter: {}
     };
   }
 
 
   componentWillMount() {
-
 
     api.postAddress(this.props.params.address)
     .then(res => {
@@ -28,15 +27,15 @@ export default class Bites extends Component {
       console.log(res.body, "Bites res");
 
           this.setState({ 
-               bites: res.body.results,
-               initialLocation: res.body.initialLocation
+               bites: res.body.results, 
+               initialCenter: res.body.initialLocation
           })
     })
   }
    
   render() {
-    let bites = this.state.bites
-    let initialLocation = this.state.initialLocation
+    let bites = this.state.bites 
+    let initialCenter = this.state.initialCenter
 
     return (
       <div className="bitesPage">
@@ -44,7 +43,7 @@ export default class Bites extends Component {
         <br></br>
         <div className="test">  
           <div className="map-container">
-            {bites !== [] ? <MapContainer bitesInfo={bites} initialLocationInfo={initialLocation}/> : null}  
+            {bites !== [] ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
           </div>
         </div>
         <br></br>

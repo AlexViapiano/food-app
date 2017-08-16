@@ -3,7 +3,19 @@
 	max-width: 100%;
 	
 }
+/*redering the map */
+.map {
+	background-color: red;
+	margin: 0;
+	padding: 0;
+	height: 300px;
+}
 
+.test {
+	background-color: white;
+}
+
+/*mapping the bite cards */
 .bitesMap {
 	background-color: grey;
 	/*max-width: 100%;*/

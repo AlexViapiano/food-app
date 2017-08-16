@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import api from '../../api';
 //import auth from '../../auth';
-//import MapContainer from '../elements/map';
+import MapContainer from '../elements/map';
+// import Bites from './Bites';
 import { Link } from 'react-router';
 //import './Place.css';
 
@@ -32,9 +33,13 @@ export default class Place extends Component {
   render() {
     let place = this.state.place 
 
+
     return (
       <div className="placePage">
           <Link to={`/`}>Home</Link>
+          <div className="place-map-container">
+            {place !== {} ? <MapContainer /> : null}  
+          </div>
           <br></br>
           <h1>{place.name}</h1>
           <p>Address: {place.formatted_address}</p>
