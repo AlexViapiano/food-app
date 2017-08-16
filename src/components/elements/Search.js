@@ -12,10 +12,11 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {}
-    this.onChange = (address) => this.setState({ address })
+
    // console.log(this, "this in search")
   this._handleSearch = this.props._handleSearch.bind(this);
  }
+
  _handleTyping = (e) => {
     
     if (this.state && this.state.error) {
@@ -27,14 +28,11 @@ export default class Search extends Component {
 
   search = (e) => {
     e.preventDefault();
-    this.props._handleSearch(this.state.address)
+    this.props._handleSearch(this.refs.keyword.value)
   }
 
   render() {
-    // const inputProps = {
-    //   value: this.state.address || "",
-    //   onChange: this.onChange,
-    // }
+
 
   	return(
 
@@ -43,7 +41,6 @@ export default class Search extends Component {
               ref="keyword" 
               placeholder="your current address" 
               className="search-box-input"
-              onKeyUp={this._handleTyping}
             />
             <button className="search-box-button"
             onClick={this.search}>&#x1f50d;</button>
@@ -52,4 +49,9 @@ export default class Search extends Component {
   }
 }
       
+// const inputProps = {
+//   value: this.state.address || "",
+//   onChange: this.onChange,
+// }
 
+//onKeyUp={this._handleTyping}

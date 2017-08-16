@@ -21,7 +21,6 @@ export default class Bites extends Component {
 
   componentWillMount() {
 
-
     api.postAddress(this.props.params.address)
     .then(res => {
 

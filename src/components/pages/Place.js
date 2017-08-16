@@ -23,7 +23,7 @@ export default class Place extends Component {
 
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-          console.log(res.body.result, "res in place")
+          console.log(res.body, "res in place")
           this.setState({ 
                place: res.body.result
           })
