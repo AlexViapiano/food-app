@@ -40,8 +40,14 @@ class Api {
   getPlaceInfo = (id) => (
     superagent
     .get(`${API_HOST}/places/${id}`)
-    .then(console.log(id, "id"))
     )
+
+  getPhoto = (reference) => (
+    superagent
+    .post(`${API_HOST}/places/photo`)
+    .send({reference})
+    )
+
 
 }
 

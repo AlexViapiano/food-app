@@ -36,7 +36,8 @@ export class MapContainer extends Component {
   render() {
 
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
-       return null;
+      console.log("don't render map")
+      return null;
     } 
     else {
       return (
@@ -45,6 +46,7 @@ export class MapContainer extends Component {
           <Map className="map"
             google={this.props.google} 
             initialCenter={this.props.initialCenter}
+            clickableIcons={false}
             zoom={15}>
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />

@@ -19,9 +19,10 @@ export default class BiteCard extends Component {
         <Link to={`/place/${place_id}`}>
           <div className="bite-card">
             <h2>{ name }</h2>
-            <p>{address}</p>
           </div>
         </Link>  
+        <p>{address}</p>
+        <br></br>
       </div>
     );
   }
