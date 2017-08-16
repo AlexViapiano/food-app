@@ -31,19 +31,6 @@ export default class Place extends Component {
    
   render() {
     let place = this.state.place 
-    var str = '';
-
-    try{
-      for(var i=0; i <= 7; i++){
-        str += place.opening_hours.weekday_text[i];
-      }
-
-      console.log(str)
-
-    }
-    catch(e){
-      str='No work time';
-    }
 
     return (
       <div className="placePage">
@@ -51,13 +38,22 @@ export default class Place extends Component {
           <br></br>
           <h1>{place.name}</h1>
           <p>Address: {place.formatted_address}</p>
-          <p>Phone Number: {place.formatted_phone_number}</p>
+          <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
           <p>Rating: {place.rating}</p>
-          <p>Open: {str}</p>
-          <p>Website: {place.website}</p>
+          <a href={place.website}>{place.website}</a>
+
+
+          <div>
+            {place.opening_hours ? 
+              place.opening_hours.weekday_text.map(hours =>
+                <div>{hours}</div>
+              )
+              : null }
+          </div>
       </div>
       
     ); 
   } 
 
 }
+
