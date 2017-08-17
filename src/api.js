@@ -37,6 +37,12 @@ class Api {
     .send({address})
     )
 
+  getAddressFromLatLng = (latlng) => (
+    superagent
+    .post(`${API_HOST}/places/location`)
+    .send({latlng})
+    )
+
   getPlaceInfo = (id) => (
     superagent
     .get(`${API_HOST}/places/${id}`)

@@ -14,8 +14,7 @@ class App extends Component {
        }
   }
   
-  closeMenu = () => this.setState({ isMenuOpen: false })
-
+  closeMenu = () => this.setState({ isMenuOpen: false });
   
   render() {
     let {isMenuOpen} = this.state

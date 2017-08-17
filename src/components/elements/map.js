@@ -8,7 +8,7 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
+      selectedPlace: {}
     }
     
     // binding this to event-handler functions 
@@ -45,6 +45,7 @@ export class MapContainer extends Component {
           <Map className="map"
             google={this.props.google} 
             initialCenter={this.props.initialCenter}
+            clickableIcons={false}
             zoom={15}>
             <Marker onClick={this.onMarkerClick}
               name={'Current location'} />
