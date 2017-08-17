@@ -21,6 +21,7 @@ export default class Bites extends Component {
 
   componentWillMount() {
 
+
     api.postAddress(this.props.params.address)
     .then(res => {
 
@@ -43,7 +44,7 @@ export default class Bites extends Component {
         <br></br>
         <div className="test">  
           <div className="map-container">
-            {bites !== [] ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
+            {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
           </div>
         </div>
         <br></br>
