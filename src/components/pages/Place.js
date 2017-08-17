@@ -15,20 +15,19 @@ export default class Place extends Component {
       place: {},
       photoUrl: "",
       initialCenter: {},
-      bites: [{"geometry":{"location":{"lat":43.6546,"lng":-79.3822}}}]
+      bite: []
     };
   }
 
 
   componentWillMount() {
 
-    console.log()
-
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-          console.log(res.body, "res in place")
+          console.log(res.body, "= place res")
           this.setState({ 
                place: res.body.result,
+               bite: [res.body.result],
                initialCenter: res.body.result.geometry.location
           })
           return res.body.result.photos[0].photo_reference
@@ -45,10 +44,15 @@ export default class Place extends Component {
   }
    
   render() {
-    let place = this.state.place 
+    
+    console.log(this.props)
+
+    let bite = this.state.bite
+    let place = this.state.place
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
-    let bites = this.state.bites
+
+    console.log(initialCenter)
 
     return (
       <div className="placePage">
@@ -74,7 +78,7 @@ export default class Place extends Component {
 
           <div className="test">  
             <div className="map-container">
-              {bites !== [] ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
+              {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>
 

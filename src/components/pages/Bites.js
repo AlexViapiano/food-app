@@ -24,9 +24,7 @@ export default class Bites extends Component {
 
     api.postAddress(this.props.params.address)
     .then(res => {
-
-      console.log(res.body, "Bites res");
-
+      console.log(res.body, "= bites res");
           this.setState({ 
                bites: res.body.results, 
                initialCenter: res.body.initialLocation
