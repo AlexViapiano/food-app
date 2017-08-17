@@ -11,7 +11,8 @@ import './Search.css';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+    }
 
    // console.log(this, "this in search")
   this._handleSearch = this.props._handleSearch.bind(this);
@@ -21,7 +22,7 @@ export default class Search extends Component {
     
     if (this.state && this.state.error) {
       this.setState({ 
-        error: null 
+        error: null
     })
     }
   }
@@ -32,14 +33,14 @@ export default class Search extends Component {
   }
 
   render() {
-
-
+  let { currentAddress } = this.props.currentAddress
+  // console.log(this.props)
+  // console.log(currentAddress, "currentAddress")
   	return(
-
         <form className="searchForm">
             <input type="text" 
               ref="keyword" 
-              placeholder="your current address" 
+              value={this.props.currentAddress} 
               className="search-box-input"
             />
             <button className="search-box-button"

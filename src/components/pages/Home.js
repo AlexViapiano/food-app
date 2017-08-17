@@ -15,24 +15,19 @@ export default class Home extends Component {
     position: {}, 
     address: ""
    };
-   // console.log(onPositionReceived, "onPositionReceived function")
-   // onPositionReceived = onPositionReceived.bind(onPositionReceived);
-   // console.log(this, "this")
   }
  
   componentWillMount() {
-
-    // console.log(this.state, "this.state at top of componentwillmount")
-
-    function onPositionReceived(position) {
+    console.log(this.state, "this.state at top of componentwillmount")
+    var onPositionReceived = (position) => {
       var latlng = position.coords.latitude+","+position.coords.longitude;
       api.getAddressFromLatLng(latlng)
       .then(res => {
-        console.log(res.text, "res.text")
         this.setState({
-          address: "res.text"
+          address: res.text
         })
-      }) 
+      })
+      .then(console.log(this.state)) 
     }
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(onPositionReceived);
@@ -45,6 +40,7 @@ export default class Home extends Component {
 
 
   render() {
+    let address = this.state.address;
     if(this.state.address !== "") {
     console.log(this.state, "this")
     console.log(this.state.address, "address in home.js")
@@ -54,7 +50,7 @@ export default class Home extends Component {
 
         <div className="inner">
           <div className="content">
-            <Search _handleSearch={this._handleSearch}/>
+            <Search _handleSearch={this._handleSearch} currentAddress={address}/>
           </div>
         </div>
       </div>
