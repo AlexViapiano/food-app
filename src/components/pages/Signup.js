@@ -9,32 +9,44 @@ export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:'',
-      password:'', 
-      error:''
-    };
+      error: []
+    }
   }
 
   _handleSignup = () => {
     let { email: {value: email}, password: {value: password} } = this.refs;
-    this.setState({
-            email: email,
-            password: password, 
-          });
+    
     if (email && password && password.length >= 8) {
       auth.signup(email, password)
-      .then(res => this.props.router.push('/login'))
+      .then(res => {
+        if (res.errors) {
+          let arrErr = [];
+          console.log(res.errors, "arrErr errors")
+          for (var key in res.errors) {
+            if (res.errors.hasOwnProperty(key)) {
+              console.log(key + " -> " + res.errors[key]);
+              arrErr.push(`${key}: ${res.errors[key]}`)
+            }
+          }
+          this.setState({
+            error: arrErr
+          });
+        } else {
+          this.props.router.push('/login')
+        }
+        
+      })
       .catch(console.error)
     }
     else {
-      this.setState({ error: "Please enter a valid email and password"})
+      this.setState({ error: ["Please enter a valid email and password"]})
     }
   }
   
   _handleTyping = (e) => {
     if (this.state && this.state.error) {
       console.log(this.state.error)
-      this.setState({ error: null })
+      this.setState({ error: [] })
     }
     if (e.keyCode===ENTER) {
       this._handleSignup()
@@ -61,7 +73,11 @@ export default class SignUp extends Component {
           onKeyUp={this._handleTyping}
         />
         <button onClick={this._handleSignup} className="signup_button">signup!</button>
-        <p>{this.state.error}</p>
+
+        <div className="errorMsg">
+          {this.state.error.map( (error,idx) => <div key={idx}>{error}</div>)}
+        </div>
+
       </div>
     );
   }

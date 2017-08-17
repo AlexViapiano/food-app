@@ -1,41 +1,56 @@
 import React, {Component} from 'react';
-//import auth from '../../auth'
+import auth from '../../auth';
 import './Login.css';
 
-//const ENTER = 13;
+const ENTER = 13;
 
 export default class Login extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      email: this.refs.email
+      error: []
     };
   }
   
-  // _handleLogin = () => {
-  //   let { email: {value: email}, password: {value: password} } = this.refs;
-  //   if (email && password) {
-  //     //auth.login(email, password)
-  //     .then(console.log(email))
-  //     .then(this.setState({email: email}))
-  //     .then(console.log(this.state, "state after setState email"))
-  //     .then(res => this.props.router.push('/'))
-  //     .catch(console.error)
-  //   }
-  //   else {
-  //     this.setState({ error: "Please enter an email and password"})
-  //   }
-  // }
+  _handleLogin = () => {
+    let { email: {value: email}, password: {value: password} } = this.refs;
+   if (email && password) {
+      auth.login(email, password)
+      .then(res => {
+        if (res.errors) {
+          let arrErr = [];
+          console.log(res.errors, "arrErr errors")
+          for (var key in res.errors) {
+            if (res.errors.hasOwnProperty(key)) {
+              console.log(key + " -> " + res.errors[key]);
+              arrErr.push(`${key}: ${res.errors[key]}`)
+            }
+          }
+          this.setState({
+            error: arrErr
+          });
+        } else {
+          this.props.router.push('/')
+        }
+        
+      })
+      .catch(console.error)
+      
+    }
+    else {
+     this.setState({ error: ["Please enter an email and password"]})
+    }
+  }
   
-  // _handleTyping = (e) => {
-  //   if (this.state && this.state.error) {
-  //     this.setState({ error: null })
-  //   }
-  //   if (e.keyCode===ENTER) {
-  //     this._handleLogin();
-  //   }
-  // }
+  _handleTyping = (e) => {
+    if (this.state && this.state.error) {
+      this.setState({ error: [] })
+    }
+    if (e.keyCode===ENTER) {
+      this._handleLogin();
+    }
+  }
 
   render() {
     return (
@@ -48,7 +63,13 @@ export default class Login extends Component {
         />
 
         <button onClick={this._handleLogin} className="login_button">login</button> 
+
+        <div className="errorMsg">
+          {this.state.error.map( (error,idx) => <div key={idx}>{error}</div>)}
+        </div>
+
       </div>
+
     );
   }
 

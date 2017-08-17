@@ -1,38 +1,30 @@
 import superagent from 'superagent'
 import { API_HOST } from './config'
 
+
 class Api {
   
   requestLogin = (email, password) => (
     superagent
-  /* Need to .post their session token*/
+    .post(`${API_HOST}/auth/sessions`)
     .send({ email, password })
   )
   
   requestLogout = (token) => (
     superagent
-  /* Need to .delete their session token*/
+    .delete(`${API_HOST}/auth/sessions`)
     .set('Authorization', `token ${token}`)
   )
 
   requestSignup = (email, password) => (
     superagent
-  /* Need to .post their user info*/
+    .post(`${API_HOST}/auth/users`)
     .send({ email, password })
   )
  
- /*this is a keyword search */
-  /*postSearch = (keyword) => (
-    superagent
-   Need to .post their search terms
-    .get(`${API_HOST}/bites`)
-    .send({keyword})
-    .then(console.log(keyword, "keyword in api call"))
-    ) */
 
   postAddress = (address) => (
     superagent
-  /* Need to .post their search terms*/
     .post(`${API_HOST}/places/search`)
     .send({address})
     )
