@@ -7,7 +7,6 @@ import api from '../../api';
 //import HomeSearchButton from '../elements/HomeSearchButton';
 //import api from '../../api';
 import './Home.css';
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,50 +14,44 @@ export default class Home extends Component {
     position: {}, 
     address: ""
    };
-   // console.log(onPositionReceived, "onPositionReceived function")
-   // onPositionReceived = onPositionReceived.bind(onPositionReceived);
-   // console.log(this, "this")
-  }
+}
  
-  componentWillMount() {
+componentWillMount() {
 
-    // console.log(this.state, "this.state at top of componentwillmount")
+    var onPositionReceived = (position) => {
+    var latlng = position.coords.latitude+","+position.coords.longitude;
 
-    function onPositionReceived(position) {
-      var latlng = position.coords.latitude+","+position.coords.longitude;
-      api.getAddressFromLatLng(latlng)
-      .then(res => {
-        console.log(res.text, "res.text")
+    api.getAddressFromLatLng(latlng)
+    .then(res => {
         this.setState({
-          address: "res.text"
+          address: res.text
         })
-      }) 
+    })
     }
+
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(onPositionReceived);
     }
-  } 
+
+} 
+
 
    _handleSearch = (address) => {
-    history.push(`/bites/${address}`)
+      history.push(`/bites/${address}`)
   }
-
 
   render() {
-    if(this.state.address !== "") {
-    console.log(this.state, "this")
-    console.log(this.state.address, "address in home.js")
-  }
+
+    let address = this.state.address
+
     return (
       <div className="home">
-
         <div className="inner">
           <div className="content">
-            <Search _handleSearch={this._handleSearch}/>
+            <Search currentAddress={address} _handleSearch={this._handleSearch}/>
           </div>
         </div>
       </div>
     );
   }
-
 }
