@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {browserHistory as history} from 'react-router';
+
 import './Search.css';
 import api from '../../api';
 // import PlacesAutocomplete from 'react-places-autocomplete';
@@ -30,47 +32,44 @@ export default class Search extends Component {
       if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(onPositionReceived);
       }
-
   } 
-
-
-  currentAddressSearch = (e) => {
-    e.preventDefault();
-    this.props._handleSearch(this.refs.key.value)
-  }
 
 
   search = (e) => {
     e.preventDefault();
-    this.props._handleSearch(this.refs.keyword.value)
+    this._handleSearch(this.state.search)
   }
 
-  _handleChange = (e) => {
+ 
 
-    console.log(e.target.value)
+   _handleSearch = (address) => {
+      history.push(`/bites/${address}`)
+  }
+
+
+
+  _handleChange = (e) => {
 
     this.setState({
       search: e.target.value
     })
   }
 
-  render() {
 
-    var currentAddress = this.props.currentAddress;
+  render() {
 
   	return(
           <div>
-            <h3>Search using my current location!</h3>
+            <h3>Search using this location!</h3>
             <form className="searchForm">
                 <input type="text" 
-                  ref="key" 
                   placeholder="your current address" 
                   className="search-box-input"
                   value={this.state.search}
                   onChange={this._handleChange}
                 />
                 <button className="search-box-button"
-                onClick={this.currentAddressSearch}>&#x1f50d; Feed me!</button>
+                onClick={this.search}>&#x1f50d; Feed me!</button>
             </form>
           </div>
     		)
