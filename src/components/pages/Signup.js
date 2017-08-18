@@ -45,7 +45,6 @@ export default class SignUp extends Component {
   
   _handleTyping = (e) => {
     if (this.state && this.state.error) {
-      console.log(this.state.error)
       this.setState({ error: [] })
     }
     if (e.keyCode===ENTER) {

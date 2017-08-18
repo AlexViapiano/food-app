@@ -27,7 +27,21 @@ class Api {
     superagent
     .post(`${API_HOST}/places/search`)
     .send({address})
+    .then(res => {
+      localStorage.initialLocation = JSON.stringify(res.body.initialLocation)
+      return res
+      })
     )
+
+  getLocation() {
+    if(localStorage.initialLocation) {
+      return JSON.parse(localStorage.initialLocation)
+    }
+  }
+
+  clearLocation() {
+    delete localStorage.initialLocation
+  }
 
   getAddressFromLatLng = (latlng) => (
     superagent
@@ -52,3 +66,5 @@ class Api {
 
 
 export default new Api();
+
+
