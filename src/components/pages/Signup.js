@@ -14,26 +14,26 @@ export default class SignUp extends Component {
   }
 
   _handleSignup = () => {
-    let { email: {value: email}, password: {value: password} } = this.refs;
+    let { email: {value: email}, password: {value: password}, firstName: {value: firstName}, lastName: {value: lastName}  } = this.refs;
     
     if (email && password && password.length >= 8) {
-      auth.signup(email, password)
+      auth.signup(email, password, firstName, lastName)
       .then(res => {
-        // if (res.errors) {
-        //   let arrErr = [];
-        //   console.log(res.errors, "arrErr errors")
-        //   for (var key in res.errors) {
-        //     if (res.errors.hasOwnProperty(key)) {
-        //       console.log(key + " -> " + res.errors[key]);
-        //       arrErr.push(`${key}: ${res.errors[key]}`)
-        //     }
-        //   }
-        //   this.setState({
-        //     error: arrErr
-        //   });
-        // } else {
+        if (res.errors) {
+          let arrErr = [];
+          console.log(res.errors, "arrErr errors")
+          for (var key in res.errors) {
+            if (res.errors.hasOwnProperty(key)) {
+              console.log(key + " -> " + res.errors[key]);
+              arrErr.push(`${key}: ${res.errors[key]}`)
+            }
+          }
+          this.setState({
+            error: arrErr
+          });
+        } else {
           this.props.router.push('/login')
-        // }
+        }
         
       })
       .catch(console.error)
@@ -57,6 +57,20 @@ export default class SignUp extends Component {
     return (
       <div className="signup">
         <h1 className="signup_h1">Signup to Nite Bite</h1>
+
+        <input type="text" 
+        ref="firstName"
+        placeholder="First name"
+        className="signup_firstName"
+          onKeyUp={this._handleTyping}
+        />
+
+        <input type="text" 
+        ref="lastName"
+        placeholder="Last name"
+        className="signup_lastName"
+          onKeyUp={this._handleTyping}
+        />
         
         <input type="email" 
         ref="email" 

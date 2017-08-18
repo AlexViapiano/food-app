@@ -17,14 +17,14 @@ class Menu extends Component {
     this._handleLogout = this._handleLogout.bind(this);
   }
 
-   componentDidMount() {
-    this._fetchAvatar();
-  }
+  //  componentDidMount() {
+  //   this._fetchAvatar();
+  // }
 
   _fetchAvatar = () => {
-    api.getUser(auth.getToken())
+    auth.getUser(auth.getToken())
     .then(res => {
-      console.log(res, "this is the avatar url")
+      console.log(res.body.avatarUrl, "this is the avatar url")
       this.setState({ avatarUrl: res.body.avatarUrl })
     })
     .catch(console.error)
@@ -52,11 +52,12 @@ class Menu extends Component {
       <div className={`menu ${show?"show":""}`}>
 
       <div className="menu__header">
-        {isLoggedIn ? 
-            <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/> : null }
+            {(isLoggedIn && this.props.user) ?
+                <img src={this.props.user.avatarUrl} alt="profile-pic" className="menu__avatar"/>
+                    :  <img src="" alt="profile-pic" className="menu__avatar"/>}
         </div>
 
-        <div className="menu__header">
+        
 
           <div className="menu__list">
 
@@ -89,8 +90,7 @@ class Menu extends Component {
             : null}
 
             {/*After user logouts it should take you back to homepage and search option*/}
-          </div>
-        </div>    
+          </div>   
       </div>
     );
   }

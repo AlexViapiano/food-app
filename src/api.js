@@ -16,10 +16,10 @@ class Api {
     .set('Authorization', `token ${token}`)
   )
 
-  requestSignup = (email, password) => (
+  requestSignup = (email, password, firstName, lastName) => (
     superagent
     .post(`${API_HOST}/auth/users`)
-    .send({ email, password })
+    .send({ email, password, firstName, lastName })
   )
 
   getUser = (token) => (
