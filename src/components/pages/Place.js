@@ -18,10 +18,6 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
-<<<<<<< HEAD
-=======
-      comments: []
->>>>>>> 01abfe81f56d84dd5e0a67e28af7ecfb1c2b5bfa
     };
   }
 
