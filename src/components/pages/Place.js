@@ -112,6 +112,14 @@ export default class Place extends Component {
           <br></br>
           <br></br>
           <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
 
           <h1>{place.name}</h1>
           <img src={photoUrl} alt={photoUrl}></img>
@@ -120,17 +128,9 @@ export default class Place extends Component {
           <a href={place.website}>{place.website}</a>
           <p> </p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          
-          <div>
-             {place.price_level === 1 ? <p>Price Level: $</p> : 
-              place.price_level === 2 ? <p>Price Level: $$</p> :
-              place.price_level === 3 ? <p>Price Level: $$$</p> :
-              place.price_level === 4 ? <p>Price Level: $$$$</p> 
-             : null}
-          </div>
+          <p> </p>
 
           <div>
-            <p>Rating:</p>
             <Rating
               empty="fa fa-star-o fa-2x"
               full="fa fa-star fa-2x"
@@ -138,6 +138,21 @@ export default class Place extends Component {
               readonly
               stop={5}
             />
+          </div>
+
+          <div>
+            {place.price_level !== undefined ?
+              <div>
+                <p>Price Level:</p>
+                <Rating
+                    empty="fa fa-credit-card fa-2x"
+                    full="fa fa-credit-card-alt fa-2x"
+                    initialRate={place.price_level}
+                    readonly
+                    stop={4}
+                  />
+              </div>
+            : null }
           </div>
 
           <p>Store hours:</p>
@@ -158,7 +173,7 @@ export default class Place extends Component {
               return(
                 <div key={idx}>
                   <p>-----------------------------------------------------------</p>
-                  <p>User: {review.author_name} (Google account)</p>
+                  <h2>{review.author_name} (Google account)</h2>
                   <p>Comment: {review.text}</p>
                 </div>
                 )}
@@ -172,7 +187,7 @@ export default class Place extends Component {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <p>User: {comment.userId}</p>
+                  <h2>{comment.userId}</h2>
                   <p>Comment: {comment.comment}</p>
                 </div>
                 )}

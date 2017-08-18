@@ -67,7 +67,15 @@ export default class Bites extends Component {
         <br></br>
         <br></br>
         <br></br>
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
 
         <div className="bites-wrapper">

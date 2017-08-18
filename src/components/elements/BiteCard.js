@@ -27,13 +27,7 @@ export default class BiteCard extends Component {
         </Link>
         <p>{address}</p>
         <div>
-           {price_level === 1 ? <p>Price Level: $</p> : 
-            price_level === 2 ? <p>Price Level: $$</p> :
-            price_level === 3 ? <p>Price Level: $$$</p> :
-            price_level === 4 ? <p>Price Level: $$$$</p> 
-           : null}
-        </div>
-        <p>Rating:</p>
+
         <p>
           <Rating
             empty="fa fa-star-o fa-2x"
@@ -44,6 +38,27 @@ export default class BiteCard extends Component {
           />
         </p>
 
+        <div>
+          {price_level !== undefined ?
+            <div>
+              <p>Price Level:</p>
+              <Rating
+                  empty="fa fa-credit-card fa-2x"
+                  full="fa fa-credit-card-alt fa-2x"
+                  initialRate={price_level}
+                  readonly
+                  stop={4}
+                />
+            </div>
+          : null }
+
+        </div>
+        </div>
+
+
+
+
+        <p>-------------------------------------------------------------</p>
       </div>
     );
   }
