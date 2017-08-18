@@ -18,7 +18,6 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
-      comments: []
     };
   }
 
@@ -133,7 +132,11 @@ export default class Place extends Component {
           <div>
             <p>Rating:</p>
             <Rating
-            initialRate={place.rating}
+              empty="fa fa-star-o fa-2x"
+              full="fa fa-star fa-2x"
+              initialRate={place.rating}
+              readonly
+              stop={5}
             />
           </div>
 
