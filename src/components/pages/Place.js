@@ -3,7 +3,7 @@ import api from '../../api';
 //import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 //import './Place.css';
 
 
@@ -72,7 +72,7 @@ export default class Place extends Component {
               : null }
           </div>
           <br></br>
-          <img src={place.icon} atl={place.icon}></img>
+          <img src={place.icon} alt={place.icon}></img>
           <h2>Google Reviews</h2>
           <div>
             {place.reviews ? 

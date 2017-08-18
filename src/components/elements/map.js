@@ -35,8 +35,6 @@ export class MapContainer extends Component {
 
   render() {
 
-    console.log(this.props)
-
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
       return null;
     } 
