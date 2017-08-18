@@ -15,34 +15,33 @@ export default class Login extends Component {
   
   _handleLogin = () => {
     let { email: {value: email}, password: {value: password} } = this.refs;
-   if (email && password) {
-      auth.login(email, password)
-      .then(res => {
-        if (res.errors) {
-          let arrErr = [];
-          console.log(res.errors, "arrErr errors")
-          for (var key in res.errors) {
-            if (res.errors.hasOwnProperty(key)) {
-              console.log(key + " -> " + res.errors[key]);
-              arrErr.push(`${key}: ${res.errors[key]}`)
-            }
+  if (email && password) {
+    auth.login(email, password)
+    .then(res => {
+      if (res.errors) {
+        let arrErr = [];
+        console.log(res.errors, "arrErr errors")
+        for (var key in res.errors) {
+          if (res.errors.hasOwnProperty(key)) {
+            console.log(key + " -> " + res.errors[key]);
+            arrErr.push(`${key}: ${res.errors[key]}`)
           }
-          this.setState({
-            error: arrErr
-          });
-        } else {
-          this.props.router.push('/')
         }
-        
-      })
-      .catch(console.error)
+        this.setState({
+          error: arrErr
+        });
+      } else {
+        this.props.router.push('/')
+      }
       
-    }
-    else {
-     this.setState({ error: ["Please enter an email and password"]})
-    }
+    })
+    .catch(console.error)
+    
   }
-  
+  else {
+   this.setState({ error: ["Please enter an email and password"]})
+  }
+}
   _handleTyping = (e) => {
     if (this.state && this.state.error) {
       this.setState({ error: [] })
@@ -67,9 +66,7 @@ export default class Login extends Component {
         <div className="errorMsg">
           {this.state.error.map( (error,idx) => <div key={idx}>{error}</div>)}
         </div>
-
       </div>
-
     );
   }
 

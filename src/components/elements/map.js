@@ -34,6 +34,7 @@ export class MapContainer extends Component {
   }
 
   render() {
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
     console.log(this.props)
 
@@ -60,7 +61,7 @@ export class MapContainer extends Component {
                   key={b.id}
                   name={b.name}
                   position={b.geometry.location}
-                  icon='../../public/restIcon.png'
+                  icon={iconBase + 'snack_bar_maps.png'}
                 /> 
             )}
      
