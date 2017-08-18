@@ -1,6 +1,7 @@
 import superagent from 'superagent'
 import { API_HOST } from './config'
 
+
 class Api {
   
   requestLogin = (email, password) => (
@@ -21,18 +22,9 @@ class Api {
     .send({ email, password })
   )
  
- /*this is a keyword search */
-  /*postSearch = (keyword) => (
-    superagent
-   Need to .post their search terms
-    .get(`${API_HOST}/bites`)
-    .send({keyword})
-    .then(console.log(keyword, "keyword in api call"))
-    ) */
 
   postAddress = (address) => (
     superagent
-  /* Need to .post their search terms*/
     .post(`${API_HOST}/places/search`)
     .send({address})
     )
