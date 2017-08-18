@@ -47,17 +47,19 @@ export class MapContainer extends Component {
             initialCenter={this.props.initialCenter}
             clickableIcons={false}
             zoom={15}>
-            <Marker onClick={this.onMarkerClick}
-              name={'Current location'}
-              icon='https://image.flaticon.com/icons/png/128/10/10957.png' />
+            
+              <Marker className="markerMan" onClick={this.onMarkerClick}
+                name={'Current location'}
+                icon='https://image.flaticon.com/icons/png/128/10/10957.png' />
               
 
             { this.props.bitesInfo.map(b =>
-              <Marker onClick={this.onMarkerClick}
-                key={b.id}
-                name={b.name}
-                position={b.geometry.location}
-              /> 
+                <Marker onClick={this.onMarkerClick}
+                  key={b.id}
+                  name={b.name}
+                  position={b.geometry.location}
+                  icon='../../public/restIcon.png'
+                /> 
             )}
      
             <InfoWindow

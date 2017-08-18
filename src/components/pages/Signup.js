@@ -19,21 +19,21 @@ export default class SignUp extends Component {
     if (email && password && password.length >= 8) {
       auth.signup(email, password)
       .then(res => {
-        if (res.errors) {
-          let arrErr = [];
-          console.log(res.errors, "arrErr errors")
-          for (var key in res.errors) {
-            if (res.errors.hasOwnProperty(key)) {
-              console.log(key + " -> " + res.errors[key]);
-              arrErr.push(`${key}: ${res.errors[key]}`)
-            }
-          }
-          this.setState({
-            error: arrErr
-          });
-        } else {
+        // if (res.errors) {
+        //   let arrErr = [];
+        //   console.log(res.errors, "arrErr errors")
+        //   for (var key in res.errors) {
+        //     if (res.errors.hasOwnProperty(key)) {
+        //       console.log(key + " -> " + res.errors[key]);
+        //       arrErr.push(`${key}: ${res.errors[key]}`)
+        //     }
+        //   }
+        //   this.setState({
+        //     error: arrErr
+        //   });
+        // } else {
           this.props.router.push('/login')
-        }
+        // }
         
       })
       .catch(console.error)
