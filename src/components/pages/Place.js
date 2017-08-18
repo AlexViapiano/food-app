@@ -50,8 +50,6 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
 
-    console.log(place);
-
     return (
       <div className="placePage">
           <h1>{place.name}</h1>

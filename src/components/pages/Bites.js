@@ -28,6 +28,7 @@ export default class Bites extends Component {
                initialCenter: res.body.initialLocation
           })
     })
+    //.then(res => localStorage.initialLocation = res.body.initialLocation)
   }
    
   render() {
@@ -47,7 +48,7 @@ export default class Bites extends Component {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
+        <br></br> 
         <br></br>
         <br></br>
         <br></br>
