@@ -5,7 +5,6 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 import { Link } from 'react-router';
 //import './Place.css';
-
 var Rating = require('react-rating');
 
 export default class Place extends Component {
