@@ -3,7 +3,7 @@ import api from '../../api';
 //import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 //import './Place.css';
 var Rating = require('react-rating');
 
@@ -50,8 +50,6 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
 
-    console.log(place);
-
     return (
       <div className="placePage">
           <h1>{place.name}</h1>
@@ -71,19 +69,20 @@ export default class Place extends Component {
           <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
-              place.opening_hours.weekday_text.map(hours =>
-                <div>{hours}</div>
+              place.opening_hours.weekday_text.map((hours, idx) => 
+                <div key={idx}>{hours}</div>
               )
               : null }
+
           </div>
           <br></br>
-          <img src={place.icon} atl={place.icon}></img>
+          <img src={place.icon} alt={place.icon}></img>
           <h2>Google Reviews</h2>
           <div>
             {place.reviews ? 
-              place.reviews.map(review => {
+              place.reviews.map((review, idx) => {
               return(
-                <div>
+                <div key={idx}>
                   <p>-----------------------------------------------------------</p>
                   <p>Author: {review.author_name}</p>
                   <p>
