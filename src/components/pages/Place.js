@@ -3,7 +3,7 @@ import api from '../../api';
 //import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 //import './Place.css';
 
 var Rating = require('react-rating');
@@ -51,8 +51,6 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
 
-    console.log(place);
-
     return (
       <div className="placePage">
           <h1>{place.name}</h1>
@@ -78,7 +76,7 @@ export default class Place extends Component {
               : null }
           </div>
           <br></br>
-          <img src={place.icon} atl={place.icon}></img>
+          <img src={place.icon} alt={place.icon}></img>
           <h2>Google Reviews</h2>
           <div>
             {place.reviews ? 
