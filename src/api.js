@@ -60,6 +60,19 @@ class Api {
     .send({reference})
     )
 
+  getComments = (placeId) => (
+    superagent
+    .get(`${API_HOST}/places/comment/${placeId}`)
+    )
+
+  postComment = (comment, placeId, token) => (
+
+    superagent
+    .post(`${API_HOST}/places/comment`)
+    .send({comment, placeId})
+    .set('Authorization', `token ${token}`)
+    )
+
 
 }
 
