@@ -70,19 +70,20 @@ export default class Place extends Component {
           <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
-              place.opening_hours.weekday_text.map(hours =>
-                <div>{hours}</div>
+              place.opening_hours.weekday_text.map((hours, idx) => 
+                <div key={idx}>{hours}</div>
               )
               : null }
+
           </div>
           <br></br>
           <img src={place.icon} alt={place.icon}></img>
           <h2>Google Reviews</h2>
           <div>
             {place.reviews ? 
-              place.reviews.map(review => {
+              place.reviews.map((review, idx) => {
               return(
-                <div>
+                <div key={idx}>
                   <p>-----------------------------------------------------------</p>
                   <p>Author: {review.author_name}</p>
                   <p>
