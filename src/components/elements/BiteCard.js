@@ -51,8 +51,9 @@ export default class BiteCard extends Component {
                 />
             </div>
           : null }
-
         </div>
+
+        
         </div>
 
 
