@@ -24,7 +24,7 @@ export default class Place extends Component {
 
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-          console.log(res.body, "= place res")
+
           this.setState({ 
                place: res.body.result,
                bite: [res.body.result],
@@ -44,28 +44,26 @@ export default class Place extends Component {
   }
    
   render() {
-    
-    console.log(this.props)
 
     let bite = this.state.bite
     let place = this.state.place
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
 
-    console.log(initialCenter)
+    console.log(place);
 
     return (
       <div className="placePage">
-          <Link to={`/`}>Home</Link>
-          <br></br>
-          <img src={photoUrl} alt={photoUrl}></img>
-
-          <br></br>
           <h1>{place.name}</h1>
+          <img src={photoUrl} alt={photoUrl}></img>
+          <br></br>
           <p>Address: {place.formatted_address}</p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          <p>Rating: {place.rating}</p>
+          <p>Rating:  {place.rating}</p>
           <a href={place.website}>{place.website}</a>
+          <p>Price level:  {place.price_level} / 4 ($)</p>
+          <br></br>
+          <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
               place.opening_hours.weekday_text.map(hours =>
@@ -74,15 +72,29 @@ export default class Place extends Component {
               : null }
           </div>
           <br></br>
-
+          <img src={place.icon} atl={place.icon}></img>
+          <h2>Google Reviews</h2>
+          <div>
+            {place.reviews ? 
+              place.reviews.map(review => {
+              return(
+                <div>
+                  <p>-----------------------------------------------------------</p>
+                  <p>Author: {review.author_name}</p>
+                  <p>Rating: {review.rating} / 5</p>
+                  <p>Review: {review.text}</p>
+                </div>
+                )}
+              )
+              : null }
+          </div>
+          <br></br>
 
           <div className="test">  
             <div className="map-container">
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>
-
-
 
       </div>
       

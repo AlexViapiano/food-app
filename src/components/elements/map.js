@@ -35,6 +35,8 @@ export class MapContainer extends Component {
 
   render() {
 
+    console.log(this.props)
+
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
       return null;
     } 
@@ -48,7 +50,8 @@ export class MapContainer extends Component {
             clickableIcons={false}
             zoom={15}>
             <Marker onClick={this.onMarkerClick}
-              name={'Current location'} />
+              name={'Current location'}
+              icon='https://image.flaticon.com/icons/png/128/10/10957.png' />
               
 
             { this.props.bitesInfo.map(b =>
