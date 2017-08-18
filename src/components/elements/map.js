@@ -60,7 +60,6 @@ export class MapContainer extends Component {
                   key={b.id}
                   name={b.name}
                   position={b.geometry.location}
-                  icon='../../public/restIcon.png'
                 /> 
             )}
      
