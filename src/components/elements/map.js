@@ -36,10 +36,7 @@ export class MapContainer extends Component {
   }
 
   render() {
-    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-
-
-
+    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
       return null;
     } 
