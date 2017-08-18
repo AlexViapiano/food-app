@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import api from '../../api';
-//import auth from '../../auth';
+import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 //import './Place.css';
+import CreateComment from '../elements/CreateComment'
 
 var Rating = require('react-rating');
 
@@ -16,7 +17,8 @@ export default class Place extends Component {
       place: {},
       photoUrl: "",
       initialCenter: {},
-      bite: []
+      bite: [],
+      comments: []
     };
   }
 
@@ -38,11 +40,40 @@ export default class Place extends Component {
       .then(res => {
         this.setState({ 
           photoUrl: res.body.url
+        })
+      })
+    .then(
+      api.getComments(this.props.params.id)
+      .then(res => {
+        this.setState({
+          comments: res.body
+        })
+      })
+    )
+    })
+
+  }
+
+
+
+ _handlePostComment = (comment) => {
+    
+    var placeId = this.props.params.id;
+
+    api.postComment(comment, placeId, auth.getToken())
+    .then(res => {
+
+      let comments = this.state.comments.concat(res.body)
+
+      this.setState({
+        comments
       })
 
     })
-  })
+
   }
+
+
    
   render() {
 
@@ -50,6 +81,7 @@ export default class Place extends Component {
     let place = this.state.place
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
+    let comments = this.state.comments
 
     return (
       <div className="placePage">
@@ -78,7 +110,23 @@ export default class Place extends Component {
           </div>
           <br></br>
           <img src={place.icon} alt={place.icon}></img>
-          <h2>Google Reviews</h2>
+          <h2>NiteBite comments</h2>
+          <div>
+            {comments ? comments.map(comment => {
+              return(
+                <div>
+                  <p>-----------------------------------------------------------</p>
+                  <p>Author: {comment.userId}</p>
+                  <p>Review: {comment.comment}</p>
+                </div>
+                )}
+              )
+              : null }
+          </div>
+
+          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+
+          <h2>Google comments</h2>
           <div>
             {place.reviews ? 
               place.reviews.map((review, idx) => {
