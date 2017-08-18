@@ -16,6 +16,8 @@ export default class BiteCard extends Component {
   render() {
     let { name, address, place_id, price_level, rating} = this.props
 
+
+
     return (
       <div className="biteCardDiv">
         <Link to={`/place/${place_id}`}>
@@ -25,13 +27,27 @@ export default class BiteCard extends Component {
         </Link>
         <p>{address}</p>
         <p>
-          Rating:
           <Rating
+            empty="fa fa-star-o fa-2x"
+            full="fa fa-star fa-2x"
             initialRate={rating}
+            readonly
+            stop={5}
           />
         </p>
         <div>
-          {price_level !== undefined ? <p>Price Level: {price_level} / 4</p> : null}
+          {price_level !== undefined ? 
+            <p>
+              Price level:
+              <br></br>
+              <Rating
+                empty="fa fa-credit-card fa-2x"
+                full="fa fa-credit-card-alt fa-2x"
+                initialRate={price_level}
+                readonly
+                stop={4}
+              />
+            </p> : null}
         </div>
         <br></br>
       </div>

@@ -16,7 +16,7 @@ export default class Place extends Component {
       place: {},
       photoUrl: "",
       initialCenter: {},
-      bite: []
+      bite: [],
     };
   }
 
@@ -59,13 +59,15 @@ export default class Place extends Component {
           <p>Address: {place.formatted_address}</p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
           <p className="rating">
-            Rating:
             <Rating
-            initialRate={place.rating}
+              empty="fa fa-star-o fa-2x"
+              full="fa fa-star fa-2x"
+              initialRate={place.rating}
+              readonly
+              stop={5}
             />
           </p>
           <a href={place.website}>{place.website}</a>
-          <p>Price level:  {place.price_level} / 4 ($)</p>
           <br></br>
           <p>Store hours:</p>
           <div>
@@ -84,10 +86,16 @@ export default class Place extends Component {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <p>Author: {review.author_name}</p>
+                  <h3>
+                    {review.author_name}
+                  </h3>
                   <p>
                     <Rating
-                      initialRate={review.rating}
+                      empty="fa fa-star-o fa-2x"
+                      full="fa fa-star fa-2x"
+                      initialRate={place.rating}
+                      readonly
+                      stop={5}
                     />
                   </p>
                   <p>Review: {review.text}</p>
