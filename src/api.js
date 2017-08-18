@@ -5,19 +5,19 @@ class Api {
   
   requestLogin = (email, password) => (
     superagent
-  /* Need to .post their session token*/
+    .post(`${API_HOST}/auth/sessions`)
     .send({ email, password })
   )
   
   requestLogout = (token) => (
     superagent
-  /* Need to .delete their session token*/
+    .delete(`${API_HOST}/auth/sessions`)
     .set('Authorization', `token ${token}`)
   )
 
   requestSignup = (email, password) => (
     superagent
-  /* Need to .post their user info*/
+    .post(`${API_HOST}/auth/users`)
     .send({ email, password })
   )
  
