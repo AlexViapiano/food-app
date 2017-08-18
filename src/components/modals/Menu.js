@@ -12,9 +12,23 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      avatarUrl: ""
     };
     this._handleLogout = this._handleLogout.bind(this);
+  }
+
+   componentDidMount() {
+    this._fetchAvatar();
+  }
+
+  _fetchAvatar = () => {
+    api.getUser(auth.getToken())
+    .then(res => {
+      console.log(res, "this is the avatar url")
+      this.setState({ avatarUrl: res.body.avatarUrl })
+    })
+    .catch(console.error)
+
   }
 
    handleClickOutside = () => {
@@ -30,10 +44,17 @@ class Menu extends Component {
 
   render() {
     let { closeMenu, show } = this.props
+    let { avatarUrl } = this.state
+    
     const isLoggedIn = auth.isLoggedIn()
     // console.log(this.state)
     return (
       <div className={`menu ${show?"show":""}`}>
+
+      <div className="menu__header">
+        {isLoggedIn ? 
+            <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/> : null }
+        </div>
 
         <div className="menu__header">
 

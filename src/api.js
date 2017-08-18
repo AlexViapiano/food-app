@@ -21,6 +21,12 @@ class Api {
     .post(`${API_HOST}/auth/users`)
     .send({ email, password })
   )
+
+  getUser = (token) => (
+      superagent
+      .get(`${API_HOST}/auth/me`)
+      .set('Authorization', `token ${token}`)
+    )
  
 
   postAddress = (address) => (

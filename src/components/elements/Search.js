@@ -60,7 +60,7 @@ export default class Search extends Component {
 
   	return(
           <div>
-            <h3>Search using this location!</h3>
+            <h3>Search location:</h3>
             <form className="searchForm">
                 <input type="text" 
                   placeholder="your current address" 
