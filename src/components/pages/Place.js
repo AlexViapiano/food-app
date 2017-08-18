@@ -6,6 +6,7 @@ import MapContainer from '../elements/map';
 import { Link } from 'react-router';
 //import './Place.css';
 
+var Rating = require('react-rating');
 
 export default class Place extends Component {
   
@@ -59,7 +60,12 @@ export default class Place extends Component {
           <br></br>
           <p>Address: {place.formatted_address}</p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          <p>Rating:  {place.rating}</p>
+          <p className="rating">
+            Rating:
+            <Rating
+            initialRate={place.rating}
+            />
+          </p>
           <a href={place.website}>{place.website}</a>
           <p>Price level:  {place.price_level} / 4 ($)</p>
           <br></br>
@@ -81,7 +87,11 @@ export default class Place extends Component {
                 <div>
                   <p>-----------------------------------------------------------</p>
                   <p>Author: {review.author_name}</p>
-                  <p>Rating: {review.rating} / 5</p>
+                  <p>
+                    <Rating
+                      initialRate={review.rating}
+                    />
+                  </p>
                   <p>Review: {review.text}</p>
                 </div>
                 )}

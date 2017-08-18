@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 //import auth from '../../auth';
 import './BiteCard.css';
 
+var Rating = require('react-rating');
+
 export default class BiteCard extends Component {
 
   constructor(props) {
@@ -22,7 +24,12 @@ export default class BiteCard extends Component {
           </div>
         </Link>
         <p>{address}</p>
-        <p>Rating: {rating} / 5</p>
+        <p>
+          Rating:
+          <Rating
+            initialRate={rating}
+          />
+        </p>
         <div>
           {price_level !== undefined ? <p>Price Level: {price_level} / 4</p> : null}
         </div>
