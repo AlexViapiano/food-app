@@ -12,7 +12,7 @@ export default class BiteCard extends Component {
   }
 
   render() {
-    let { name, address, place_id } = this.props
+    let { name, address, place_id, price_level, rating} = this.props
 
     return (
       <div className="biteCardDiv">
@@ -20,8 +20,12 @@ export default class BiteCard extends Component {
           <div className="bite-card">
             <h2>{ name }</h2>
           </div>
-        </Link>  
+        </Link>
         <p>{address}</p>
+        <p>Rating: {rating} / 5</p>
+        <div>
+          {price_level !== undefined ? <p>Price Level: {price_level} / 4</p> : null}
+        </div>
         <br></br>
       </div>
     );

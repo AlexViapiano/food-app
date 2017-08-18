@@ -21,10 +21,8 @@ export default class Bites extends Component {
 
   componentWillMount() {
 
-
     api.postAddress(this.props.params.address)
     .then(res => {
-      console.log(res.body, "= bites res");
           this.setState({ 
                bites: res.body.results, 
                initialCenter: res.body.initialLocation
@@ -38,6 +36,7 @@ export default class Bites extends Component {
 
     return (
       <div className="bitesPage">
+        <h4>Search results for: {this.props.params.address}</h4>
         <Link to={`/`}>Change Location</Link>
         <br></br>
         <div className="test">  
@@ -80,6 +79,8 @@ export default class Bites extends Component {
                   name={b.name}
                   address={b.vicinity}
                   place_id={b.place_id}
+                  price_level={b.price_level}
+                  rating={b.rating}
                 />
               )}
         </div>
