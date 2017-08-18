@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import api from '../../api';
-//import auth from '../../auth';
+import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 //import './Place.css';
+import CreateComment from '../elements/CreateComment'
 
 var Rating = require('react-rating');
 
@@ -17,6 +18,10 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
+<<<<<<< HEAD
+=======
+      comments: []
+>>>>>>> 01abfe81f56d84dd5e0a67e28af7ecfb1c2b5bfa
     };
   }
 
@@ -38,11 +43,40 @@ export default class Place extends Component {
       .then(res => {
         this.setState({ 
           photoUrl: res.body.url
+        })
+      })
+    .then(
+      api.getComments(this.props.params.id)
+      .then(res => {
+        this.setState({
+          comments: res.body
+        })
+      })
+    )
+    })
+
+  }
+
+
+
+ _handlePostComment = (comment) => {
+    
+    var placeId = this.props.params.id;
+
+    api.postComment(comment, placeId, auth.getToken())
+    .then(res => {
+
+      let comments = this.state.comments.concat(res.body)
+
+      this.setState({
+        comments
       })
 
     })
-  })
+
   }
+
+
    
   render() {
 
@@ -50,6 +84,7 @@ export default class Place extends Component {
     let place = this.state.place
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
+    let comments = this.state.comments
 
     return (
       <div className="placePage">
@@ -72,23 +107,39 @@ export default class Place extends Component {
           <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
-              place.opening_hours.weekday_text.map(hours =>
-                <div>{hours}</div>
+              place.opening_hours.weekday_text.map((hours, idx) => 
+                <div key={idx}>{hours}</div>
               )
               : null }
+
           </div>
           <br></br>
           <img src={place.icon} alt={place.icon}></img>
-          <h2>Google Reviews</h2>
+          <h2>NiteBite comments</h2>
           <div>
-            {place.reviews ? 
-              place.reviews.map(review => {
+            {comments ? comments.map(comment => {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <h3>
-                    {review.author_name}
-                  </h3>
+                  <p>Author: {comment.userId}</p>
+                  <p>Review: {comment.comment}</p>
+                </div>
+                )}
+              )
+              : null }
+          </div>
+
+          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+
+          <h2>Google comments</h2>
+          <div>
+            {place.reviews ? 
+              place.reviews.map((review, idx) => {
+              return(
+                <div key={idx}>
+                  <p>-----------------------------------------------------------</p>
+                  <h3>{review.author_name}</h3>
+
                   <p>
                     <Rating
                       empty="fa fa-star-o fa-2x"

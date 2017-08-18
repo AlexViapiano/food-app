@@ -21,6 +21,12 @@ class Api {
     .post(`${API_HOST}/auth/users`)
     .send({ email, password })
   )
+
+  getUser = (token) => (
+      superagent
+      .get(`${API_HOST}/auth/me`)
+      .set('Authorization', `token ${token}`)
+    )
  
 
   postAddress = (address) => (
@@ -58,6 +64,19 @@ class Api {
     superagent
     .post(`${API_HOST}/places/photo`)
     .send({reference})
+    )
+
+  getComments = (placeId) => (
+    superagent
+    .get(`${API_HOST}/places/comment/${placeId}`)
+    )
+
+  postComment = (comment, placeId, token) => (
+
+    superagent
+    .post(`${API_HOST}/places/comment`)
+    .send({comment, placeId})
+    .set('Authorization', `token ${token}`)
     )
 
 
