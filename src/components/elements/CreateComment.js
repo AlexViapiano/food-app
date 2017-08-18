@@ -30,15 +30,14 @@ export default class CreateComment extends Component {
 
     return (
         <div>
-          <h1>Create New Comment</h1>
 	          <textarea 
 	            ref="comment" 
-	            placeholder="write comment"
+	            placeholder="new comment"
 	            maxLength="400"
 	            rows="8"
 	            cols="50"
 	            />
-
+	        <br></br>
             <button onClick={this._handleCreateComment}>Create Comment</button>
       	</div>
 

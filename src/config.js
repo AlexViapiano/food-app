@@ -4,7 +4,6 @@ module.exports = {
 	// API_HOST:"https://ea6699a3.ngrok.io"
 
 	API_HOST:"http://localhost:3001"
-
 }
 
 // our API key from GOOGLE PLACES: AIzaSyA6xXdEbT7Q4SryoqnzfjvOfxWfP0DXdrU

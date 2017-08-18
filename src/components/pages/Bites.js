@@ -41,6 +41,7 @@ export default class Bites extends Component {
         <h4>Search results for: {this.props.params.address}</h4>
         <Link to={`/`}>Change Location</Link>
         <br></br>
+
         <div className="test">  
           <div className="map-container">
             {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
@@ -66,15 +67,12 @@ export default class Bites extends Component {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+
+
+
         <div className="bites-wrapper">
+              <h1>Search results:</h1>
+              <br></br>
               { bites.map(b =>
                 <BiteCard
                   key={b.id}
