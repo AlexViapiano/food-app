@@ -47,6 +47,11 @@ body *, body *:before, body *:after {
   padding: 0 5% 0 5%;
 }
 
+.App-children-wrapper {
+  background-color: white;
+  max-width: 95%;
+}
+
 .menu-icon {
   color: #fff;
   transition: all .2s ease-in-out;
