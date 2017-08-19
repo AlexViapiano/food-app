@@ -62,25 +62,25 @@ class Menu extends Component {
           <div className="menu__list">
 
             
-            <Link to="/" className="menu__item" onClick={closeMenu}> 
+            <Link to="/" className="menu__item home-link" onClick={closeMenu}> 
               Home    {/*Initial homepage should only show signup or login options and a search bar*/}
             </Link>
 
             {!isLoggedIn ?
-            <Link to="/login" className="menu__item" onClick={closeMenu}> 
+            <Link to="/login" className="menu__item login-link" onClick={closeMenu}> 
               Login  {/*Enter a username and password input field*/}
             </Link>
             : null}
 
 
             {!isLoggedIn ?
-            <Link to="/signup" className="menu__item" onClick={closeMenu}>
+            <Link to="/signup" className="menu__item signup-link" onClick={closeMenu}>
               Signup   {/*Enter a username and password input field and get directed to Login page after signing up*/}
             </Link>
             : null}
             
             {!isLoggedIn ?
-            <Link to="/bites" className="menu__item" onClick={closeMenu}>
+            <Link to="/bites" className="menu__item bites-link" onClick={closeMenu}>
               Bites    {/*Should be directed to bites page after user searches*/}
             </Link>
             : null}

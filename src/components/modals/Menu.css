@@ -6,20 +6,19 @@
   -moz-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
-  transform: translateX(-270px);
+  transform: translateY(-270px);
   opacity: 0;
   visibility: hidden;
 }
 
 .menu.show {
-  transform: translateX(0px);
+  transform: translateY(0px);
   opacity: 1;
   visibility: visible;
 }
 
 .menu__header {
   height: 160px;
-  background-color: red;
 
 }
 
@@ -28,6 +27,26 @@
   flex-flow: column;
 }
 
-.menu__item:hover {
-    color: #0375B4;
+.menu__item {
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  margin: 10px 100px;
+  border-radius: 20px;  
+  font-size: 25px;
 }
+
+.menu__item:active {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+
+
+
+
+
+
