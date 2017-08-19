@@ -10,7 +10,6 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      isMenuOpen: false,
       user: {}
       }
   }
@@ -26,9 +25,11 @@ class App extends Component {
     }
   
   closeMenu = () => this.setState({ isMenuOpen: false });
+
   
   render() {
     let {isMenuOpen} = this.state
+    console.log(this.state.isMenuOpen)
     return (
       <div className="App">
         <div className="inner">  
@@ -38,11 +39,11 @@ class App extends Component {
           <div className="App-navbar">
             
             <i className="fa fa-cutlery fa-2x menu-icon"
-              onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
+              onClick={()=>this.setState({ isMenuOpen: !this.state.isMenuOpen })}
             />
           </div>
 
-          <Menu show={isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
+          <Menu show={this.state.isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
           <div className="App-children-wrapper">
             {this.props.children}
           </div>

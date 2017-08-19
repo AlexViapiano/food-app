@@ -12,7 +12,8 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatarUrl: ""
+      avatarUrl: "",
+      isMenuOpen: false
     };
     this._handleLogout = this._handleLogout.bind(this);
   }
@@ -49,9 +50,8 @@ class Menu extends Component {
     const isLoggedIn = auth.isLoggedIn()
     // console.log(this.state)
     return (
-      <div className={`menu ${show?"show":""}`}>
-
-      <div className="menu__header">
+      <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
+        <div className="menu__header">
             {(isLoggedIn && this.props.user) ?
                 <img src={this.props.user.avatarUrl} alt="profile-pic" className="menu__avatar"/>
                     :  <img src="" alt="profile-pic" className="menu__avatar"/>}
@@ -63,19 +63,19 @@ class Menu extends Component {
 
             
             <Link to="/" className="menu__item home-link" onClick={closeMenu}> 
-              Home    {/*Initial homepage should only show signup or login options and a search bar*/}
+              Home  
             </Link>
 
             {!isLoggedIn ?
             <Link to="/login" className="menu__item login-link" onClick={closeMenu}> 
-              Login  {/*Enter a username and password input field*/}
+              Login  
             </Link>
             : null}
 
 
             {!isLoggedIn ?
             <Link to="/signup" className="menu__item signup-link" onClick={closeMenu}>
-              Signup   {/*Enter a username and password input field and get directed to Login page after signing up*/}
+              Signup    
             </Link>
             : null}
             
