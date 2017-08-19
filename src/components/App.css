@@ -41,7 +41,6 @@ body *, body *:before, body *:after { box-sizing: inherit; }
 .App-children-wrapper {
   background-color: white;
   max-width: 95%;
-
 }
 
 .menu-icon {
