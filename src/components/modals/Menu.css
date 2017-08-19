@@ -9,7 +9,7 @@
   padding: 0;
   visibility: hidden;
   position: fixed;
-  top: 25vh;
+  top: 15vh;
   width: 100%;
   height: auto;
 }
@@ -45,6 +45,23 @@
 
 
 
+/*media query for tablet size*/
+
+@media only screen and (min-width: 641px) {
+
+  .menu__item {
+  margin: 10px 200px;
+}
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .menu__item {
+  margin: 10px 400px;
+}
+
+}
 
 
 
