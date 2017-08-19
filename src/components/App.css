@@ -1,4 +1,6 @@
-body *, body *:before, body *:after { box-sizing: inherit; } 
+body *, body *:before, body *:after { 
+  box-sizing: inherit; 
+} 
 
 .inner {
   background-image: url("tokyo-small.jpeg"); 
@@ -6,14 +8,13 @@ body *, body *:before, body *:after { box-sizing: inherit; }
   background-attachment: fixed;
   margin: 0px;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  max-width: 480px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .title-wrapper {
   background-color: rgba(255,20,147,0.5);
-  max-width: 100%;
+  width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: center;
@@ -27,6 +28,12 @@ body *, body *:before, body *:after { box-sizing: inherit; }
   font-size: 3rem;
   letter-spacing: 1.5rem;
   color: #fff;
+  transition: all .2s ease-in-out;
+}
+
+.App-navbar__title:active {
+  transform: scale(1.1);
+  color: #9ACD32;
 }
 
 .App-navbar {
@@ -52,8 +59,29 @@ body *, body *:before, body *:after { box-sizing: inherit; }
   transform: scale(1.5);
 }
 
+/*.App-children-wrapper {
+  background-color: white;
+  width: 100vw;
+   max-width: 95%;
+}*/
 
+/*media query for tablet size*/
 
+@media only screen and (min-width: 641px)  {
+  .inner {
+    background-image: url("tokyo.jpeg"); 
+    background-position: center;
+  }
+  .App-navbar__title {
+    transition: all 1s ease-in-out;
+  }
+  .App-navbar__title:hover {
+    letter-spacing: 5rem;
+    transform: scale(1.1);
+    color: #9ACD32;
+  }
+
+}
 
 
 
