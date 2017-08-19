@@ -14,10 +14,17 @@
 	font-size: 1.5rem;
 }
 
+.searchForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .searchForm input {
-	width: 70vw;
+	width: 90vw;
 	height: 3rem;
-	border-radius: 12px 0 0 12px;
+	border-radius: 12px;
 	outline: none;
 	border: none;
 	text-align: center;
@@ -25,12 +32,14 @@
 }
 
 .searchForm button {
-	width: 15vw;
-	height: 2.9rem;
-	border-radius: 0 12px 12px 0;
+	width: 87.5vw;
+	height: 3rem;
+	border-radius:12px;
 	outline: none;
-	background-color: #00FFFF;
+	padding: none;
+	background-color: #9ACD32;
 	border: none;
 	text-align: center;
-	font-size: 1rem;
+	font-size: 1.2rem;
+	margin-top: 1rem;
 }
