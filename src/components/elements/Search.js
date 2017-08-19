@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {browserHistory as history} from 'react-router';
+import SearchMessage from '../modals/searchMessage';
 
 import './Search.css';
 import api from '../../api';
@@ -24,7 +25,8 @@ export default class Search extends Component {
       api.getAddressFromLatLng(latlng)
       .then(res => {
           this.setState({
-            search: res.text
+            search: res.text, 
+            isSearchEmpty: false
           })
       })
       }
@@ -43,13 +45,15 @@ export default class Search extends Component {
  
 
    _handleSearch = (address) => {
-      history.push(`/bites/${address}`)
+    {address.length === 0 ? this.setState({
+      isSearchEmpty: true
+    }) : history.push(`/bites/${address}`) }
   }
+  
 
 
 
   _handleChange = (e) => {
-
     this.setState({
       search: e.target.value
     })
@@ -57,7 +61,7 @@ export default class Search extends Component {
 
 
   render() {
-
+    console.log(this.state.isSearchEmpty, "search empty state in search.js")
   	return(
           <div>
             <h3>Search location:</h3>
@@ -71,13 +75,16 @@ export default class Search extends Component {
                 <button className="search-box-button"
                 onClick={this.search}>&#x1f50d; Feed me!</button>
             </form>
+            {this.state.isSearchEmpty ? 
+            <SearchMessage /> 
+            : null }
           </div>
     		)
   }
 }
 
 
-
+//THE BELOW CODE IS FOR AUTOCOMPLETE IF WE DECIDE TO RE-IMPLEMENT 
 //this._handleSearch = this.props._handleSearch.bind(this);
 
 // _handleTyping = (e) => {

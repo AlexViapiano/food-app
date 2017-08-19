@@ -39,7 +39,7 @@ export class MapContainer extends Component {
     // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
       return (
-        <p>Oops! There's not much open near you. Try searching a less specific location.</p>
+        <p>Oops! There's not much open near you. Try searching a less specific location</p>
         );
     } 
     else {

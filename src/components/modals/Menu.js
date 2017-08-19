@@ -24,7 +24,7 @@ class Menu extends Component {
   _fetchAvatar = () => {
     api.getUser(auth.getToken())
     .then(res => {
-      console.log(res, "this is the avatar url")
+      // console.log(res, "this is the avatar url")
       this.setState({ avatarUrl: res.body.avatarUrl })
     })
     .catch(console.error)

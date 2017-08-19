@@ -4,7 +4,7 @@ import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
-//import './Place.css';
+import './Place.css';
 import CreateComment from '../elements/CreateComment'
 var Rating = require('react-rating');
 
@@ -17,6 +17,7 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
+      comments: []
     };
   }
 
@@ -83,62 +84,20 @@ export default class Place extends Component {
 
     return (
       <div className="placePage">
-
-          <br></br>
-          <div className="test">  
-            <div className="map-container">
-              {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
-            </div>
-          </div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br> 
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-
           <h1>{place.name}</h1>
           <img src={photoUrl} alt={photoUrl}></img>
           <br></br>
           <p>Address: {place.formatted_address}</p>
-          <a href={place.website}>{place.website}</a>
-          <p> </p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          
-          <div>
-             {place.price_level === 1 ? <p>Price Level: $</p> : 
-              place.price_level === 2 ? <p>Price Level: $$</p> :
-              place.price_level === 3 ? <p>Price Level: $$$</p> :
-              place.price_level === 4 ? <p>Price Level: $$$$</p> 
-             : null}
-          </div>
-
-          <div>
-            <p>Rating:</p>
+          <p className="rating">
+            Rating:
             <Rating
-              empty="fa fa-star-o fa-2x"
-              full="fa fa-star fa-2x"
-              initialRate={place.rating}
-              readonly
-              stop={5}
+            initialRate={place.rating}
             />
-          </div>
-
+          </p>
+          <a href={place.website}>{place.website}</a>
+          <p>Price level:  {place.price_level} / 4 ($)</p>
+          <br></br>
           <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
@@ -146,33 +105,40 @@ export default class Place extends Component {
                 <div key={idx}>{hours}</div>
               )
               : null }
+
           </div>
           <br></br>
-
-
-          <div>
-            <h2>Comments:</h2>
-            {place.reviews ? 
-              place.reviews.map((review, idx) => {
-              return(
-                <div key={idx}>
-                  <p>-----------------------------------------------------------</p>
-                  <p>User: {review.author_name} (Google account)</p>
-                  <p>Comment: {review.text}</p>
-                </div>
-                )}
-              )
-              : null }
-          </div>
-
-
+          <img src={place.icon} alt={place.icon}></img>
+          <h2>NiteBite comments</h2>
           <div>
             {comments ? comments.map(comment => {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <p>User: {comment.userId}</p>
-                  <p>Comment: {comment.comment}</p>
+                  <p>Author: {comment.userId}</p>
+                  <p>Review: {comment.comment}</p>
+                </div>
+                )}
+              )
+              : null }
+          </div>
+
+          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+
+          <h2>Google comments</h2>
+          <div>
+            {place.reviews ? 
+              place.reviews.map((review, idx) => {
+              return(
+                <div key={idx}>
+                  <p>-----------------------------------------------------------</p>
+                  <p>Author: {review.author_name}</p>
+                  <p>
+                    <Rating
+                      initialRate={review.rating}
+                    />
+                  </p>
+                  <p>Review: {review.text}</p>
                 </div>
                 )}
               )
@@ -180,8 +146,12 @@ export default class Place extends Component {
           </div>
           <br></br>
 
-          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
-      
+          <div className="test">  
+            <div className="map-container">
+              {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
+            </div>
+          </div>
+
       </div>
       
     ); 
