@@ -7,7 +7,7 @@ import MapContainer from '../elements/map';
 import { Link } from 'react-router';
 import './Bites.css';
 
-var Rating = require('react-rating');
+// var Rating = require('react-rating');
 
 export default class Bites extends Component {
   
@@ -67,7 +67,15 @@ export default class Bites extends Component {
         <br></br>
         <br></br>
         <br></br>
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
 
         <div className="bites-wrapper">

@@ -3,16 +3,27 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Menu from './modals/Menu';
 // import Search from './elements/Search';
-//import api from '../api';
+import auth from '../auth.js';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      isMenuOpen: false
-       }
+      isMenuOpen: false,
+      user: {}
+      }
   }
+
+  componentWillMount() {
+        this._fetchUserInfo();
+    }
+
+    _fetchUserInfo = () => {
+      if (auth.isLoggedIn()) {
+        this.setState({ user: auth.getUser() });
+      } 
+    }
   
   closeMenu = () => this.setState({ isMenuOpen: false });
   
@@ -31,7 +42,7 @@ class App extends Component {
             />
           </div>
 
-          <Menu show={isMenuOpen} closeMenu={this.closeMenu}/>
+          <Menu show={isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
           <div className="App-children-wrapper">
             {this.props.children}
           </div>

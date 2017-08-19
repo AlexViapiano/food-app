@@ -84,20 +84,76 @@ export default class Place extends Component {
 
     return (
       <div className="placePage">
+          <br></br>
+          <div className="test">  
+            <div className="map-container">
+              {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
+            </div>
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br> 
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
           <h1>{place.name}</h1>
           <img src={photoUrl} alt={photoUrl}></img>
           <br></br>
           <p>Address: {place.formatted_address}</p>
-          <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          <p className="rating">
-            Rating:
-            <Rating
-            initialRate={place.rating}
-            />
-          </p>
           <a href={place.website}>{place.website}</a>
-          <p>Price level:  {place.price_level} / 4 ($)</p>
-          <br></br>
+          <p></p>
+          <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
+          <p> </p>
+
+          <div>
+            <Rating
+              empty="fa fa-star-o fa-2x"
+              full="fa fa-star fa-2x"
+              initialRate={place.rating}
+              readonly
+              stop={5}
+            />
+          </div>
+
+           <div>
+            {place.price_level !== undefined ?
+              <div>
+                <p>Price Level:</p>
+                <Rating
+                    empty="fa fa-credit-card fa-2x"
+                    full="fa fa-credit-card-alt fa-2x"
+                    initialRate={place.price_level}
+                    readonly
+                    stop={4}
+                  />
+              </div>
+            : null }
+          </div>
+
           <p>Store hours:</p>
           <div>
             {place.opening_hours ? 
@@ -105,40 +161,33 @@ export default class Place extends Component {
                 <div key={idx}>{hours}</div>
               )
               : null }
-
           </div>
           <br></br>
-          <img src={place.icon} alt={place.icon}></img>
-          <h2>NiteBite comments</h2>
+
+
+          <div>
+            <h2>Comments:</h2>
+            {place.reviews ?
+              place.reviews.map((review, idx) => {
+              return(
+                <div key={idx}>
+                  <p>-----------------------------------------------------------</p>
+                  <h2>{review.author_name} (Google account)</h2>
+                  <p>Comment: {review.text}</p>
+                </div>
+                )}
+              )
+              : null }
+          </div>
+
+
           <div>
             {comments ? comments.map(comment => {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <p>Author: {comment.userId}</p>
-                  <p>Review: {comment.comment}</p>
-                </div>
-                )}
-              )
-              : null }
-          </div>
-
-          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
-
-          <h2>Google comments</h2>
-          <div>
-            {place.reviews ? 
-              place.reviews.map((review, idx) => {
-              return(
-                <div key={idx}>
-                  <p>-----------------------------------------------------------</p>
-                  <p>Author: {review.author_name}</p>
-                  <p>
-                    <Rating
-                      initialRate={review.rating}
-                    />
-                  </p>
-                  <p>Review: {review.text}</p>
+                  <h2>{comment.userId}</h2>
+                  <p>Comment: {comment.comment}</p>
                 </div>
                 )}
               )
@@ -146,16 +195,11 @@ export default class Place extends Component {
           </div>
           <br></br>
 
-          <div className="test">  
-            <div className="map-container">
-              {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
-            </div>
-          </div>
-
+          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+      
       </div>
       
     ); 
   } 
 
 }
-

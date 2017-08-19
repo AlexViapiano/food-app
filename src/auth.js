@@ -10,6 +10,8 @@ module.exports = {
     else {
       return api.requestLogin(email, password)
       .then(res => localStorage.token = res.body.token)
+      .then(res => api.getUser(localStorage.token))
+      .then(res => localStorage.user = JSON.stringify(res.body))
       .catch( error => error.response.body)
       //.then( function(result){
        // return localStorage.token = result.body.token
@@ -17,13 +19,12 @@ module.exports = {
     }
   },
 
-  signup(email, password) {
+  signup(email, password, firstName, lastName) {
     if (localStorage.token) {
       throw new Error('Already logged in')
     }
     else {
-      return api.requestSignup(email, password)
-      .then(res => api.requestSignup(email, password))
+      return api.requestSignup(email, password, firstName, lastName)
       .catch( error => error.response.body)
       //.then(res => localStorage.token = res.body.token)
     }
@@ -33,9 +34,14 @@ module.exports = {
     return localStorage.token
   },
 
+  getUser() {
+    return JSON.parse(localStorage.user) 
+  },
+
   logout() {
     return api.requestLogout(localStorage.token)
     .then(res => delete localStorage.token)
+    .then(res => delete localStorage.user)
   },
 
   isLoggedIn() {
