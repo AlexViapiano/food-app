@@ -86,7 +86,7 @@ export default class Place extends Component {
       <div className="placePage">
           <br></br>
           <div className="test">  
-            <div className="map-container" div key={idx}>
+            <div className="map-container" >
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>

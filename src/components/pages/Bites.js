@@ -42,7 +42,7 @@ export default class Bites extends Component {
         <Link to={`/`}>Change Location</Link>
         <br></br>
 
-        <div className="test">  
+        <div className="outerMapDiv">  
           <div className="map-container">
             {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
           </div>
@@ -77,8 +77,9 @@ export default class Bites extends Component {
         <br></br>
         <br></br>
 
-
+      
         <div className="bites-wrapper">
+
               <h1>Search results:</h1>
               <br></br>
               { bites.map(b =>
@@ -90,7 +91,8 @@ export default class Bites extends Component {
                   price_level={b.price_level}
                   rating={b.rating}
                 />
-              )}
+              )} 
+             
         </div>
       </div>
       

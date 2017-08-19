@@ -1,0 +1,36 @@
+.searchDiv {
+	width: 100vw;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+}
+
+.searchDiv h3 {
+	color: white;
+	font-family: Comfortaa, sans-serif;
+	font-size: 1.5rem;
+}
+
+.searchForm input {
+	width: 70vw;
+	height: 3rem;
+	border-radius: 12px 0 0 12px;
+	outline: none;
+	border: none;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.searchForm button {
+	width: 15vw;
+	height: 2.9rem;
+	border-radius: 0 12px 12px 0;
+	outline: none;
+	background-color: #00FFFF;
+	border: none;
+	text-align: center;
+	font-size: 1rem;
+}

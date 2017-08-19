@@ -61,9 +61,9 @@ export default class Search extends Component {
 
 
   render() {
-    console.log(this.state.isSearchEmpty, "search empty state in search.js")
+    // console.log(this.state.isSearchEmpty, "search empty state in search.js")
   	return(
-          <div>
+          <div className="searchDiv">
             <h3>Search location:</h3>
             <form className="searchForm">
                 <input type="text" 
@@ -73,7 +73,7 @@ export default class Search extends Component {
                   onChange={this._handleChange}
                 />
                 <button className="search-box-button"
-                onClick={this.search}>&#x1f50d; Feed me!</button>
+                onClick={this.search}>FEED ME!</button>
             </form>
             {this.state.isSearchEmpty ? 
             <SearchMessage /> 
