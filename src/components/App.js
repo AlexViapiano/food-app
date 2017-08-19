@@ -37,7 +37,7 @@ class App extends Component {
           </div>
           <div className="App-navbar">
             
-            <i className="fa fa-bars fa-2x menu-icon"
+            <i className="fa fa-cutlery fa-2x menu-icon"
               onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
             />
           </div>
