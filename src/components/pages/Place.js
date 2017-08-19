@@ -81,7 +81,9 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
-
+    const style={
+      overflowScrolling: scroll,
+      WebkitOverflowScrolling: scroll}
     return (
       <div className="placePage">
           <br></br>

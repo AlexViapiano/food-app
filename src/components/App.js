@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      user: {}
+      user: {},
+      isMenuOpen: false
       }
   }
 
@@ -42,11 +43,12 @@ class App extends Component {
               onClick={()=>this.setState({ isMenuOpen: !this.state.isMenuOpen })}
             />
           </div>
-
           <Menu show={this.state.isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
+           {this.state.isMenuOpen === false ?
           <div className="App-children-wrapper">
             {this.props.children}
           </div>
+          : null}
         </div>
       </div>
     );
@@ -54,3 +56,9 @@ class App extends Component {
 }
 
 export default App;
+
+// <div className="App-children-wrapper">
+
+//             {this.props.children}
+//           </div>
+
