@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import api from '../../api';
+import './CreateComment.css'
 
 export default class CreateComment extends Component {
   

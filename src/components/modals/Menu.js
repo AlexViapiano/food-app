@@ -53,8 +53,8 @@ class Menu extends Component {
       <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
         <div className="menu__header">
             {(isLoggedIn && this.props.user) ?
-                <img src={this.props.user.avatarUrl} alt="profile-pic" className="menu__avatar"/>
-                    :  <img src="" alt="profile-pic" className="menu__avatar"/>}
+                <img src={this.props.user.avatarUrl} alt="" className="menu__avatar"/>
+                    :  <img src="" alt="" className="menu__avatar"/>}
         </div>
 
         
@@ -79,14 +79,9 @@ class Menu extends Component {
             </Link>
             : null}
             
-            {!isLoggedIn ?
-            <Link to="/bites" className="menu__item bites-link" onClick={closeMenu}>
-              Bites    {/*Should be directed to bites page after user searches*/}
-            </Link>
-            : null}
 
             {isLoggedIn ?
-            <button onClick={this._handleLogout}>logout</button> 
+            <button className="logout-button" onClick={this._handleLogout}>logout</button> 
             : null}
 
             {/*After user logouts it should take you back to homepage and search option*/}
@@ -94,6 +89,12 @@ class Menu extends Component {
       </div>
     );
   }
+
+   // {!isLoggedIn ?
+   //          <Link to="/bites" className="menu__item bites-link" onClick={closeMenu}>
+   //            Bites    {/*Should be directed to bites page after user searches*/}
+   //          </Link>
+   //          : null}
 
 }
 
