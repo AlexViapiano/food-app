@@ -1,6 +1,21 @@
 .biteCardDiv {
 	background-color: rgba(255,255,255,0.8);
-	width: 80vw;
+	width: 70vw;
 	border-radius: 12px;
 	margin: 2vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2vh;
+}
+
+.biteCardLink {
+	text-decoration: none;
+	font-family: Raleway, sans-serif;
+	color: #008B8B;
+}
+
+.biteInfo {
+	color: #008B8B;
 }
