@@ -55,7 +55,7 @@ export class MapContainer extends Component {
 
       return (
         <div className="map-wrapper"
-          style={{width: '90%', height: '50%', position: 'absolute'}}>
+          style={{width: '85%', height: '75%', position: 'absolute'}}>
           <Map className="map"
             google={this.props.google} 
             initialCenter={initialCenter}
