@@ -17,7 +17,7 @@ const routes = (
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="places/location" component={Home} />
-        <Route path="/bites/:address" component={Bites}/>
+        //<Route path="/bites/:address" component={Bites}/>
         <Route path="/place/:id" component={Place}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>

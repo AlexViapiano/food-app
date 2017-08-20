@@ -7,7 +7,7 @@ import MapContainer from '../elements/map';
 import { Link } from 'react-router';
 import './Bites.css';
 
-var Rating = require('react-rating');
+// var Rating = require('react-rating');
 
 export default class Bites extends Component {
   
@@ -38,47 +38,17 @@ export default class Bites extends Component {
 
     return (
       <div className="bitesPage">
-        <h4>Search results for: {this.props.params.address}</h4>
-        <Link to={`/`}>Change Location</Link>
-        <br></br>
-
-        <div className="test">  
+        <div className="searchResults">
+          <h4>Search results for: {this.props.params.address}</h4>
+          <Link to={`/`} className="searchHomeLink">Change Location</Link>
+        </div>  
+        <div className="outerMapDiv">  
           <div className="map-container">
             {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
           </div>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
-
+        </div>    
         <div className="bites-wrapper">
+
               <h1>Search results:</h1>
               <br></br>
               { bites.map(b =>
@@ -90,7 +60,8 @@ export default class Bites extends Component {
                   price_level={b.price_level}
                   rating={b.rating}
                 />
-              )}
+              )} 
+             
         </div>
       </div>
       

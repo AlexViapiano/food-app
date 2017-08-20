@@ -1,1 +1,6 @@
-Place.css
+.placePage {
+	position: fixed;
+	width: 100vw;
+	height: 600px;
+	overflow: scroll;
+}

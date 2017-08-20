@@ -1,0 +1,89 @@
+.searchDiv {
+	width: 100vw;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	position: fixed;
+  	bottom: 0;
+  	padding: 4vh 5vw 4vh 0;
+  	margin: 0;
+}
+
+.searchDiv h3 {
+	color: #FFF;
+	font-family: Comfortaa, sans-serif;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	letter-spacing: 0.5rem;
+	padding-top: 0;
+}
+
+.searchForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0 2vh 0;
+
+}
+
+.searchForm input {
+	width: 90vw;
+	height: 3rem;
+	border-radius: 12px;
+	outline: none;
+	border: none;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.searchForm button {
+	color: #FFF;
+	width: 87.5vw;
+	height: 3rem;
+	border-radius:12px;
+	outline: none;
+	padding: none;
+	background-color: #9ACD32;
+	border: none;
+	text-align: center;
+	font-size: 1.2rem;
+	margin-top: 1rem;
+}
+
+.searchForm button:active {
+	transform: translateY(10px);
+}
+
+/*media query for tablet size*/
+
+@media only screen and (min-width: 641px)  {
+	.searchDiv h3{
+		font-size: 3rem;
+	}
+	.searchForm {
+		flex-direction: row;
+		vertical-align: bottom;
+	}
+
+	.searchForm input {
+		width: 70vw;
+		border-radius: 12px 0 0 12px;
+		padding: 0;
+
+	}
+
+	.searchForm button {
+		width: 20vw;
+		border-radius: 0 12px 12px 0;
+		margin-top: 0;
+		padding: 0;
+	}
+
+	.searchForm button:active {
+	transform: translate(5px, 5px);
+}
+}

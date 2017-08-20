@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+import './map.css';
 import api from '../../api';
  
 export class MapContainer extends Component {
@@ -39,7 +39,9 @@ export class MapContainer extends Component {
     // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
       return (
-        <p>Oops! There's not much open near you. Try searching a less specific location.</p>
+        <div className="noResultsMessage">
+          <p>Oops! There's not much open near you. Try searching a less specific location</p>
+        </div>
         );
     } 
     else {
@@ -55,7 +57,9 @@ export class MapContainer extends Component {
 
       return (
         <div className="map-wrapper"
-          style={{width: '85%', height: '75%', position: 'absolute'}}>
+
+          style={{width: '100%', height: '50%', position: 'absolute'}}>
+
           <Map className="map"
             google={this.props.google} 
             initialCenter={initialCenter}

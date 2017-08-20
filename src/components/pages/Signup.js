@@ -56,33 +56,33 @@ export default class SignUp extends Component {
     // console.log(this.state.email, this.state.password)
     return (
       <div className="signup">
-        <h1 className="signup_h1">Signup to Nite Bite</h1>
+        <h2 className="signup_h2">Signup to Nite Bite</h2>
 
         <input type="text" 
         ref="firstName"
         placeholder="First name"
-        className="signup_firstName"
+        className="signup_firstName signup-input"
           onKeyUp={this._handleTyping}
         />
 
         <input type="text" 
         ref="lastName"
         placeholder="Last name"
-        className="signup_lastName"
+        className="signup_lastName signup-input"
           onKeyUp={this._handleTyping}
         />
         
         <input type="email" 
         ref="email" 
         placeholder="email"
-        className="signup_email"
+        className="signup_email signup-input"
           onKeyUp={this._handleTyping}
         />
 
         <input type="password" 
         ref="password"
         placeholder="password"
-        className="signup_password"
+        className="signup_password signup-input"
           onKeyUp={this._handleTyping}
         />
         <button onClick={this._handleSignup} className="signup_button">signup!</button>

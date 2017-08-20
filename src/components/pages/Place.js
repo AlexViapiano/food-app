@@ -4,7 +4,7 @@ import auth from '../../auth';
 import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
-//import './Place.css';
+import './Place.css';
 import CreateComment from '../elements/CreateComment'
 var Rating = require('react-rating');
 
@@ -17,6 +17,7 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
+      comments: []
     };
   }
 
@@ -80,13 +81,11 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
-
     return (
       <div className="placePage">
-
           <br></br>
           <div className="test">  
-            <div className="map-container">
+            <div className="map-container" >
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>
@@ -125,7 +124,7 @@ export default class Place extends Component {
           <br></br>
           <p>Address: {place.formatted_address}</p>
           <a href={place.website}>{place.website}</a>
-          <p> </p>
+          <p></p>
           <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
           <p> </p>
 
@@ -139,7 +138,7 @@ export default class Place extends Component {
             />
           </div>
 
-          <div>
+           <div>
             {place.price_level !== undefined ?
               <div>
                 <p>Price Level:</p>
@@ -167,7 +166,7 @@ export default class Place extends Component {
 
           <div>
             <h2>Comments:</h2>
-            {place.reviews ? 
+            {place.reviews ?
               place.reviews.map((review, idx) => {
               return(
                 <div key={idx}>
@@ -203,4 +202,3 @@ export default class Place extends Component {
   } 
 
 }
-
