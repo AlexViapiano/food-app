@@ -38,46 +38,15 @@ export default class Bites extends Component {
 
     return (
       <div className="bitesPage">
-        <h4>Search results for: {this.props.params.address}</h4>
-        <Link to={`/`}>Change Location</Link>
-        <br></br>
-
+        <div className="searchResults">
+          <h4>Search results for: {this.props.params.address}</h4>
+          <Link to={`/`} className="searchHomeLink">Change Location</Link>
+        </div>  
         <div className="outerMapDiv">  
           <div className="map-container">
             {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
           </div>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
-      
+        </div>    
         <div className="bites-wrapper">
 
               <h1>Search results:</h1>

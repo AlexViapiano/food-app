@@ -1,0 +1,6 @@
+.placePage {
+	position: fixed;
+	width: 100vw;
+	height: 900px;
+	overflow: scroll;
+}

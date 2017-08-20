@@ -1,26 +1,57 @@
 .bitesPage {
-	background-color: orange;
-	max-width: 100vw;
+	position: fixed;
+	width: 100vw;
+	height: 700px;
+	overflow: scroll;
+}
+
+.searchHomeLink {
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: #FFF;
+	width: 100vh;
+	text-align: center;
+}
+
+.searchHomeLink:active {
+	color: pink;
+}
+
+.searchResults {
+	background-color: rgba(0,0,0,0.5);
+	padding: 5vh 0 5vh 20vw;
+	margin: 2vh 0 0 12vw;
+}
+
+.searchResults h4 {
+	font-family: 'Raleway', sans-serif;
+  	font-size: 1.3rem;
+  	color: #FFF;
+  	margin-top: 2vh;
 }
 
 
 /*redering the map */
 .map {
-	background-color: red;
-	margin: 0;
+	margin:0;
 	padding: 0;
-	height: 300px;
+	height: 200px;
+	z-index: 500;
 }
 
 /*mapping the bite cards */
-.bitesMap {
+/*.bitesMap {
 	background-color: grey;
-	/*max-width: 100%;*/
-	/*height:  600px;*/
+	max-width: 100%;
+	height:  600px;
 	margin-top: 0;
-}
+}*/
 
 .bites-wrapper {
-	background-color: yellow;
-	overflow: visible;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 450px 0 0 0 ;
 }

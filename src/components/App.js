@@ -30,7 +30,7 @@ class App extends Component {
   
   render() {
     let {isMenuOpen} = this.state
-    console.log(this.state.isMenuOpen)
+    // console.log(this.state.isMenuOpen)
     return (
       <div className="App">
         <div className="inner">  
@@ -44,7 +44,7 @@ class App extends Component {
             />
           </div>
           <Menu show={this.state.isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
-           {this.state.isMenuOpen === false ?
+          {!this.state.isMenuOpen ?
           <div className="App-children-wrapper">
             {this.props.children}
           </div>
@@ -56,9 +56,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <div className="App-children-wrapper">
-
-//             {this.props.children}
-//           </div>
-
