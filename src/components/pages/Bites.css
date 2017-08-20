@@ -1,8 +1,8 @@
 .bitesPage {
 	position: fixed;
 	width: 100vw;
-	height: 700px;
-	overflow: scroll;
+	height: 600px;
+	overflow-y: scroll;
 }
 
 .searchHomeLink {
@@ -15,7 +15,7 @@
 }
 
 .searchHomeLink:active {
-	color: pink;
+	color: rgb(255,20,147);
 }
 
 .searchResults {
@@ -32,7 +32,7 @@
 }
 
 
-/*redering the map */
+/*rendering the map */
 .map {
 	margin:0;
 	padding: 0;
