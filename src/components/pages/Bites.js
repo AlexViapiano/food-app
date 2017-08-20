@@ -48,9 +48,6 @@ export default class Bites extends Component {
           </div>
         </div>    
         <div className="bites-wrapper">
-
-              <h1>Search results:</h1>
-              <br></br>
               { bites.map(b =>
                 <BiteCard
                   key={b.id}

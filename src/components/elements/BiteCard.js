@@ -20,7 +20,7 @@ export default class BiteCard extends Component {
 
     return (
       <div className="biteCardDiv">
-        <Link to={`/place/${place_id}`}>
+        <Link to={`/place/${place_id}`} className="biteCardLink">
           <div className="bite-card">
             <h2>{ name }</h2>
           </div>
@@ -30,6 +30,7 @@ export default class BiteCard extends Component {
 
         <p>
           <Rating
+            className="biteInfo"
             empty="fa fa-star-o fa-2x"
             full="fa fa-star fa-2x"
             initialRate={rating}
@@ -51,15 +52,8 @@ export default class BiteCard extends Component {
                 />
             </div>
           : null }
+        </div>        
         </div>
-
-        
-        </div>
-
-
-
-
-        <p>-------------------------------------------------------------</p>
       </div>
     );
   }
