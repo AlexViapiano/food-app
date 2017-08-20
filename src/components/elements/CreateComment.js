@@ -30,7 +30,7 @@ export default class CreateComment extends Component {
   render() {
 
     return (
-        <div>
+        <div className="comment-area">
 	          <textarea 
 	            ref="comment" 
 	            placeholder="new comment"

@@ -1,7 +1,7 @@
 .bitesPage {
 	position: fixed;
 	width: 100vw;
-	height: 700px;
+	height: 900px;
 	overflow: scroll;
 }
 
@@ -32,7 +32,7 @@
 }
 
 
-/*redering the map */
+/*rendering the map */
 .map {
 	margin:0;
 	padding: 0;
