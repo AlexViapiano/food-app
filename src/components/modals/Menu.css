@@ -20,7 +20,8 @@
 }
 
 .menu__header {
-  height: 15vh;
+  display: flex;
+  justify-content: center;
 }
 
 .menu__list {
@@ -34,13 +35,37 @@
   color: #fff;
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  margin: 10px 100px;
+  margin: 10px 130px;
   border-radius: 20px;  
   font-size: 25px;
 }
 
 .menu__item:active {
   background-color: rgba(0,0,0,0.8);
+}
+
+.logout-button {
+  color: #FFF;
+  width: 50vw;
+  height: 3rem;
+  border-radius:12px;
+  outline: none;
+  padding: none;
+  background-color: #FF4500;
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  left:0; 
+  right:0;
+  top:300px; 
+  bottom:0;
+  margin: auto;
+  text-transform: capitalize;
+}
+
+.logout-button:active {
+  transform: translateY(10px);
 }
 
 
@@ -51,6 +76,10 @@
 
   .menu__item {
   margin: 10px 200px;
+}
+
+.logout-button {
+  width: 20vw;
 }
 
 }

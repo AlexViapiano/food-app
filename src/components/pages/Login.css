@@ -30,11 +30,12 @@
 	border-radius:12px;
 	outline: none;
 	padding: none;
-	background-color: #9ACD32;
+	background-color: #DAA520;
 	border: none;
 	text-align: center;
 	font-size: 1.2rem;
 	margin-top: 1rem;
+	text-transform: capitalize;
 }
 
 .login_button:active {

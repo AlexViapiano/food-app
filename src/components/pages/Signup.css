@@ -38,11 +38,12 @@
 	border-radius:12px;
 	outline: none;
 	padding: none;
-	background-color: #9ACD32;
+	background-color: #008B8B;
 	border: none;
 	text-align: center;
 	font-size: 1.2rem;
 	margin-top: 1rem;
+	text-transform: capitalize;
 }
 
 .signup_button:active {
