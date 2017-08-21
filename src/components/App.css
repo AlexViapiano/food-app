@@ -62,14 +62,14 @@ body *, body *:before, body *:after {
 
 .menu-icon {
   color: #fff;
-  background-color: #000;
-  padding: 1rem;
+  background-color: #9ACD32;
+  padding: 1.2rem;
   transition: all .2s ease-in-out;
   position: fixed;
   top: 0vh;
   left: 0vw;
-  z-index: 500;
-  border-radius: 0;
+  z-index: 503;
+  border-radius: 0 0 12px 0;
 }
 
 .menu-icon:active {
@@ -109,13 +109,13 @@ body *, body *:before, body *:after {
     left:0;
   }
 
-  .menu-icon {
+/*  .menu-icon {
     background-color: rgba(255,20,147,0.5);
     top: 17vh;
     left: auto;
     border-radius: 5px;
     padding: 2.5;
-  }
+  }*/
 
 }
 
