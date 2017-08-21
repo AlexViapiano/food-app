@@ -29,7 +29,6 @@ export default class Place extends Component {
 
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-
           this.setState({ 
                place: res.body.result,
                bite: [res.body.result],
@@ -66,7 +65,6 @@ export default class Place extends Component {
     .then(res => {
 
       let comments = this.state.comments.concat(res.body)
-
       this.setState({
         comments
       })

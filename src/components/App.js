@@ -34,7 +34,7 @@ class App extends Component {
   
   render() {
     let {isMenuOpen} = this.state
-    console.log(this.state.isMenuOpen)
+    //console.log(this.state.isMenuOpen)
     return (
       <div className="App">
         <div className="inner">  

@@ -47,9 +47,9 @@ export default class Search extends Component {
  
 
    _handleSearch = (address) => {
-    {address.length === 0 ? this.setState({
+    address.length === 0 ? this.setState({
       isSearchEmpty: true
-    }) : history.push(`/bites/${address}`) }
+    }) : history.push(`/bites/${address}`) 
   }
   
 
