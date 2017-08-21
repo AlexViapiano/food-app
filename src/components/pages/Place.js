@@ -5,7 +5,12 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 import './Place.css';
-import CreateComment from '../elements/CreateComment';
+
+//Added by Luke !!!!
+import CreateComment from '../elements/CreateComment'
+import TestComponentAgain from '../elements/TestComponentAgain'
+import TestComponent from '../elements/TestComponent'
+
 var Rating = require('react-rating');
 
 export default class Place extends Component {
@@ -166,6 +171,11 @@ export default class Place extends Component {
           <br></br>
 
           {isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+
+        <TestComponentAgain />
+
+
+
       
       </div>
       

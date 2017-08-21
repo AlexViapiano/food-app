@@ -17,7 +17,7 @@ export default class Search extends Component {
  }
 
 
-  componentWillMount() {
+  componentDidMount() {
 
       var onPositionReceived = (position) => {
       var latlng = position.coords.latitude+","+position.coords.longitude;
