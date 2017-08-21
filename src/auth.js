@@ -16,6 +16,7 @@ module.exports = {
       //.then( function(result){
        // return localStorage.token = result.body.token
       //})
+
     }
   },
 
@@ -25,8 +26,6 @@ module.exports = {
     }
     else {
       return api.requestSignup(email, password, firstName, lastName)
-     // .catch( error => error.response.body)
-      //.then(res => localStorage.token = res.body.token)
     }
   },
 
