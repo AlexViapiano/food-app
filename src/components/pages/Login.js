@@ -18,9 +18,12 @@ export default class Login extends Component {
   if (email && password) {
     auth.login(email, password)
     .then(res => {
+      this.props.router.push('/')
+    })
+    .catch(err => {
+      let res = err.response.body;
       if (res.errors) {
         let arrErr = [];
-        console.log(res.errors, "arrErr errors")
         for (var key in res.errors) {
           if (res.errors.hasOwnProperty(key)) {
             console.log(key + " -> " + res.errors[key]);
@@ -31,11 +34,9 @@ export default class Login extends Component {
           error: arrErr
         });
       } else {
-        this.props.router.push('/')
+        // this.props.router.push('/login')
       }
-      
     })
-    .catch(console.error)
     
   }
   else {
