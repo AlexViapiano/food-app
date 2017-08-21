@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import api from '../../api';
+import './PlaceInfo.css';
 
 var Rating = require('react-rating');
 
@@ -20,17 +21,18 @@ export default class PlaceInfo extends Component {
 
     return (
         <div>
+          <div className="place-info">
+            <h1>{place.name}</h1>
+            <img src={photoUrl} alt={photoUrl}></img>
+            <br></br>
+            <p>{place.formatted_address}</p>
+            <a href={place.website}>Website</a>
+            <p></p>
+            <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
+            <p> </p>
 
-          <h1>{place.name}</h1>
-          <img src={photoUrl} alt={photoUrl}></img>
-          <br></br>
-          <p>Address: {place.formatted_address}</p>
-          <a href={place.website}>{place.website}</a>
-          <p></p>
-          <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
-          <p> </p>
 
-          <div>
+          <div className="stars-rating">
             <Rating
               empty="fa fa-star-o fa-2x"
               full="fa fa-star fa-2x"
@@ -56,26 +58,30 @@ export default class PlaceInfo extends Component {
             : null }
           </div>
 
-          <p>Store hours:</p>
-          <div>
+
+          
+          <div className="store-hours">
+          {place.opening_hours ? <p className="store-hours-title">Store hours:</p> : null }
             {place.opening_hours ? 
               place.opening_hours.weekday_text.map((hours, idx) => 
                 <div key={idx}>{hours}</div>
               )
               : null }
           </div>
+          </div>
           <br></br>
 
-          <div>
-            <h2>Comments:</h2>
+          <div className="comments-text">
+            <h2 className="comments-title">Comments</h2>
             {place.reviews ?
               place.reviews.map((review, idx) => {
               return(
-                <div key={idx}>
-                  <p>-----------------------------------------------------------</p>
-                  <h2>{review.author_name} (Google account)</h2>
-                  <p>Comment: {review.text}</p>
-                </div>
+                <div className="reviews" key={idx}>
+                  <div className="separate-reviews">
+                    <h2 className="user-name-title">{review.author_name} (Google account)</h2>
+                    <p>{review.text}</p>
+                  </div>
+            </div>
                 )}
               )
               : null }

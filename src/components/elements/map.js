@@ -10,8 +10,7 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}, 
-      loaded: false
+      selectedPlace: {}
     }
     
     // binding this to event-handler functions 
@@ -36,24 +35,7 @@ export class MapContainer extends Component {
     }
   }
 
-  componentWillMount() {
-    this.setState({
-      loaded: false
-    })
-  }
-
   render() {
-    if(this.props.bitesInfo.length === 0 && this.state.loaded === false) {
-      return (
-        <p> Loading... </p>
-      );
-    } else if(this.props.bitesInfo.length === 0 && this.state.loaded === true) {
-      return (
-        <div className="noResultsMessage">
-          <p>Oops! There's not much open near you. Try searching a less specific location</p>
-        </div>
-        );
-    } else {
       var showMarker = true;
       var initialCenter = api.getLocation();
       if (!initialCenter) {
@@ -180,7 +162,7 @@ export class MapContainer extends Component {
         );
     } 
   }
-}
+
  
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCGHLFTTV-WaZ81ZXgOA2p9VOPuttiesWg'

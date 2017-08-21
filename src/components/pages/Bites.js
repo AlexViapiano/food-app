@@ -15,7 +15,8 @@ export default class Bites extends Component {
     super(props);
     this.state = {
       bites: [], 
-      initialCenter: {}
+      initialCenter: {}, 
+      loaded: false
     };
   }
 
@@ -26,7 +27,8 @@ export default class Bites extends Component {
     .then(res => {
           this.setState({ 
                bites: res.body.results, 
-               initialCenter: res.body.initialLocation
+               initialCenter: res.body.initialLocation, 
+               loaded: true
           })
     })
     //.then(res => localStorage.initialLocation = res.body.initialLocation)
@@ -36,16 +38,28 @@ export default class Bites extends Component {
     let bites = this.state.bites 
     let initialCenter = this.state.initialCenter
 
-    return (
-      <div className="bitesPage">
-        <Link to={`/`} className="searchHomeLink">Change Location</Link>
-          <div className="map-container">
-            {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
+   
+      if(bites.length === 0 && this.state.loaded === false) {
+        return (
+          <p> Loading... </p>
+        );
+      } else if(bites.length === 0 && this.state.loaded === true) {
+        return (
+          <div className="noResultsMessage">
+            <p>Oops! There's not much open near you. Try searching a less specific location</p>
           </div>
-        <div className="bites-wrapper">
-          <div className="searchResults">
-          <h4>Search results for : {this.props.params.address}</h4>
-        </div>  
+        );
+      } else {
+          return (
+          <div className="bitesPage">
+            <Link to={`/`} className="searchHomeLink">Change Location</Link>
+              <div className="map-container">
+                {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
+              </div>
+              <div className="bites-wrapper">
+                <div className="searchResults">
+                  <h4>Search results for : {this.props.params.address}</h4>
+                </div>  
               { bites.map(b =>
                 <BiteCard
                   key={b.id}
@@ -56,10 +70,10 @@ export default class Bites extends Component {
                   rating={b.rating}
                 />
               )} 
-        </div>
-      </div>
+              </div>
+          </div>
       
     ); 
   } 
-
+}
 }

@@ -5,9 +5,11 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 import './Place.css';
+
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo'
 import Comments from '../elements/Comments'
+
 
 export default class Place extends Component {
   
@@ -27,7 +29,6 @@ export default class Place extends Component {
 
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-
           this.setState({ 
                place: res.body.result,
                bite: [res.body.result],
@@ -40,18 +41,18 @@ export default class Place extends Component {
       .then(res => {
         this.setState({ 
           photoUrl: res.body.url
-        })
+        });
       })
+    })
     .then(
       api.getComments(this.props.params.id)
       .then(res => {
+        console.log("fetching comments", res.body)
         this.setState({
           comments: res.body
         })
       })
     )
-    })
-
   }
 
 
@@ -62,9 +63,8 @@ export default class Place extends Component {
 
     api.postComment(comment, placeId, auth.getToken())
     .then(res => {
-
+        console.log(this.state.comments, res, "yeahhhhhhhhhhhhhh")
       let comments = this.state.comments.concat(res.body)
-
       this.setState({
         comments
       })
