@@ -21,13 +21,14 @@ body *, body *:before, body *:after {
 .title-wrapper {
   background-color: rgba(255,20,147,0.5);
   width: 85vw;
-  height: 10vh;
+  height: 8vh;
   margin-left: 15vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
   position: fixed;
+  z-index: 502;
 }
 
 .App-navbar__title {
