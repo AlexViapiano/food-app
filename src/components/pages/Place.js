@@ -41,18 +41,18 @@ export default class Place extends Component {
       .then(res => {
         this.setState({ 
           photoUrl: res.body.url
-        })
+        });
       })
+    })
     .then(
       api.getComments(this.props.params.id)
       .then(res => {
+        console.log("fetching comments", res.body)
         this.setState({
           comments: res.body
         })
       })
     )
-    })
-
   }
 
 
@@ -63,7 +63,7 @@ export default class Place extends Component {
 
     api.postComment(comment, placeId, auth.getToken())
     .then(res => {
-
+        console.log(this.state.comments, res, "yeahhhhhhhhhhhhhh")
       let comments = this.state.comments.concat(res.body)
       this.setState({
         comments
