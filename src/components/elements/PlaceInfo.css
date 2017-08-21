@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	margin-top: 350px;
 }
 
 .place-info h1 {
@@ -73,7 +74,7 @@
 .separate-reviews {
 	padding: 20px;
 	line-height: 1.5;
-	text-align: justify;
+	text-align: center;
 }
 
 .separate-reviews h2 {

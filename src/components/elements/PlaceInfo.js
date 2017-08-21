@@ -58,8 +58,10 @@ export default class PlaceInfo extends Component {
             : null }
           </div>
 
-          <p className="store-hours-title">Store hours:</p>
+
+          
           <div className="store-hours">
+          {place.opening_hours ? <p className="store-hours-title">Store hours:</p> : null }
             {place.opening_hours ? 
               place.opening_hours.weekday_text.map((hours, idx) => 
                 <div key={idx}>{hours}</div>
