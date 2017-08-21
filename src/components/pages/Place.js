@@ -75,7 +75,7 @@ export default class Place extends Component {
 
    
   render() {
-
+    const isLoggedIn = auth.isLoggedIn()
     let bite = this.state.bite
     let place = this.state.place
     let photoUrl = this.state.photoUrl
@@ -165,7 +165,7 @@ export default class Place extends Component {
           </div>
           <br></br>
 
-          {auth.isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+          {isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
       
       </div>
       

@@ -53,7 +53,7 @@ class Menu extends Component {
       <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
         <div className="menu__header">
             {(isLoggedIn && this.props.user) ?
-                <img src={this.props.user.avatarUrl} alt="" className="menu__avatar"/>
+                <img src={this.props.user.avatarUrl} alt="profile-pic" className="menu__avatar"/>
                     :  <img src="" alt="" className="menu__avatar"/>}
         </div>
 
