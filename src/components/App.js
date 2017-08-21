@@ -38,7 +38,6 @@ class App extends Component {
             <Link to="/" className="App-navbar__title">NiteBite</Link>
           </div>
           <div className="App-navbar">
-            
             <i className="fa fa-cutlery fa-2x menu-icon"
               onClick={()=>this.setState({ isMenuOpen: !this.state.isMenuOpen })}
             />

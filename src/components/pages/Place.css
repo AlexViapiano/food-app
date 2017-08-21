@@ -1,6 +1,29 @@
 .placePage {
+	background-color: rgba(255,255,255,0.8);
 	position: fixed;
 	width: 100vw;
 	height: 600px;
 	overflow: scroll;
+}
+
+.map-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.map-container {
+    position: fixed;
+    width: 70%;
+    height: 25%;
+	border: 0.25em solid #9ACD32;
+	border-radius: 5px;
+	
+}
+
+.outerMapDiv {
+	margin-top: -16em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
