@@ -27,7 +27,6 @@ export default class Place extends Component {
 
     api.getPlaceInfo(this.props.params.id)
     .then(res => {
-
           this.setState({ 
                place: res.body.result,
                bite: [res.body.result],
