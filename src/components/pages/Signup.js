@@ -19,9 +19,12 @@ export default class SignUp extends Component {
     if (email && password && password.length >= 8) {
       auth.signup(email, password, firstName, lastName)
       .then(res => {
+        this.props.router.push('/login')
+      })
+      .catch(err => {
+        let res = err.response.body;
         if (res.errors) {
           let arrErr = [];
-          console.log(res.errors, "arrErr errors")
           for (var key in res.errors) {
             if (res.errors.hasOwnProperty(key)) {
               console.log(key + " -> " + res.errors[key]);
@@ -32,11 +35,9 @@ export default class SignUp extends Component {
             error: arrErr
           });
         } else {
-          this.props.router.push('/login')
-        }
-        
+          // this.props.router.push('/login')
+        } 
       })
-      .catch(console.error)
     }
     else {
       this.setState({ error: ["Please enter a valid email and password"]})

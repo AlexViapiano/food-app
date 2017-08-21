@@ -93,6 +93,7 @@ body *, body *:before, body *:after {
 
 }
 
-
-
+.errorMsg{
+    color: red;
+}
 

@@ -12,7 +12,7 @@ module.exports = {
       .then(res => localStorage.token = res.body.token)
       .then(res => api.getUser(localStorage.token))
       .then(res => localStorage.user = JSON.stringify(res.body))
-      .catch( error => error.response.body)
+      //.catch( error => error.response.body)
       //.then( function(result){
        // return localStorage.token = result.body.token
       //})
@@ -25,7 +25,7 @@ module.exports = {
     }
     else {
       return api.requestSignup(email, password, firstName, lastName)
-      .catch( error => error.response.body)
+     // .catch( error => error.response.body)
       //.then(res => localStorage.token = res.body.token)
     }
   },
@@ -35,7 +35,9 @@ module.exports = {
   },
 
   getUser() {
-    return JSON.parse(localStorage.user) 
+    if(localStorage.user){
+      return JSON.parse(localStorage.user)
+    }
   },
 
   logout() {

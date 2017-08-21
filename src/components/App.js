@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    
         this._fetchUserInfo();
     }
 
