@@ -26,21 +26,24 @@ class App extends Component {
       } 
     }
   
-  closeMenu = () => this.setState({ isMenuOpen: false });
+  closeMenu = () => {
+    console.log("close menu")
+    this.setState({ isMenuOpen: false });
+  }
 
   
   render() {
     let {isMenuOpen} = this.state
-    // console.log(this.state.isMenuOpen)
+    console.log(this.state.isMenuOpen)
     return (
       <div className="App">
         <div className="inner">  
           <div className="title-wrapper">
-            <Link to="/" className="App-navbar__title">NiteBite</Link>
+            <Link to="/" className="App-navbar__title">NiteBites</Link>
           </div>
           <div className="App-navbar">
             <i className="fa fa-cutlery fa-2x menu-icon"
-              onClick={()=>this.setState({ isMenuOpen: !this.state.isMenuOpen })}
+              onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
             />
           </div>
           <Menu show={this.state.isMenuOpen} closeMenu={this.closeMenu} user={this.state.user}/>
