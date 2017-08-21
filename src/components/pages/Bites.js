@@ -38,9 +38,11 @@ export default class Bites extends Component {
 
     return (
       <div className="bitesPage">
+        <Link to={`/`} className="searchHomeLink">Change Location</Link>
+        
         <div className="searchResults">
-          <h4>Search results for: {this.props.params.address}</h4>
-          <Link to={`/`} className="searchHomeLink">Change Location</Link>
+          <h4>Search results for : {this.props.params.address}</h4>
+          
         </div>  
         <div className="outerMapDiv">  
           <div className="map-container">

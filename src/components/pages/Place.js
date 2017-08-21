@@ -5,7 +5,9 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 import './Place.css';
-import CreateComment from '../elements/CreateComment'
+import CreateComment from '../elements/CreateComment';
+import placeInfo from '../elements/placeInfo';
+
 var Rating = require('react-rating');
 
 export default class Place extends Component {
@@ -81,43 +83,17 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
+
+    console.log(comments);
+
     return (
       <div className="placePage">
           <br></br>
-          <div className="test">  
+          <div className="map-box">  
             <div className="map-container" >
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br> 
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
 
           <h1>{place.name}</h1>
           <img src={photoUrl} alt={photoUrl}></img>
@@ -138,6 +114,7 @@ export default class Place extends Component {
             />
           </div>
 
+
            <div>
             {place.price_level !== undefined ?
               <div>
@@ -152,6 +129,9 @@ export default class Place extends Component {
               </div>
             : null }
           </div>
+
+
+
 
           <p>Store hours:</p>
           <div>
@@ -179,13 +159,12 @@ export default class Place extends Component {
               : null }
           </div>
 
-
           <div>
             {comments ? comments.map(comment => {
               return(
                 <div>
                   <p>-----------------------------------------------------------</p>
-                  <h2>{comment.userId}</h2>
+                  <h2>{comment.firstName} {comment.lastName}</h2>
                   <p>Comment: {comment.comment}</p>
                 </div>
                 )}
@@ -194,11 +173,24 @@ export default class Place extends Component {
           </div>
           <br></br>
 
-          {isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
-      
+ 
+
+
+
+          {isLoggedIn ? <CreateComment onPostComment={this._handlePostComment}/> : null}
+
+
+
+
       </div>
       
     ); 
   } 
 
 }
+
+
+
+
+
+
