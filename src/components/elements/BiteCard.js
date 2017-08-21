@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 //import auth from '../../auth';
-import './BiteCard.css';
 
+import './BiteCard.css';
 var Rating = require('react-rating');
 
 export default class BiteCard extends Component {
@@ -42,15 +42,17 @@ export default class BiteCard extends Component {
           <div>
             {price_level !== undefined ?
               <div>
-                <p>Price Level:</p>
-                <Rating
-                    className="bitePrice"
-                    empty="fa fa-credit-card fa-2x"
-                    full="fa fa-credit-card-alt fa-2x"
-                    initialRate={price_level}
-                    readonly
-                    stop={4}
-                  />
+                <p><span className="dollars"> $ </span>
+                  <Rating
+                      className="bitePrice"
+                      empty="fa fa-credit-card fa-2x"
+                      full="fa fa-credit-card-alt fa-2x"
+                      initialRate={price_level}
+                      readonly
+                      stop={4}
+                    />
+                </p>
+
               </div>
             : null }
           </div> 
