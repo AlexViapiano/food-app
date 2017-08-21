@@ -18,20 +18,6 @@ class Menu extends Component {
     this._handleLogout = this._handleLogout.bind(this);
   }
 
-  //  componentDidMount() {
-  //   this._fetchAvatar();
-  // }
-
-  _fetchAvatar = () => {
-    auth.getUser(auth.getToken())
-    .then(res => {
-      console.log(res.body.avatarUrl, "this is the avatar url")
-      this.setState({ avatarUrl: res.body.avatarUrl })
-    })
-    .catch(console.error)
-
-  }
-
   //  handleClickOutside = () => {
   //   this.props.closeMenu();
   // }
@@ -44,23 +30,20 @@ class Menu extends Component {
   }
 
   render() {
-    let { closeMenu, show } = this.props
-    let { avatarUrl } = this.state
-    
-    const isLoggedIn = auth.isLoggedIn()
-    // console.log(this.state)
+    let { closeMenu, show } = this.props;
+    const isLoggedIn = auth.isLoggedIn();
+
+    let avatarUrl = (isLoggedIn && auth.getUser()) ? auth.getUser().avatarUrl : "";
+
     return (
       <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
         <div className="menu__header">
-            {(isLoggedIn && this.props.user) ?
-                <img src={this.props.user.avatarUrl} alt="profile-pic" className="menu__avatar"/>
+            {(isLoggedIn) ?
+                <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
                     :  <img src="" alt="" className="menu__avatar"/>}
         </div>
 
-        
-
           <div className="menu__list">
-
             
             <Link to="/" className="menu__item home-link" onClick={closeMenu}> 
               Home  
@@ -72,13 +55,11 @@ class Menu extends Component {
             </Link>
             : null}
 
-
             {!isLoggedIn ?
             <Link to="/signup" className="menu__item signup-link" onClick={closeMenu}>
               Signup    
             </Link>
             : null}
-            
 
             {isLoggedIn ?
             <button className="logout-button" onClick={this._handleLogout}>logout</button> 
