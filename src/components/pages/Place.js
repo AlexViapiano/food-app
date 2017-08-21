@@ -84,40 +84,11 @@ export default class Place extends Component {
     return (
       <div className="placePage">
           <br></br>
-          <div className="test">  
+          <div className="map-box">  
             <div className="map-container" >
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  
             </div>
           </div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br> 
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
 
           <h1>{place.name}</h1>
           <img src={photoUrl} alt={photoUrl}></img>
@@ -197,6 +168,7 @@ export default class Place extends Component {
           {isLoggedIn ? 
             <CreateComment onPostComment={this._handlePostComment} /> 
           : null}
+
       
       </div>
       
