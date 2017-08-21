@@ -5,9 +5,11 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 import './Place.css';
+
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo'
 import Comments from '../elements/Comments'
+
 
 export default class Place extends Component {
   
