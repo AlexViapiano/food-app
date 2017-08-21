@@ -12,8 +12,8 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatarUrl: "",
-      isMenuOpen: false
+      avatarUrl: ""
+      // isMenuOpen: false
     };
     this._handleLogout = this._handleLogout.bind(this);
   }
@@ -32,9 +32,9 @@ class Menu extends Component {
 
   }
 
-   handleClickOutside = () => {
-    this.props.closeMenu();
-  }
+  //  handleClickOutside = () => {
+  //   this.props.closeMenu();
+  // }
 
   _handleLogout (e) {
     e.preventDefault();

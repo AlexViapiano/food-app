@@ -5,6 +5,7 @@ body *, body *:before, body *:after {
 } 
 
 .inner {
+  background-color: #000;
   background-image: url("tokyo-small.jpeg"); 
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,8 +20,9 @@ body *, body *:before, body *:after {
 
 .title-wrapper {
   background-color: rgba(255,20,147,0.5);
-  width: 100vw;
+  width: 85vw;
   height: 10vh;
+  margin-left: 15vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,10 +33,9 @@ body *, body *:before, body *:after {
 .App-navbar__title {
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
-  font-size: 3rem;
-  text-align: left;
-  margin-left: 15vw;
-  letter-spacing: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1rem;
   color: #fff;
   transition: all .2s ease-in-out;
 }
@@ -90,12 +91,23 @@ body *, body *:before, body *:after {
   .App-navbar__title {
     transition: all 1s ease-in-out;
     margin: auto;
+    font-size: 3.5rem
   }
   .App-navbar__title:hover {
+    font-size: 4rem;
     letter-spacing: 5rem;
     transform: scale(1.1);
     color: #9ACD32;
   }
+
+  .title-wrapper {
+    width: 100vw;
+    margin-left: 0;
+    position: fixed;
+    top:0;
+    left:0;
+  }
+
   .menu-icon {
     background-color: rgba(255,20,147,0.5);
     top: 17vh;
