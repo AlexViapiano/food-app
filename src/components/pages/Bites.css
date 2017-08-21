@@ -1,20 +1,24 @@
 .bitesPage {
 	position: fixed;
+	left: 0;
 	width: 100vw;
-	height: 100%;
+	height: 90vh;
 	overflow-y: scroll;
 }
 
 .searchHomeLink {
 	font-family: 'Raleway', sans-serif;
+	background-color: rgba(0,0,0,0.8);
 	text-decoration: none;
 	font-size: 1.5rem;
 	color: #9ACD32;
-	width: 100vh;
+	width: 100%;
 	position: fixed;
-	margin-top: 1em;
-	margin-left: 1em;
-
+	padding: 2vh 0 2vh 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .searchHomeLink:hover {
@@ -27,34 +31,46 @@
 
 .searchResults {
 	background-color: rgba(0,0,0,0.5);
-	padding: 5vh 0 5vh 20vw;
-	height: 4em;
-	margin-top: 16em;
+	padding: 2vh 0 2vh 0;
+	width: 100%;
+	height: 2em;
+	margin:0 0 0 0;
 }
 
 .searchResults h4 {
 	font-family: 'Raleway', sans-serif;
   	font-size: 1.3rem;
   	color: #FFF;
-  	margin-top: 2vh;
+  	text-align: center;
 }
 
 .bites-wrapper {
-	margin-top: 12em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-.outerMapDiv {
-	margin-top: -16em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 3;
+	margin: 50vh 0 10vh 0;
 }
 
 .map-container {
+	margin: 9vh 0 0 0;
 	z-index: 3;
+	width: 97.52621%;
+	height: 40vh;
+	background-color: white;
+	border: 0.25em solid #9ACD32;
+	position: absolute;
+	left: 0;
+}
+
+@media only screen and (min-width: 641px)  {
+	
+	.bites-wrapper {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	
+	.map-container {
+		margin-left: 1.5vw;
+	}
 }

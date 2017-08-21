@@ -58,7 +58,7 @@ export class MapContainer extends Component {
       return (
         <div className="map-wrapper"
 
-          style={{width: '100%', height: '50%', position: 'absolute'}}>
+          style={{width: '100%', height: '100%', position: 'absolute'}}>
 
           <Map className="map"
             google={this.props.google} 
@@ -184,3 +184,11 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCGHLFTTV-WaZ81ZXgOA2p9VOPuttiesWg'
 })(MapContainer)
+
+
+
+
+
+ // <div className="map-wrapper"
+
+ //          style={{width: '100%', height: '50%', position: 'absolute', margin: '0%'}}>

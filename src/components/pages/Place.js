@@ -5,9 +5,11 @@ import MapContainer from '../elements/map';
 // import Bites from './Bites';
 //import { Link } from 'react-router';
 import './Place.css';
+
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo'
 import Comments from '../elements/Comments'
+
 
 export default class Place extends Component {
   
@@ -63,7 +65,6 @@ export default class Place extends Component {
     .then(res => {
 
       let comments = this.state.comments.concat(res.body)
-
       this.setState({
         comments
       })

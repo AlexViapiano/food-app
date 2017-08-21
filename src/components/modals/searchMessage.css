@@ -1,7 +1,7 @@
 .SearchMessageDiv {
-	background-color: white;
+	background-color: #000;
 	border-radius: 12px;
-	height: 40vh;
+	height: 10vh;
 	max-width: 60vw;
 	display: flex;
 	justify-content: center;
@@ -9,5 +9,8 @@
 }
 
 .SearchMessageDiv p {
-	font-size: 3rem;
+	font-size: 25px;
+	text-transform: capitalize;
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
 }
