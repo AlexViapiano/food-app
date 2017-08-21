@@ -10,7 +10,8 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {}, 
+      loaded: false
     }
     
     // binding this to event-handler functions 
@@ -35,31 +36,33 @@ export class MapContainer extends Component {
     }
   }
 
+  componentWillMount() {
+    this.setState({
+      loaded: false
+    })
+  }
+
   render() {
-    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-    if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
+    if(this.props.bitesInfo.length === 0 && this.state.loaded === false) {
+      return (
+        <p> Loading... </p>
+      );
+    } else if(this.props.bitesInfo.length === 0 && this.state.loaded === true) {
       return (
         <div className="noResultsMessage">
           <p>Oops! There's not much open near you. Try searching a less specific location</p>
         </div>
         );
-    } 
-    else {
-
+    } else {
       var showMarker = true;
-
       var initialCenter = api.getLocation();
-
       if (!initialCenter) {
         initialCenter = this.props.bitesInfo[0].geometry.location;
         showMarker = false;
       }
-
       return (
         <div className="map-wrapper"
-
           style={{width: '100%', height: '100%', position: 'absolute'}}>
-
           <Map className="map"
             google={this.props.google} 
             initialCenter={initialCenter}
@@ -146,8 +149,6 @@ export class MapContainer extends Component {
             }
           ]}
           >
-
-
           {showMarker ?
            <Marker className="markerMan" onClick={this.onMarkerClick}
               name={'Current location'}

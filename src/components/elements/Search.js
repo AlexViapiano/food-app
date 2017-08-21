@@ -14,7 +14,6 @@ export default class Search extends Component {
     this.state = {
       search: "", 
       isSearchEmpty: false
-
     }
  }
 
