@@ -100,6 +100,7 @@ export default class Place extends Component {
 
           <PlaceInfo place={place} photoUrl={photoUrl}/>
           {isLoggedIn ? <CreateComment className="user-post" onPostComment={this._handlePostComment} /> : null}
+
           <Comments comments={comments} />
 
           <br></br>
