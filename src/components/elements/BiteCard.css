@@ -1,5 +1,5 @@
 .biteCardDiv {
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(0,0,0,0.7);
 	width: 70vw;
 	border-radius: 12px;
 	margin: 2vh;
@@ -9,30 +9,35 @@
 	align-items: center;
 	padding: 2vh;
 	transition: all .2s ease-in-out;
+	text-align: center;
 }
 
 .biteCardDiv:hover {
 	transform: scale(1.1);
-	background-color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,0.9);
 }
 
 .biteCardDiv:active {
 	transform: scale(1.1);
-	background-color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,0.9);
+}
+
+.biteCardDiv h2 {
+	color: #9ACD32;
 }
 
 .biteCardLink {
 	text-decoration: none;
 	font-family: 'Raleway', sans-serif;
-	color: #008B8B;
+	color: #fff;
 }
 
 .biteInfo {
-	color: #008B8B;
+	color: #fff;
 }
 
 .bitePrice {
-	color: #008B8B;
+	color: #fff;
 	letter-spacing: 10px;
 }
 
@@ -49,4 +54,8 @@
 		height: 17vh;
 	}
 
+}
+
+.fa-barcode {
+	visibility: hidden;
 }

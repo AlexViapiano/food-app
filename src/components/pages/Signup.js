@@ -54,7 +54,8 @@ export default class SignUp extends Component {
   }
 
   render() {
-    // console.log(this.state.email, this.state.password)
+    //console.log(this.state.email, this.state.password)
+    console.log(this.state.error)
     return (
       <div className="signup">
         <h2 className="signup_h2">Signup</h2>
