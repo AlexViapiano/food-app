@@ -39,7 +39,21 @@ export default class BiteCard extends Component {
                         stop={5}
                       />
                 : null } 
-            </div>  
+            </div> 
+            <div>
+              {price_level !== undefined ?
+                <div>
+                    <Rating
+                        className="bitePrice"
+                        empty="fa fa-barcode"
+                        full="fa fa fa-usd fa-2x"
+                        initialRate={price_level}
+                        readonly
+                        stop={4}
+                    />
+                </div>
+              : null }
+             </div> 
           </div>
         </Link>
       </div>
@@ -50,17 +64,3 @@ export default class BiteCard extends Component {
 
 
 
-            // <div>
-            //   {price_level !== undefined ?
-            //     <div>
-            //         <Rating
-            //             className="bitePrice"
-            //             empty="fa fa-credit-card fa-2x"
-            //             full="fa fa-credit-card-alt fa-2x"
-            //             initialRate={price_level}
-            //             readonly
-            //             stop={4}
-            //           />
-            //     </div>
-            //   : null }
-            // </div> 

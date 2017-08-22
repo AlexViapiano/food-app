@@ -5,5 +5,3 @@ module.exports = {
 	//API_HOST:"http://localhost:3001"
 	API_HOST:`https://nitebite-backend.herokuapp.com`
 }
-
-// our API key from GOOGLE PLACES: AIzaSyA6xXdEbT7Q4SryoqnzfjvOfxWfP0DXdrU
