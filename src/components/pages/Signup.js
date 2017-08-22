@@ -15,7 +15,7 @@ export default class SignUp extends Component {
 
   _handleSignup = () => {
     let { email: {value: email}, password: {value: password}, firstName: {value: firstName}, lastName: {value: lastName}  } = this.refs;
-    
+   
     if (email && password && password.length >= 8) {
       auth.signup(email, password, firstName, lastName)
       .then(res => {
@@ -40,7 +40,7 @@ export default class SignUp extends Component {
       })
     }
     else {
-      this.setState({ error: ["Please enter a valid email and password"]})
+      this.setState({ error: ["Please enter a valid email and a password longer than 7 characters"]})
     }
   }
   
