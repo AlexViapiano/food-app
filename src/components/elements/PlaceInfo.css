@@ -45,6 +45,13 @@
 	color: #DAA520;
 }
 
+.info-title {
+	font-family: 'Raleway', sans-serif;
+	padding: 15px;
+	color: #fff;
+	text-shadow: 2px 2px #000;
+}
+
 .rating-stars {
 	text-align: center;
 	padding: 8px;
@@ -69,7 +76,6 @@
 
 .store-hours-title {
 	text-transform: capitalize;
-	text-decoration: underline;
 }
 
 .comments-text h2 {
