@@ -34,8 +34,8 @@ export default class Login extends Component {
           error: arrErr
         });
       } else {
-        // this.props.router.push('/login')
-      }
+      this.setState({ error: ["Try again ... your email or password is wrong"]})
+    }
     })
     
   }
