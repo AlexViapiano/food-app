@@ -9,12 +9,9 @@ import './Place.css';
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo';
 import Comments from '../elements/Comments';
-<<<<<<< HEAD
 import GoogleComments from '../elements/GoogleComments';
-// import LoadingModal from '../modals/LoadingModal';
-=======
 import LoadingModal from '../modals/LoadingModal';
->>>>>>> f362124c439ad2f633375c4f643a46d7f0e448f8
+
 
 
 export default class Place extends Component {
