@@ -27,14 +27,12 @@ class App extends Component {
     }
   
   closeMenu = () => {
-    //console.log("close menu")
     this.setState({ isMenuOpen: false });
   }
 
   
   render() {
     let {isMenuOpen} = this.state
-    //console.log(this.state.isMenuOpen)
     return (
       <div className="App">
         <div className="inner">  

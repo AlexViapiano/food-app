@@ -19,55 +19,48 @@ export default class BiteCard extends Component {
 
 
     return (
-      <div className="biteCardDiv">
+      <div>
         <Link to={`/place/${place_id}`} className="biteCardLink">
-          <div className="bite-card">
-            <h2>{ name }</h2>
+          <div className="biteCardDiv">
+
+            <div className="bite-card">
+              <h2>{ name }</h2>
+            </div>
+            <p>{address}</p>
+
+            <div className="bite-icon">
+                {rating !== undefined ?
+                      <Rating
+                        className="biteInfo"
+                        empty="fa fa-star-o fa-2x"
+                        full="fa fa-star fa-2x"
+                        initialRate={rating}
+                        readonly
+                        stop={5}
+                      />
+                : null } 
+            </div>  
           </div>
         </Link>
-        <p>{address}</p>
-        <div>
-
-          <div className="bite-icon">
-
-
-
-
-            <div>
-              {rating !== undefined ?
-                    <Rating
-                      className="biteInfo"
-                      empty="fa fa-star-o fa-2x"
-                      full="fa fa-star fa-2x"
-                      initialRate={rating}
-                      readonly
-                      stop={5}
-                    />
-              : null }
-            </div> 
-
-
-            <div>
-              {price_level !== undefined ?
-                <div>
-                  <p><span className="dollars"> $ </span>
-                    <Rating
-                        className="bitePrice"
-                        empty="fa fa-credit-card fa-2x"
-                        full="fa fa-credit-card-alt fa-2x"
-                        initialRate={price_level}
-                        readonly
-                        stop={4}
-                      />
-                  </p>
-                </div>
-              : null }
-            </div> 
-
-        </div>       
-        </div>
       </div>
     );
   }
 
 }
+
+
+
+            // <div>
+            //   {price_level !== undefined ?
+            //     <div>
+            //         <Rating
+            //             className="bitePrice"
+            //             empty="fa fa-credit-card fa-2x"
+            //             full="fa fa-credit-card-alt fa-2x"
+            //             initialRate={price_level}
+            //             readonly
+            //             stop={4}
+            //           />
+            //     </div>
+            //   : null }
+            // </div> 

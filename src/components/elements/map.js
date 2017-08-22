@@ -36,30 +36,15 @@ export class MapContainer extends Component {
   }
 
   render() {
-    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-    if(this.props.bitesInfo === undefined || this.props.bitesInfo.length === 0) {
-      return (
-        <div className="noResultsMessage">
-          <p>Oops! There's not much open near you. Try searching a less specific location</p>
-        </div>
-        );
-    } 
-    else {
-
       var showMarker = true;
-
       var initialCenter = api.getLocation();
-
       if (!initialCenter) {
         initialCenter = this.props.bitesInfo[0].geometry.location;
         showMarker = false;
       }
-
       return (
         <div className="map-wrapper"
-
           style={{width: '100%', height: '100%', position: 'absolute'}}>
-
           <Map className="map"
             google={this.props.google} 
             initialCenter={initialCenter}
@@ -146,8 +131,6 @@ export class MapContainer extends Component {
             }
           ]}
           >
-
-
           {showMarker ?
            <Marker className="markerMan" onClick={this.onMarkerClick}
               name={'Current location'}
@@ -179,7 +162,7 @@ export class MapContainer extends Component {
         );
     } 
   }
-}
+
  
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCGHLFTTV-WaZ81ZXgOA2p9VOPuttiesWg'

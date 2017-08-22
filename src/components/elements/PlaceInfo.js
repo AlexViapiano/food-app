@@ -31,16 +31,18 @@ export default class PlaceInfo extends Component {
             <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
             <p> </p>
 
-
-          <div className="stars-rating">
-            <Rating
-              empty="fa fa-star-o fa-2x"
-              full="fa fa-star fa-2x"
-              initialRate={place.rating}
-              readonly
-              stop={5}
-            />
-          </div>
+            <div>
+              {place.rating !== undefined ?
+                    <Rating
+  
+                      empty="fa fa-star-o fa-2x"
+                      full="fa fa-star fa-2x"
+                      initialRate={place.rating}
+                      readonly
+                      stop={5}
+                    />
+              : null }
+            </div> 
 
 
            <div>
@@ -55,11 +57,10 @@ export default class PlaceInfo extends Component {
                     stop={4}
                   />
               </div>
-            : null }
-          </div>
+              : null }
+            </div>
 
 
-          
           <div className="store-hours">
           {place.opening_hours ? <p className="store-hours-title">Store hours:</p> : null }
             {place.opening_hours ? 
@@ -67,7 +68,7 @@ export default class PlaceInfo extends Component {
                 <div key={idx}>{hours}</div>
               )
               : null }
-          </div>
+            </div>
           </div>
           <br></br>
 
@@ -88,7 +89,6 @@ export default class PlaceInfo extends Component {
           </div>
 
       	</div>
-
     )
   }
 
