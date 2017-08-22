@@ -30,8 +30,8 @@ export default class PlaceInfo extends Component {
             <p></p>
             <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
             <p> </p>
-
-            <div>
+          <div className="restaurant-info">
+            <div className="rating-stars">
               {place.rating !== undefined ?
                     <Rating
   
@@ -47,7 +47,7 @@ export default class PlaceInfo extends Component {
 
            <div>
             {place.price_level !== undefined ?
-              <div>
+              <div className="price-level">
                 <p>Price Level:</p>
                 <Rating
                     empty="fa fa-credit-card fa-2x"
@@ -71,6 +71,7 @@ export default class PlaceInfo extends Component {
             </div>
           </div>
           <br></br>
+        </div>
 
           <div className="comments-text">
             <h2 className="comments-title">Comments</h2>
