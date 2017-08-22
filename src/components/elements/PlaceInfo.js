@@ -32,6 +32,7 @@ export default class PlaceInfo extends Component {
             <p> </p>
           <div className="restaurant-info">
             <div className="rating-stars">
+              <h2 className="font-awesome-icon">Rating:</h2>
               {place.rating !== undefined ?
                     <Rating
   
@@ -48,6 +49,7 @@ export default class PlaceInfo extends Component {
            <div>
             {place.price_level !== undefined ?
               <div className="price-level">
+                <h2 className="font-awesome-icon">Price level:</h2>
                 <Rating
                     empty="fa fa-barcode"
                     full="fa fa fa-usd fa-2x"
