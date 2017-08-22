@@ -9,6 +9,7 @@ import './Place.css';
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo';
 import Comments from '../elements/Comments';
+import GoogleComments from '../elements/GoogleComments';
 // import LoadingModal from '../modals/LoadingModal';
 
 
@@ -82,6 +83,7 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
+    let googleComments = this.state.place.reviews
 
     // if(this.state.loaded === false) {
     //     return (
@@ -100,11 +102,12 @@ export default class Place extends Component {
 
           <PlaceInfo place={place} photoUrl={photoUrl}/>
 
-          <Comments comments={comments} />
-
+          {isLoggedIn ? <CreateComment className="user-post" onPostComment={this._handlePostComment} /> : null}
+          
           <br></br>
 
-          {isLoggedIn ? <CreateComment className="user-post" onPostComment={this._handlePostComment} /> : null}
+          <Comments comments={comments} />
+          <GoogleComments googleComments={googleComments} />
 
       </div>
       
@@ -112,7 +115,6 @@ export default class Place extends Component {
     } 
   }
 
-//
 
 
 

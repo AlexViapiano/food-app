@@ -20,6 +20,7 @@ export default class Comments extends Component {
         <div className="comments-text">
 
           <div className="reviews">
+            <h2 className="review-header"> Comments</h2>
             {comments ? comments.map((comment, idx) => {
               return(
                 <div className="separate-reviews" key={idx}>

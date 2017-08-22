@@ -72,22 +72,6 @@ export default class PlaceInfo extends Component {
           <br></br>
         </div>
 
-          <div className="comments-text">
-            <h2 className="comments-title">Comments</h2>
-            {place.reviews ?
-              place.reviews.map((review, idx) => {
-              return(
-                <div className="reviews" key={idx}>
-                  <div className="separate-reviews">
-                    <h2 className="user-name-title">{review.author_name} </h2>
-                    <p>{review.text}</p>
-                  </div>
-                </div>
-                )}
-              )
-              : null }
-          </div>
-
       	</div>
     )
   }
