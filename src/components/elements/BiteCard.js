@@ -27,35 +27,43 @@ export default class BiteCard extends Component {
         </Link>
         <p>{address}</p>
         <div>
-        <div className="bite-icon">
-          <p>
-            <Rating
-              className="biteInfo"
-              empty="fa fa-star-o fa-2x"
-              full="fa fa-star fa-2x"
-              initialRate={rating}
-              readonly
-              stop={5}
-            />
-          </p>
 
-          <div>
-            {price_level !== undefined ?
-              <div>
-                <p><span className="dollars"> $ </span>
-                  <Rating
-                      className="bitePrice"
-                      empty="fa fa-credit-card fa-2x"
-                      full="fa fa-credit-card-alt fa-2x"
-                      initialRate={price_level}
+          <div className="bite-icon">
+
+
+
+
+            <div>
+              {rating !== undefined ?
+                    <Rating
+                      className="biteInfo"
+                      empty="fa fa-star-o fa-2x"
+                      full="fa fa-star fa-2x"
+                      initialRate={rating}
                       readonly
-                      stop={4}
+                      stop={5}
                     />
-                </p>
+              : null }
+            </div> 
 
-              </div>
-            : null }
-          </div> 
+
+            <div>
+              {price_level !== undefined ?
+                <div>
+                  <p><span className="dollars"> $ </span>
+                    <Rating
+                        className="bitePrice"
+                        empty="fa fa-credit-card fa-2x"
+                        full="fa fa-credit-card-alt fa-2x"
+                        initialRate={price_level}
+                        readonly
+                        stop={4}
+                      />
+                  </p>
+                </div>
+              : null }
+            </div> 
+
         </div>       
         </div>
       </div>

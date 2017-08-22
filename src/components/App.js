@@ -27,7 +27,7 @@ class App extends Component {
     }
   
   closeMenu = () => {
-    console.log("close menu")
+    //console.log("close menu")
     this.setState({ isMenuOpen: false });
   }
 

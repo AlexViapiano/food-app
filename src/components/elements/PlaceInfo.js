@@ -78,7 +78,7 @@ export default class PlaceInfo extends Component {
               return(
                 <div className="reviews" key={idx}>
                   <div className="separate-reviews">
-                    <h2 className="user-name-title">{review.author_name} (Google account)</h2>
+                    <h2 className="user-name-title">{review.author_name} </h2>
                     <p>{review.text}</p>
                   </div>
             </div>

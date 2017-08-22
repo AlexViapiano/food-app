@@ -44,7 +44,7 @@ export default class Bites extends Component {
           </div>
         <div className="bites-wrapper">
           <div className="searchResults">
-          <h4>Search results for : {this.props.params.address}</h4>
+          <h4>Results: {this.props.params.address}</h4>
         </div>  
               { bites.map(b =>
                 <BiteCard
