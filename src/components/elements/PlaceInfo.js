@@ -48,10 +48,9 @@ export default class PlaceInfo extends Component {
            <div>
             {place.price_level !== undefined ?
               <div className="price-level">
-                <p>Price Level:</p>
                 <Rating
-                    empty="fa fa-credit-card fa-2x"
-                    full="fa fa-credit-card-alt fa-2x"
+                    empty="fa fa-barcode"
+                    full="fa fa fa-usd fa-2x"
                     initialRate={place.price_level}
                     readonly
                     stop={4}
@@ -72,22 +71,6 @@ export default class PlaceInfo extends Component {
           </div>
           <br></br>
         </div>
-
-          <div className="comments-text">
-            <h2 className="comments-title">Comments</h2>
-            {place.reviews ?
-              place.reviews.map((review, idx) => {
-              return(
-                <div className="reviews" key={idx}>
-                  <div className="separate-reviews">
-                    <h2 className="user-name-title">{review.author_name} </h2>
-                    <p>{review.text}</p>
-                  </div>
-            </div>
-                )}
-              )
-              : null }
-          </div>
 
       	</div>
     )

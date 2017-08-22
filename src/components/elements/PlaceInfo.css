@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	margin-top: 350px;
+	margin-top: 60vh;
 }
 
 .place-info h1 {
@@ -15,7 +15,8 @@
 }
 
 .place-info img {
-	max-width: 100%;
+	max-width: 95vw;
+	margin-left: 5px;
 	border-radius: 20px;
 	box-shadow: 10px 10px 10px #000;
 }
@@ -57,6 +58,7 @@
 .price-level {
 	text-align: center;
 	padding: 8px;
+	letter-spacing: 1em;
 }
 
 .store-hours {
@@ -100,6 +102,10 @@
 
 .separate-reviews p {
 	font-family: Comfortaa, sans-serif;
+}
+
+.fa-barcode {
+	visibility: hidden;
 }
 
 /*Media Queries*/

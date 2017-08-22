@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Comments.css';
 // import api from '../../api';
 
 export default class Comments extends Component {
@@ -16,15 +17,15 @@ export default class Comments extends Component {
     let comments = this.props.comments;
 
     return (
-        <div>
+        <div className="comments-text">
 
-          <div>
+          <div className="reviews">
+            <h2 className="review-header"> Comments</h2>
             {comments ? comments.map((comment, idx) => {
               return(
-                <div key={idx}>
-                  <p>-----------------------------------------------------------</p>
-                  <h2>{comment.firstName} {comment.lastName}</h2>
-                  <div>Comment: {comment.comment}</div>
+                <div className="separate-reviews" key={idx}>
+                  <h2 className="user-name-title">{comment.firstName} {comment.lastName}</h2>
+                  <p>{comment.comment}</p>
                 </div>
                 )}
               )

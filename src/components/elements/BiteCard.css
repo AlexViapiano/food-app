@@ -10,6 +10,7 @@
 	padding: 2vh;
 	transition: all .2s ease-in-out;
 	text-align: center;
+	padding-bottom: 15px;
 }
 
 .biteCardDiv:hover {
@@ -34,18 +35,13 @@
 
 .biteInfo {
 	color: #fff;
+	font-size: 10px;
 }
 
 .bitePrice {
 	color: #fff;
 	letter-spacing: 10px;
-}
-
-.dollars {
-	font-family: Raleway, sans-serif;
-	color: rgb(86, 27, 169);
-	font-size: 2rem;
-	font-weight: bolder;
+	font-size: 10px;
 }
 
 @media only screen and (min-width: 641px) {
