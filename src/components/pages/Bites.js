@@ -4,6 +4,8 @@ import BiteCard from '../elements/BiteCard';
 //import Search from '../elements/Search';
 //import auth from '../../auth';
 import MapContainer from '../elements/map';
+import LoadingModal from '../modals/LoadingModal';
+import NoResultsMessage from '../modals/NoResultsMessage';
 import { Link } from 'react-router';
 import './Bites.css';
 
@@ -41,15 +43,13 @@ export default class Bites extends Component {
    
       if(bites.length === 0 && this.state.loaded === false) {
         return (
-          <p> Loading... </p>
+          <LoadingModal />
         );
       } else if(bites.length === 0 && this.state.loaded === true) {
         return (
-          <div className="noResultsMessage">
-            <p>Oops! There's not much open near you. Try searching a less specific location</p>
-          </div>
+            <NoResultsMessage />
         );
-      } else {
+      } else if(bites.length !== 0 && this.state.loaded === true) {
           return (
           <div className="bitesPage">
             <Link to={`/`} className="searchHomeLink">Change Location</Link>
@@ -72,8 +72,7 @@ export default class Bites extends Component {
               )} 
               </div>
           </div>
-      
-    ); 
-  } 
-}
+        ); 
+      } 
+  }
 }
