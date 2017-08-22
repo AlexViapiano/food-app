@@ -20,9 +20,8 @@ body *, body *:before, body *:after {
 
 .title-wrapper {
   background-color: rgba(86, 27, 169, 0.58);
-  width: 85vw;
+  width: 100vw;
   height: 8vh;
-  margin-left: 15vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +33,10 @@ body *, body *:before, body *:after {
 .App-navbar__title {
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
-  font-size: 2rem;
-  text-align: center;
+  font-size: 1.5rem;
+  text-align: right;
+  margin: 0 0 0 20vw;
+  padding-right: 0;
   letter-spacing: 1rem;
   color: #fff;
   transition: all .2s ease-in-out;

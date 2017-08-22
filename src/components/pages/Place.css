@@ -3,8 +3,8 @@
 	position: fixed;
 	width: 100vw;
 	height: 95vh;
-
-	overflow: scroll;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .map-container {
