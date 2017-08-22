@@ -49,7 +49,7 @@ export class MapContainer extends Component {
             google={this.props.google} 
             initialCenter={initialCenter}
             clickableIcons={false}
-            zoom={15}
+            zoom={14}
             styles={[
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},

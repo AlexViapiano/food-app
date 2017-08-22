@@ -39,7 +39,6 @@ export default class Bites extends Component {
   render() {
     let bites = this.state.bites 
     let initialCenter = this.state.initialCenter
-
    
       if(bites.length === 0 && this.state.loaded === false) {
         return (
@@ -60,6 +59,7 @@ export default class Bites extends Component {
                 <div className="searchResults">
                   <h4>Search results for : {this.props.params.address}</h4>
                 </div>  
+
               { bites.map(b =>
                 <BiteCard
                   key={b.id}

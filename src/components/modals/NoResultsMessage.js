@@ -14,7 +14,7 @@ export default class NoResultsMessage extends Component {
     return (
       <div className="NoResultsDiv">
         <div className="innerModalDiv">
-          <p>There's not much open near you. <br />Try searching a less specific location.</p>
+          <p>There's not much open near you. <br />Try searching another location.</p>
         </div>      
       </div>
     )
