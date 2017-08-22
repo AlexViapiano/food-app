@@ -7,8 +7,9 @@ import MapContainer from '../elements/map';
 import './Place.css';
 
 import CreateComment from '../elements/CreateComment';
-import PlaceInfo from '../elements/PlaceInfo'
-import Comments from '../elements/Comments'
+import PlaceInfo from '../elements/PlaceInfo';
+import Comments from '../elements/Comments';
+// import LoadingModal from '../modals/LoadingModal';
 
 
 export default class Place extends Component {
@@ -21,9 +22,9 @@ export default class Place extends Component {
       initialCenter: {},
       bite: [],
       comments: []
+      // loaded: false
     };
   }
-
 
   componentWillMount() {
 
@@ -33,6 +34,7 @@ export default class Place extends Component {
                place: res.body.result,
                bite: [res.body.result],
                initialCenter: res.body.result.geometry.location
+               // loaded: true
           })
           return res.body.result.photos[0].photo_reference
     })
@@ -73,8 +75,6 @@ export default class Place extends Component {
 
   }
 
-
-   
   render() {
     const isLoggedIn = auth.isLoggedIn()
     let bite = this.state.bite
@@ -83,6 +83,12 @@ export default class Place extends Component {
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
 
+    // if(this.state.loaded === false) {
+    //     return (
+    //       <LoadingModal />
+    //   );
+    // }
+    // else {   
     return (
       <div className="placePage">
           <br></br>
@@ -103,9 +109,10 @@ export default class Place extends Component {
       </div>
       
     ); 
-  } 
+    } 
+  }
 
-}
+//
 
 
 
