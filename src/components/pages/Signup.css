@@ -50,6 +50,19 @@
 	transform: translateY(10px);
 }
 
+.errorMsg {
+	background-color: #FFF;
+	font-family: Comfortaa, sans-serif;
+	height: auto;
+	width: 50vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 12px;
+	margin: 3vh;
+}
+
 /*media query for tablet size*/
 
 @media only screen and (min-width: 641px) {
