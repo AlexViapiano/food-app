@@ -34,13 +34,13 @@ export default class Login extends Component {
           error: arrErr
         });
       } else {
-        // this.props.router.push('/login')
-      }
+      this.setState({ error: ["Try again ... your email or password is wrong"]})
+    }
     })
     
   }
   else {
-   this.setState({ error: ["Please enter an email and password"]})
+   this.setState({ error: ["Please enter a valid email and password"]})
   }
 }
   _handleTyping = (e) => {

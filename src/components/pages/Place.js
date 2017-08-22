@@ -9,7 +9,12 @@ import './Place.css';
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo';
 import Comments from '../elements/Comments';
+<<<<<<< HEAD
+import GoogleComments from '../elements/GoogleComments';
 // import LoadingModal from '../modals/LoadingModal';
+=======
+import LoadingModal from '../modals/LoadingModal';
+>>>>>>> f362124c439ad2f633375c4f643a46d7f0e448f8
 
 
 export default class Place extends Component {
@@ -21,8 +26,8 @@ export default class Place extends Component {
       photoUrl: "",
       initialCenter: {},
       bite: [],
-      comments: []
-      // loaded: false
+      comments: [],
+      loaded: false
     };
   }
 
@@ -33,8 +38,8 @@ export default class Place extends Component {
           this.setState({ 
                place: res.body.result,
                bite: [res.body.result],
-               initialCenter: res.body.result.geometry.location
-               // loaded: true
+               initialCenter: res.body.result.geometry.location,
+               loaded: true
           })
           return res.body.result.photos[0].photo_reference
     })
@@ -82,13 +87,14 @@ export default class Place extends Component {
     let photoUrl = this.state.photoUrl
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
+    let googleComments = this.state.place.reviews
 
-    // if(this.state.loaded === false) {
-    //     return (
-    //       <LoadingModal />
-    //   );
-    // }
-    // else {   
+    if(this.state.loaded === false) {
+        return (
+          <LoadingModal />
+      );
+    }
+    else {   
     return (
       <div className="placePage">
           <br></br>
@@ -100,19 +106,22 @@ export default class Place extends Component {
 
           <PlaceInfo place={place} photoUrl={photoUrl}/>
 
-          <Comments comments={comments} />
-
-          <br></br>
 
           {isLoggedIn ? <CreateComment className="user-post" onPostComment={this._handlePostComment} /> : null}
+          
+          <br></br>
+
+          <Comments comments={comments} />
+          <GoogleComments googleComments={googleComments} />
+
 
       </div>
       
     ); 
     } 
   }
+}
 
-//
 
 
 

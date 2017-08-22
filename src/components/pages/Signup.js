@@ -27,7 +27,7 @@ export default class SignUp extends Component {
           let arrErr = [];
           for (var key in res.errors) {
             if (res.errors.hasOwnProperty(key)) {
-              console.log(key + " -> " + res.errors[key]);
+              //console.log(key + " -> " + res.errors[key]);
               arrErr.push(`${key}: ${res.errors[key]}`)
             }
           }
@@ -40,7 +40,7 @@ export default class SignUp extends Component {
       })
     }
     else {
-      this.setState({ error: ["Please enter a valid email and a password longer than 7 characters"]})
+      this.setState({ error: ["Try again...please enter a valid unique email and a password longer than 7 characters"]})
     }
   }
   
@@ -55,7 +55,7 @@ export default class SignUp extends Component {
 
   render() {
     //console.log(this.state.email, this.state.password)
-    console.log(this.state.error)
+    //console.log(this.state.error)
     return (
       <div className="signup">
         <h2 className="signup_h2">Signup</h2>
