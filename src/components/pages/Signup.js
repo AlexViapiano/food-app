@@ -57,7 +57,7 @@ export default class SignUp extends Component {
     // console.log(this.state.email, this.state.password)
     return (
       <div className="signup">
-        <h2 className="signup_h2">Signup to Nite Bite</h2>
+        <h2 className="signup_h2">Signup</h2>
 
         <input type="text" 
         ref="firstName"

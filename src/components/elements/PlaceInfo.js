@@ -30,22 +30,24 @@ export default class PlaceInfo extends Component {
             <p></p>
             <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
             <p> </p>
-
-
-          <div className="stars-rating">
-            <Rating
-              empty="fa fa-star-o fa-2x"
-              full="fa fa-star fa-2x"
-              initialRate={place.rating}
-              readonly
-              stop={5}
-            />
-          </div>
+          <div className="restaurant-info">
+            <div className="rating-stars">
+              {place.rating !== undefined ?
+                    <Rating
+  
+                      empty="fa fa-star-o fa-2x"
+                      full="fa fa-star fa-2x"
+                      initialRate={place.rating}
+                      readonly
+                      stop={5}
+                    />
+              : null }
+            </div> 
 
 
            <div>
             {place.price_level !== undefined ?
-              <div>
+              <div className="price-level">
                 <p>Price Level:</p>
                 <Rating
                     empty="fa fa-credit-card fa-2x"
@@ -55,11 +57,10 @@ export default class PlaceInfo extends Component {
                     stop={4}
                   />
               </div>
-            : null }
-          </div>
+              : null }
+            </div>
 
 
-          
           <div className="store-hours">
           {place.opening_hours ? <p className="store-hours-title">Store hours:</p> : null }
             {place.opening_hours ? 
@@ -67,9 +68,10 @@ export default class PlaceInfo extends Component {
                 <div key={idx}>{hours}</div>
               )
               : null }
-          </div>
+            </div>
           </div>
           <br></br>
+        </div>
 
           <div className="comments-text">
             <h2 className="comments-title">Comments</h2>
@@ -78,7 +80,7 @@ export default class PlaceInfo extends Component {
               return(
                 <div className="reviews" key={idx}>
                   <div className="separate-reviews">
-                    <h2 className="user-name-title">{review.author_name} (Google account)</h2>
+                    <h2 className="user-name-title">{review.author_name} </h2>
                     <p>{review.text}</p>
                   </div>
             </div>
@@ -88,7 +90,6 @@ export default class PlaceInfo extends Component {
           </div>
 
       	</div>
-
     )
   }
 

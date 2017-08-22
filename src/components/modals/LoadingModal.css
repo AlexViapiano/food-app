@@ -1,0 +1,35 @@
+.LoadingDiv {
+	background-color: rgba(0,0,0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Raleway', sans-serif;
+	font-size: 2rem;
+	height: 100vh;
+	width: 100vw;
+	z-index: 500;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+
+.innerLoadingDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.loader {
+    border: 5px solid #008B8B; 
+    border-top: 5px solid #FF1493; 
+    border-radius: 75%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

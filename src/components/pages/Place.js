@@ -47,7 +47,7 @@ export default class Place extends Component {
     .then(
       api.getComments(this.props.params.id)
       .then(res => {
-        console.log("fetching comments", res.body)
+        //console.log("fetching comments", res.body)
         this.setState({
           comments: res.body
         })

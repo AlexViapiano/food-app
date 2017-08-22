@@ -14,7 +14,6 @@ export default class Search extends Component {
     this.state = {
       search: "", 
       isSearchEmpty: false
-
     }
  }
 
@@ -66,7 +65,7 @@ export default class Search extends Component {
     // console.log(this.state.isSearchEmpty, "search empty state in search.js")
   	return(
           <div className="searchDiv">
-            <h3>Search location:</h3>
+            <h3>Search location</h3>
             <form className="searchForm">
                 <input type="text" 
                   placeholder="your current address" 

@@ -96,7 +96,7 @@ body *, body *:before, body *:after {
   }
   .App-navbar__title:hover {
     font-size: 4rem;
-    letter-spacing: 5rem;
+    letter-spacing: 3rem;
     transform: scale(1.1);
     color: #9ACD32;
   }
