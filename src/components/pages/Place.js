@@ -13,7 +13,6 @@ import GoogleComments from '../elements/GoogleComments';
 import LoadingModal from '../modals/LoadingModal';
 
 
-
 export default class Place extends Component {
   
   constructor(props) {
