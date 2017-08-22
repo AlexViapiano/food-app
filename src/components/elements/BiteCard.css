@@ -51,6 +51,6 @@
 
 }
 
-/* .fa-credit-card-alt {
-	display: none;
-} */
+.fa-barcode {
+	visibility: hidden;
+}
