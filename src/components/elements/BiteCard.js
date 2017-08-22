@@ -40,20 +40,7 @@ export default class BiteCard extends Component {
                       />
                 : null } 
             </div> 
-            <div>
-              {price_level !== undefined ?
-                <div>
-                    <Rating
-                        className="bitePrice"
-                        empty="fa fa-barcode"
-                        full="fa fa fa-usd fa-2x"
-                        initialRate={price_level}
-                        readonly
-                        stop={4}
-                    />
-                </div>
-              : null }
-             </div> 
+
           </div>
         </Link>
       </div>
