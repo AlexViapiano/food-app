@@ -5,7 +5,7 @@ body *, body *:before, body *:after {
 } 
 
 .inner {
-  background-color: #000;
+  background-color: #FFF;
   background-image: url("toronto-1298016_640.jpg"); 
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,7 +21,7 @@ body *, body *:before, body *:after {
 .title-wrapper {
   background-color: rgba(86, 27, 169, 0.58);
   width: 100vw;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;

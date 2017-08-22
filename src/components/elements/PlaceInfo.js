@@ -32,6 +32,7 @@ export default class PlaceInfo extends Component {
             <p> </p>
           <div className="restaurant-info">
             <div className="rating-stars">
+              <h2 className="info-title">Rating</h2>
               {place.rating !== undefined ?
                     <Rating
   
@@ -48,6 +49,7 @@ export default class PlaceInfo extends Component {
            <div>
             {place.price_level !== undefined ?
               <div className="price-level">
+                <h2 className="info-title">Price level</h2>
                 <Rating
                     empty="fa fa-barcode"
                     full="fa fa fa-usd fa-2x"
@@ -61,7 +63,7 @@ export default class PlaceInfo extends Component {
 
 
           <div className="store-hours">
-          {place.opening_hours ? <p className="store-hours-title">Store hours:</p> : null }
+          {place.opening_hours ? <h2 className="info-title">Store hours</h2> : null }
             {place.opening_hours ? 
               place.opening_hours.weekday_text.map((hours, idx) => 
                 <div key={idx}>{hours}</div>
@@ -71,22 +73,6 @@ export default class PlaceInfo extends Component {
           </div>
           <br></br>
         </div>
-
-          <div className="comments-text">
-            <h2 className="comments-title">Comments</h2>
-            {place.reviews ?
-              place.reviews.map((review, idx) => {
-              return(
-                <div className="reviews" key={idx}>
-                  <div className="separate-reviews">
-                    <h2 className="user-name-title">{review.author_name} </h2>
-                    <p>{review.text}</p>
-                  </div>
-                </div>
-                )}
-              )
-              : null }
-          </div>
 
       	</div>
     )
