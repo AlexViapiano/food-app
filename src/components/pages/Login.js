@@ -40,7 +40,7 @@ export default class Login extends Component {
     
   }
   else {
-   this.setState({ error: ["Please enter an email and password"]})
+   this.setState({ error: ["Please enter a valid email and password"]})
   }
 }
   _handleTyping = (e) => {

@@ -51,7 +51,6 @@
 }
 
 .errorMsg {
-	background-color: #FFF;
 	font-family: Comfortaa, sans-serif;
 	height: auto;
 	width: 50vw;
@@ -61,6 +60,8 @@
 	text-align: center;
 	border-radius: 12px;
 	margin: 3vh;
+	color: #fff;
+	padding: 10px;
 }
 
 /*media query for tablet size*/
