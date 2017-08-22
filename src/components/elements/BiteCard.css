@@ -41,13 +41,6 @@
 	letter-spacing: 10px;
 }
 
-.dollars {
-	font-family: Raleway, sans-serif;
-	color: rgb(86, 27, 169);
-	font-size: 2rem;
-	font-weight: bolder;
-}
-
 @media only screen and (min-width: 641px) {
 	.biteCardDiv {
 		width: 25vw;

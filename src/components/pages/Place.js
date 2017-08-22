@@ -98,7 +98,7 @@ export default class Place extends Component {
 
           <br></br>
 
-          {isLoggedIn ? <CreateComment onPostComment={this._handlePostComment} /> : null}
+          {isLoggedIn ? <CreateComment className="user-post" onPostComment={this._handlePostComment} /> : null}
 
       </div>
       

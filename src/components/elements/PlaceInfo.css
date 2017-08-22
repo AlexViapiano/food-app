@@ -57,6 +57,7 @@
 .price-level {
 	text-align: center;
 	padding: 8px;
+	letter-spacing: 1em;
 }
 
 .store-hours {
@@ -100,6 +101,10 @@
 
 .separate-reviews p {
 	font-family: Comfortaa, sans-serif;
+}
+
+.fa-barcode {
+	visibility: hidden;
 }
 
 /*Media Queries*/

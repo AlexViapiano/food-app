@@ -2,16 +2,18 @@
 	background-color: rgba(255,255,255,0.8);
 	position: fixed;
 	width: 100vw;
-	height: 600px;
+	height: 75vh;
 	overflow: scroll;
 }
 
 .map-container {
-   position: fixed;
-   height: 25%;
+   	position: fixed;
+   	height: 25%;
 	border: 0.25em solid #9ACD32;
 	border-radius: 5px;
 	
 }
 
-
+.user-post {
+	text-align: center;
+}
