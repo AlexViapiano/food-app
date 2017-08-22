@@ -14,7 +14,8 @@ export default class Loading extends Component {
     return (
       <div className="LoadingDiv">
         <div className="innerLoadingDiv">
-          <p>Loading...</p>
+          
+          <div className="loader"></div>
         </div>      
       </div>
     )
