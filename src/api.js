@@ -26,7 +26,7 @@ class Api {
       superagent
       .get(`${API_HOST}/auth/me`)
       .set('Authorization', `token ${token}`)
-    )
+  )
 
   postAddress = (address) => (
     superagent
@@ -35,8 +35,18 @@ class Api {
     .then(res => {
       localStorage.initialLocation = JSON.stringify(res.body.initialLocation)
       return res
-      })
-    )
+    })
+  )
+
+  postPageToken = (pagetoken) => (
+    superagent
+    .post(`${API_HOST}/places/searchMore`)
+    .send({pagetoken})
+    .then(res => {
+      console.log(res, "res in api.js")
+      return res
+    })
+  )
 
   getLocation() {
     if(localStorage.initialLocation) {
@@ -52,30 +62,30 @@ class Api {
     superagent
     .post(`${API_HOST}/places/location`)
     .send({latlng})
-    )
+  )
 
   getPlaceInfo = (id) => (
     superagent
     .get(`${API_HOST}/places/${id}`)
-    )
+  )
 
   getPhoto = (reference) => (
     superagent
     .post(`${API_HOST}/places/photo`)
     .send({reference})
-    )
+  )
 
   getComments = (placeId) => (
     superagent
     .get(`${API_HOST}/places/comment/${placeId}`)
-    )
+  )
 
   postComment = (comment, placeId, token) => (
     superagent
     .post(`${API_HOST}/places/comment`)
     .send({comment, placeId})
     .set('Authorization', `token ${token}`)
-    )
+  )
 
 }
 

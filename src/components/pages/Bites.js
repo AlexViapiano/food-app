@@ -14,8 +14,10 @@ export default class Bites extends Component {
     this.state = {
       bites: [], 
       initialCenter: {}, 
-      loaded: false
+      loaded: false, 
+      next_page_token: ""
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
 
@@ -23,17 +25,33 @@ export default class Bites extends Component {
 
     api.postAddress(this.props.params.address)
     .then(res => {
+      console.log(res.body)
           this.setState({ 
                bites: res.body.results, 
                initialCenter: res.body.initialLocation, 
-               loaded: true
+               loaded: true, 
+               next_page_token: res.body.next_page_token
           })
     })
+  }
+
+  handleClick() {
+
+    api.postPageToken(this.state.next_page_token)
+    .then(res => {
+      let next_page_token = this.state.next_page_token.concat(res.body)
+      console.log(res.body, "next page token results")
+      return res.body
+    })
+
+
   }
    
   render() {
     let bites = this.state.bites 
     let initialCenter = this.state.initialCenter
+    let next_page_token = this.state.next_page_token
+    console.log(next_page_token)
    
       if(bites.length === 0 && this.state.loaded === false) {
         return (
@@ -41,7 +59,7 @@ export default class Bites extends Component {
         );
       } else if(bites.length === 0 && this.state.loaded === true) {
         return (
-            <NoResultsMessage />
+          <NoResultsMessage />
         );
       } else if(bites.length !== 0 && this.state.loaded === true) {
           return (
@@ -51,23 +69,28 @@ export default class Bites extends Component {
               <div className="map-container">
                 {initialCenter !== {} ? <MapContainer bitesInfo={bites} initialCenter={initialCenter} /> : null}  
               </div>
+
               <div className="bites-wrapper">
 
-              <div className="searchResults">
-                    <h4>Results for: {this.props.params.address}</h4>
-              </div>  
+                <div className="searchResults">
+                      <h4>Results for: {this.props.params.address}</h4>
+                </div>  
 
-              { bites.map(b =>
-                <BiteCard
-                  key={b.id}
-                  name={b.name}
-                  address={b.vicinity}
-                  place_id={b.place_id}
-                  price_level={b.price_level}
-                  rating={b.rating}
-                />
-              )} 
+                { bites.map(b =>
+                  <BiteCard
+                    key={b.id}
+                    name={b.name}
+                    address={b.vicinity}
+                    place_id={b.place_id}
+                    price_level={b.price_level}
+                    rating={b.rating}
+                  />
+                )} 
+
+                {next_page_token !== undefined ? <button onClick={this.handleClick} >load more</button> : null}
+              
               </div>
+        
           </div>
         ); 
       } 
