@@ -3,6 +3,7 @@
 	justify-content: center;
 	flex-direction: column;
 	margin-top: 60vh;
+	text-align: center;
 }
 
 .place-info h1 {
@@ -43,6 +44,12 @@
 
 .place-info a:active {
 	color: #DAA520;
+}
+
+.site-phone {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
 }
 
 .info-title {
@@ -123,11 +130,21 @@
 /*Media Queries*/
 
 @media only screen and (min-width: 641px) {
+
+.place-info {
+	flex-direction: row;
+	padding-bottom: 40px;
+}
 	
 .place-info img {
 	max-width: 100%;
-	width: 50vw;
 	margin: auto;
+}
+
+.pic-address-email-phone {
+	display: flex;
+	flex-direction: column;
+	width: 60vw;
 }
 
 .comments-text {
@@ -141,13 +158,24 @@
 
 .restaurant-info {
 	display: flex;
-	justify-content: space-evenly;
-	align-items: flex-start;
+	flex-direction: column;
+	align-items: center;
 	background-color: rgba(0,0,0,0.3);
-	width: 70vw;
+	width: 20vw;
 	margin: auto;
 	border-radius: 15px;
 	color: #000;
+}
+
+.place-info h1 {
+	font-size: 60px;
+}
+
+.site-phone {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-left: 100px;
 }
 
 }

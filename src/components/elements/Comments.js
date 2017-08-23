@@ -13,7 +13,6 @@ export default class Comments extends Component {
 
 
   render() {
-
     let comments = this.props.comments;
 
     return (
