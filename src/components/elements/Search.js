@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {browserHistory as history} from 'react-router';
 import SearchMessage from '../modals/searchMessage';
-
 import './Search.css';
 import api from '../../api';
-// import PlacesAutocomplete from 'react-places-autocomplete';
-// import auth from '../../auth';
-
 
 export default class Search extends Component {
   constructor(props) {
@@ -42,7 +38,6 @@ export default class Search extends Component {
     e.preventDefault();
     this._handleSearch(this.state.search)
   }
-
  
 
    _handleSearch = (address) => {
@@ -52,8 +47,6 @@ export default class Search extends Component {
   }
   
 
-
-
   _handleChange = (e) => {
     this.setState({
       search: e.target.value
@@ -62,7 +55,7 @@ export default class Search extends Component {
 
 
   render() {
-    // console.log(this.state.isSearchEmpty, "search empty state in search.js")
+    
   	return(
           <div className="searchDiv">
             <h3>Find food near:</h3>
@@ -80,8 +73,9 @@ export default class Search extends Component {
             <SearchMessage /> 
             : null }
           </div>
-    		)
+    )
   }
+  
 }
 
 

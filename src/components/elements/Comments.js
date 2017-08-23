@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import './Comments.css';
-// import api from '../../api';
 
 export default class Comments extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
- 
+
     };
   }
 

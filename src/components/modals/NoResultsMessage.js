@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-// import api from '../../api.js';
 import './NoResultsMessage.css';
-
-// const ENTER = 13;
 
 export default class NoResultsMessage extends Component {
   constructor(props) {

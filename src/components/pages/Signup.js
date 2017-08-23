@@ -4,7 +4,6 @@ import auth from '../../auth';
 
 const ENTER = 13;
 
-
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +43,7 @@ export default class SignUp extends Component {
     }
   }
   
+
   _handleTyping = (e) => {
     if (this.state && this.state.error) {
       this.setState({ error: [] })
@@ -53,9 +53,9 @@ export default class SignUp extends Component {
     }
   }
 
+
   render() {
-    //console.log(this.state.email, this.state.password)
-    //console.log(this.state.error)
+
     return (
       <div className="signup">
         <h2 className="signup_h2">Signup</h2>

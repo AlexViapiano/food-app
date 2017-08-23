@@ -6,7 +6,6 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import Place from './components/pages/Place';
-//note: Bites = search results
 import Bites from './components/pages/Bites';
 import Search from './components/elements/Search';
 import './index.css';

@@ -12,11 +12,6 @@ module.exports = {
       .then(res => localStorage.token = res.body.token)
       .then(res => api.getUser(localStorage.token))
       .then(res => localStorage.user = JSON.stringify(res.body))
-      //.catch( error => error.response.body)
-      //.then( function(result){
-       // return localStorage.token = result.body.token
-      //})
-
     }
   },
 

@@ -42,6 +42,7 @@ export class MapContainer extends Component {
         initialCenter = this.props.bitesInfo[0].geometry.location;
         showMarker = false;
       }
+
       return (
         <div className="map-wrapper"
           style={{width: '100%', height: '100%', position: 'absolute'}}>
@@ -137,8 +138,6 @@ export class MapContainer extends Component {
               icon='https://cdn4.iconfinder.com/data/icons/little-boy/128/Little_Boy_Grey.png' />
             : null}
 
-           
-
             { this.props.bitesInfo.map(b =>
                 <Marker onClick={this.onMarkerClick}
                   key={b.id}
@@ -157,21 +156,13 @@ export class MapContainer extends Component {
             </InfoWindow>
 
             </Map>
-          </div>
+        </div>
 
-        );
+      );
     } 
-  }
+}
 
  
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCGHLFTTV-WaZ81ZXgOA2p9VOPuttiesWg'
 })(MapContainer)
-
-
-
-
-
- // <div className="map-wrapper"
-
- //          style={{width: '100%', height: '50%', position: 'absolute', margin: '0%'}}>

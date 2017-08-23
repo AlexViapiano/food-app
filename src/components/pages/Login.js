@@ -15,34 +15,36 @@ export default class Login extends Component {
   
   _handleLogin = () => {
     let { email: {value: email}, password: {value: password} } = this.refs;
-  if (email && password) {
-    auth.login(email, password)
-    .then(res => {
-      this.props.router.push('/')
-    })
-    .catch(err => {
-      let res = err.response.body;
-      if (res.errors) {
-        let arrErr = [];
-        for (var key in res.errors) {
-          if (res.errors.hasOwnProperty(key)) {
-            console.log(key + " -> " + res.errors[key]);
-            arrErr.push(`${key}: ${res.errors[key]}`)
+    if (email && password) {
+      auth.login(email, password)
+      .then(res => {
+        this.props.router.push('/')
+      })
+      .catch(err => {
+        let res = err.response.body;
+        if (res.errors) {
+          let arrErr = [];
+          for (var key in res.errors) {
+            if (res.errors.hasOwnProperty(key)) {
+              console.log(key + " -> " + res.errors[key]);
+              arrErr.push(`${key}: ${res.errors[key]}`)
+            }
           }
-        }
-        this.setState({
-          error: arrErr
-        });
-      } else {
-      this.setState({ error: ["Try again ... your email or password is wrong"]})
+          this.setState({
+            error: arrErr
+          });
+        } else {
+        this.setState({ error: ["Try again ... your email or password is wrong"]})
+      }
+      })
+      
     }
-    })
-    
+    else {
+     this.setState({ error: ["Please enter a valid email and password"]})
+    }
   }
-  else {
-   this.setState({ error: ["Please enter a valid email and password"]})
-  }
-}
+
+
   _handleTyping = (e) => {
     if (this.state && this.state.error) {
       this.setState({ error: [] })
@@ -51,6 +53,7 @@ export default class Login extends Component {
       this._handleLogin();
     }
   }
+
 
   render() {
     return (

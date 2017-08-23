@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-// import api from '../../api.js';
 import './searchMessage.css';
-
-// const ENTER = 13;
 
 export default class SearchMessage extends Component {
   constructor(props) {
