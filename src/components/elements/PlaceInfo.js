@@ -22,14 +22,19 @@ export default class PlaceInfo extends Component {
     return (
         <div>
           <div className="place-info">
-            <h1>{place.name}</h1>
-            <img src={photoUrl} alt={photoUrl}></img>
-            <br></br>
-            <p>{place.formatted_address}</p>
-            <a href={place.website}>Website</a>
-            <p></p>
-            <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
+            
+            <div className="pic-address-email-phone">
+              <h1>{place.name}</h1>
+              <img src={photoUrl} alt={photoUrl}></img>
+              <br></br>
+              <p>{place.formatted_address}</p>
+            <div className="site-phone">
+              <a href={place.website}>Website</a>
+              <p></p>
+              <a href="tel:{place.formatted_phone_number}">{place.formatted_phone_number}</a>
             <p> </p>
+            </div>
+          </div>
           <div className="restaurant-info">
             <div className="rating-stars">
               <h2 className="info-title">Rating</h2>
