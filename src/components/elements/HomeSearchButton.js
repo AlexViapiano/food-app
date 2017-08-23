@@ -10,20 +10,20 @@ export default class HomeSearchButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     
     };
   }
 
   render() {
+
     return (
     	<div>
-		  <div className="home-search-button">
-        <Link to={`/bites`}>
-		    <button className="GetBites" type="button">Find Food Near You!</button>
-        </Link>
-		  </div>
-
-	  </div>
-	);		
+  		  <div className="home-search-button">
+          <Link to={`/bites`}>
+  		    <button className="GetBites" type="button">Find Food Near You!</button>
+          </Link>
+  		  </div>
+	    </div>
+	  );		
 	}
+  
 }

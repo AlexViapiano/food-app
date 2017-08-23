@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-// import api from '../../api.js';
 import './LoadingModal.css';
-
-// const ENTER = 13;
 
 export default class Loading extends Component {
   constructor(props) {

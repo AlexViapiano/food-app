@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-//import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
 import './Menu.css';
 import {browserHistory as history} from 'react-router';
-// import api from '../../api.js';
-// import Login from '../pages/Login';
-
 
 class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       avatarUrl: ""
-      // isMenuOpen: false
     };
     this._handleLogout = this._handleLogout.bind(this);
   }
 
-  // handleClickOutside = () => {
-  //    this.props.closeMenu();
-  //}
 
   _handleLogout (e) {
     e.preventDefault();
@@ -29,10 +21,10 @@ class Menu extends Component {
     history.push('/');
   }
 
+
   render() {
     let { closeMenu, show } = this.props;
     const isLoggedIn = auth.isLoggedIn();
-
     let avatarUrl = (isLoggedIn && auth.getUser()) ? auth.getUser().avatarUrl : "";
 
     return (
@@ -42,7 +34,6 @@ class Menu extends Component {
                 <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
                     :  <img src="" alt="" className="menu__avatar"/>}
         </div>
-
           <div className="menu__list">
             
             <Link to="/" className="menu__item home-link" onClick={closeMenu}> 

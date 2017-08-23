@@ -1,24 +1,16 @@
 import React, {Component} from 'react';
-// import api from '../../api';
-import './GoogleComments.css'
 
 export default class GoogleComments extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
- 
     };
   }
 
-
-  componentWillMount() {
-
-  }
-
-
   render() {
     let googleComments = this.props.googleComments
+
     return (
         
        <div className="comments-text">
@@ -35,11 +27,7 @@ export default class GoogleComments extends Component {
               )
               : null }
           </div>
-
     )
   }
 
-
-
 }
-

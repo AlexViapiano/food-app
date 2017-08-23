@@ -27,7 +27,6 @@ class Api {
       .get(`${API_HOST}/auth/me`)
       .set('Authorization', `token ${token}`)
     )
- 
 
   postAddress = (address) => (
     superagent
@@ -72,13 +71,11 @@ class Api {
     )
 
   postComment = (comment, placeId, token) => (
-
     superagent
     .post(`${API_HOST}/places/comment`)
     .send({comment, placeId})
     .set('Authorization', `token ${token}`)
     )
-
 
 }
 

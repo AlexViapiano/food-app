@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import api from '../../api';
 import BiteCard from '../elements/BiteCard';
-//import Search from '../elements/Search';
-//import auth from '../../auth';
 import MapContainer from '../elements/map';
 import LoadingModal from '../modals/LoadingModal';
 import NoResultsMessage from '../modals/NoResultsMessage';
 import { Link } from 'react-router';
 import './Bites.css';
-
-// var Rating = require('react-rating');
 
 export default class Bites extends Component {
   
@@ -33,7 +29,6 @@ export default class Bites extends Component {
                loaded: true
           })
     })
-    //.then(res => localStorage.initialLocation = res.body.initialLocation)
   }
    
   render() {

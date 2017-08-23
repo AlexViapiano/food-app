@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
-//import auth from '../../auth';
 
 import './BiteCard.css';
 var Rating = require('react-rating');
@@ -16,8 +15,6 @@ export default class BiteCard extends Component {
   render() {
     let { name, address, place_id, price_level, rating} = this.props
 
-
-
     return (
       <div>
         <Link to={`/place/${place_id}`} className="biteCardLink">
@@ -26,6 +23,7 @@ export default class BiteCard extends Component {
             <div className="bite-card">
               <h2>{ name }</h2>
             </div>
+            
             <p>{address}</p>
 
             <div className="bite-icon">

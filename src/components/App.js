@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-//import {browserHistory as history} from 'react-router';
 import { Link } from 'react-router';
 import Menu from './modals/Menu';
-// import Search from './elements/Search';
 import auth from '../auth.js';
 import './App.css';
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = { 
@@ -16,15 +15,16 @@ class App extends Component {
   }
 
   componentWillMount() {
-
         this._fetchUserInfo();
     }
 
-    _fetchUserInfo = () => {
-      if (auth.isLoggedIn()) {
-        this.setState({ user: auth.getUser() });
-      } 
-    }
+
+  _fetchUserInfo = () => {
+    if (auth.isLoggedIn()) {
+      this.setState({ user: auth.getUser() });
+    } 
+  }
+
   
   closeMenu = () => {
     this.setState({ isMenuOpen: false });
@@ -33,6 +33,7 @@ class App extends Component {
   
   render() {
     let {isMenuOpen} = this.state
+
     return (
       <div className="App">
         <div className="inner">  
@@ -54,6 +55,7 @@ class App extends Component {
       </div>
     );
   }
+  
 }
 
 export default App;

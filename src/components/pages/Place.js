@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api';
 import auth from '../../auth';
 import MapContainer from '../elements/map';
-// import Bites from './Bites';
-//import { Link } from 'react-router';
 import './Place.css';
-
 import CreateComment from '../elements/CreateComment';
 import PlaceInfo from '../elements/PlaceInfo';
 import Comments from '../elements/Comments';
@@ -26,6 +23,7 @@ export default class Place extends Component {
       loaded: false
     };
   }
+
 
   componentWillMount() {
 
@@ -59,7 +57,6 @@ export default class Place extends Component {
   }
 
 
-
  _handlePostComment = (comment) => {
     
     var placeId = this.props.params.id;
@@ -71,9 +68,7 @@ export default class Place extends Component {
       this.setState({
         comments
       })
-
     })
-
   }
 
   render() {
@@ -112,7 +107,6 @@ export default class Place extends Component {
 
 
       </div>
-      
     ); 
     } 
   }
