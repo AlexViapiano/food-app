@@ -65,7 +65,7 @@ export default class Search extends Component {
     // console.log(this.state.isSearchEmpty, "search empty state in search.js")
   	return(
           <div className="searchDiv">
-            <h3>Search location</h3>
+            <h3>Find food near:</h3>
             <form className="searchForm">
                 <input type="text" 
                   placeholder="your current address" 
@@ -74,7 +74,7 @@ export default class Search extends Component {
                   onChange={this._handleChange}
                 />
                 <button className="search-box-button"
-                onClick={this.search}>FEED ME!</button>
+                onClick={this.search}>Feed Me!</button>
             </form>
             {this.state.isSearchEmpty ? 
             <SearchMessage /> 
