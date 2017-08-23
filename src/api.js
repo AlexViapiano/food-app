@@ -39,6 +39,17 @@ class Api {
       })
     )
 
+
+  postPageToken = (pagetoken) => (
+    superagent
+    .post(`${API_HOST}/places/searchMore`)
+    .send({pagetoken})
+    .then(res => {
+      console.log(res.body, "res in api.js")
+      return res
+    })
+  )
+
   getLocation() {
     if(localStorage.initialLocation) {
       return JSON.parse(localStorage.initialLocation)
