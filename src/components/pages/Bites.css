@@ -43,6 +43,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 2vh 2vw 2vh 2vw;
 }
 
 .searchResults h4 {
