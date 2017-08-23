@@ -38,23 +38,12 @@ class Api {
     })
   )
 
-  postPageToken = (pagetoken) => (
+  postPageToken = (next_page_token) => (
     superagent
     .post(`${API_HOST}/places/searchMore`)
-    .send({pagetoken})
+    .send({next_page_token})
     .then(res => {
-      console.log(res, "res in api.js")
-      return res
-    })
-  )
-
-
-  postPageToken = (pagetoken) => (
-    superagent
-    .post(`${API_HOST}/places/searchMore`)
-    .send({pagetoken})
-    .then(res => {
-      console.log(res.body, "res in api.js")
+      // console.log(res, "res in api.js")
       return res
     })
   )

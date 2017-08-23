@@ -21,6 +21,7 @@ const routes = (
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>
         <Route path="/search" component={Search}/>
+        <Route path="/searchMore" component={Search}/>
       </Route>
     </Router>
 );

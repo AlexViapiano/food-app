@@ -15,7 +15,7 @@ export default class Bites extends Component {
       bites: [], 
       initialCenter: {}, 
       loaded: false, 
-      next_page_token: ""
+      next_page_token: undefined
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -25,7 +25,6 @@ export default class Bites extends Component {
 
     api.postAddress(this.props.params.address)
     .then(res => {
-      console.log(res.body)
           this.setState({ 
                bites: res.body.results, 
                initialCenter: res.body.initialLocation, 
@@ -35,13 +34,15 @@ export default class Bites extends Component {
     })
   }
 
-  handleClick() {
+  handleClick = (next_page_token) => {
 
     api.postPageToken(this.state.next_page_token)
     .then(res => {
-      let next_page_token = this.state.next_page_token.concat(res.body)
-      console.log(res.body, "next page token results")
-      return res.body
+      let newResults = this.state.bites.concat(res.body.results)
+      this.setState({
+        bites: newResults, 
+        next_page_token: res.body.next_page_token
+      })
     })
 
 
