@@ -52,7 +52,6 @@ export default class Bites extends Component {
     let bites = this.state.bites 
     let initialCenter = this.state.initialCenter
     let next_page_token = this.state.next_page_token
-    console.log(next_page_token)
    
       if(bites.length === 0 && this.state.loaded === false) {
         return (

@@ -20,8 +20,11 @@ export default class Place extends Component {
       initialCenter: {},
       bite: [],
       comments: [],
+      isCommenting: false,
       loaded: false
     };
+
+    // this._handleClick
   }
 
 
@@ -48,7 +51,7 @@ export default class Place extends Component {
     .then(
       api.getComments(this.props.params.id)
       .then(res => {
-        //console.log("fetching comments", res.body)
+        // console.log("fetching comments", res.body)
         this.setState({
           comments: res.body
         })
@@ -56,14 +59,17 @@ export default class Place extends Component {
     )
   }
 
+ // _handleClick = (prevState) => {
+ //  this.setState({
+ //      isCommenting: !prevState.isCommenting
+ //    });
+ // } 
 
  _handlePostComment = (comment) => {
-    
     var placeId = this.props.params.id;
-
     api.postComment(comment, placeId, auth.getToken())
-    .then(res => {
-        console.log(this.state.comments, res, "yeahhhhhhhhhhhhhh")
+       .then(res => {
+      // console.log(this.state.comments,  res, "yeahhhhhhhhhhhhhh")
       let comments = this.state.comments.concat(res.body)
       this.setState({
         comments
@@ -79,6 +85,7 @@ export default class Place extends Component {
     let initialCenter = this.state.initialCenter
     let comments = this.state.comments
     let googleComments = this.state.place.reviews
+    // let isCommenting = this.state.isCommenting
 
     if(this.state.loaded === false) {
         return (
