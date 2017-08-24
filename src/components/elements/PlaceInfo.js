@@ -16,7 +16,7 @@ export default class PlaceInfo extends Component {
     let photoUrl = this.props.photoUrl;
 
     return (
-        <div>
+        <div className="place-page">
           <div className="place-info">
 
             <div className="pic-address-email-phone">
