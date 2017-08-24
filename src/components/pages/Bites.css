@@ -71,6 +71,30 @@
 	left: 0;
 }
 
+.loadMoreButton {
+	background-color: rgba(154,205,50,0.7);
+	width: 70vw;
+	border-radius: 12px;
+	margin: 2vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2vh;
+	transition: all .2s ease-in-out;
+	text-align: center;
+	padding-bottom: 15px;
+	color: #fff;
+	font-size: 2rem;
+	font-family: 'Raleway', sans-serif;
+	outline: none;
+}
+
+.loadMoreButton:active {
+	background-color:rgb(154,205,50);
+	transform: scale(1.1);
+}
+
 @media only screen and (min-width: 641px)  {
 	
 	.bites-wrapper {
@@ -81,4 +105,9 @@
 	.map-container {
 		margin-left: 1.5vw;
 	}
+
+	.loadMoreButton:hover {
+		background-color: rgb(154,205,50);
+		transform: scale(1.1);
+}
 }
