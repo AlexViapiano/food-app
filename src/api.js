@@ -93,14 +93,12 @@ class Api {
     .patch(`${API_HOST}/auth/users`)
     .send({defaultAddress})
     .set('Authorization', `token ${token}`)
-    .then(console.log(token, "api console log"))
   )
 
   checkDefaultAddress = (token) => (
     superagent
     .get(`${API_HOST}/auth/defaultAddress`)
     .set('Authorization', `token ${token}`)
-    .then(console.log(token, "api console log"))
   )
 }
 

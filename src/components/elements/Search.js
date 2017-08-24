@@ -18,11 +18,12 @@ export default class Search extends Component {
   componentDidMount() {
   
     const isLoggedIn = auth.isLoggedIn()
+    console.log("inside componentDidmount")
 
     if (isLoggedIn) {
+      console.log("inside if")
       api.checkDefaultAddress(auth.getToken()) 
       .then(res => {
-          console.log(res.body.defaultAddress, "res body defaultAddress")
           if(res.body.defaultAddress !== null) {
             this.setState({
               search: res.body.defaultAddress, 
@@ -49,6 +50,24 @@ export default class Search extends Component {
           }
 
       })
+    }
+    else{
+      console.log("inside else");
+      var onPositionReceived = (position) => {
+      var latlng = position.coords.latitude+","+position.coords.longitude;
+
+      api.getAddressFromLatLng(latlng)
+      .then(res => {
+          this.setState({
+            search: res.text, 
+            isSearchEmpty: false
+          })
+      })
+      }
+
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onPositionReceived);
+      }
     }
 
 
