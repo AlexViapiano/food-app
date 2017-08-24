@@ -55,7 +55,6 @@ export default class SignUp extends Component {
 
 
   render() {
-    let {firstName, lastName} = this.props
 
     return (
       <div className="signup">

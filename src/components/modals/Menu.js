@@ -32,18 +32,28 @@ class Menu extends Component {
     return (
       <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
         <div className="menu__header">
+
             {(isLoggedIn) ?
                 <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
             :  <img src="" alt="" className="menu__avatar"/>}
             {(isLoggedIn) ?        
-                <p className="loggedInGreeting">hello, {firstName} {lastName} </p> 
+                <p className="loggedInGreeting">Hello, {firstName} {lastName} </p> 
             : null}     
+
         </div>
+
+
           <div className="menu__list">
             
             <Link to="/" className="menu__item home-link" onClick={closeMenu}> 
               Home  
             </Link>
+
+            {isLoggedIn ?
+            <Link to="/Profile" className="menu__item login-link" onClick={closeMenu}> 
+              Profile  
+            </Link>
+            : null}
 
             {!isLoggedIn ?
             <Link to="/login" className="menu__item login-link" onClick={closeMenu}> 

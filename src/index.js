@@ -8,6 +8,7 @@ import Signup from './components/pages/Signup';
 import Place from './components/pages/Place';
 import Bites from './components/pages/Bites';
 import Search from './components/elements/Search';
+import Profile from './components/pages/Profile';
 import './index.css';
 
 
@@ -22,6 +23,7 @@ const routes = (
         <Route path="/login" component={Login}/>
         <Route path="/search" component={Search}/>
         <Route path="/searchMore" component={Search}/>
+        <Route path="/profile" component={Profile} />
       </Route>
     </Router>
 );

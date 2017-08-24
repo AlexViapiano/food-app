@@ -58,7 +58,7 @@ export default class Search extends Component {
     
   	return(
           <div className="searchDiv">
-            <h3>Find food near:</h3>
+            <h3>Find food nearby:</h3>
             <form className="searchForm">
                 <input type="text" 
                   placeholder="your current address" 
