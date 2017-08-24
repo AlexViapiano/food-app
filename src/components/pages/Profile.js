@@ -18,6 +18,7 @@ export default class Profile extends Component {
     let lastName = (isLoggedIn && auth.getUser()) ? auth.getUser().lastName : "";
     let email = (isLoggedIn && auth.getUser()) ? auth.getUser().email : "";
     let createdAt = (isLoggedIn && auth.getUser()) ? auth.getUser().users_createdAt : "";
+    let defaultAddress = (isLoggedIn && auth.getUser()) ? auth.getUser().users_createdAt : "";
 
     return (
       <div className="profilePage">
