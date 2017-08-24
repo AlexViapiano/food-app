@@ -4,6 +4,9 @@ import SearchMessage from '../modals/searchMessage';
 import './Search.css';
 import api from '../../api';
 
+const ENTER = 13;
+
+
 export default class Search extends Component {
   constructor(props) {
     super(props);
@@ -34,8 +37,9 @@ export default class Search extends Component {
   } 
 
 
-  search = (e) => {
-    e.preventDefault();
+  _search() {
+    // e.preventDefault();
+    console.log(this.state.search, 'search')
     this._handleSearch(this.state.search)
   }
  
@@ -43,22 +47,36 @@ export default class Search extends Component {
    _handleSearch = (address) => {
     address.length === 0 ? this.setState({
       isSearchEmpty: true
-    }) : history.push(`/bites/${address}`) 
+    }) : history.push(`/bites/${address}`)
   }
 
   clear = (e) => {
     e.preventDefault();
+    // console.log(this.state.search)
     this.setState({
       search: ""
     })
   }
-  
 
   _handleChange = (e) => {
     this.setState({
       search: e.target.value
     })
+    console.log(this.state.search, "handleChange")
   }
+
+  _handleTyping = (e) => {
+    // this.setState({
+    //   isSearchEmpty: false,
+    //   search: e.target.value
+    // });
+    console.log(e.keyCode, e.target.value, "search in handletyping")
+     if (e.keyCode===ENTER) {
+
+      this._search()
+    }
+  }
+
 
 
   render() {
@@ -73,12 +91,14 @@ export default class Search extends Component {
                     className="search-box-input"
                     value={this.state.search}
                     onChange={this._handleChange}
+                    onKeyUp={this._handleTyping}
+
                   />
                   <button id="clear-search-box"
                   onClick={this.clear}>x</button>
                 </div>    
                 <button className="search-box-button"
-                onClick={this.search}>Feed Me!</button>
+                onClick={this._search}>Feed Me!</button>
             </form>
             {this.state.isSearchEmpty ? 
             <SearchMessage /> 
