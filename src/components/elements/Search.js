@@ -3,6 +3,7 @@ import {browserHistory as history} from 'react-router';
 import SearchMessage from '../modals/searchMessage';
 import './Search.css';
 import api from '../../api';
+import auth from '../../auth';
 
 export default class Search extends Component {
   constructor(props) {
@@ -15,22 +16,42 @@ export default class Search extends Component {
 
 
   componentDidMount() {
+  
+    const isLoggedIn = auth.isLoggedIn()
 
-      var onPositionReceived = (position) => {
-      var latlng = position.coords.latitude+","+position.coords.longitude;
-
-      api.getAddressFromLatLng(latlng)
+    if (isLoggedIn) {
+      api.checkDefaultAddress(auth.getToken()) 
       .then(res => {
-          this.setState({
-            search: res.text, 
-            isSearchEmpty: false
-          })
-      })
-      }
+          console.log(res.body.defaultAddress, "res body defaultAddress")
+          if(res.body.defaultAddress !== null) {
+            this.setState({
+              search: res.body.defaultAddress, 
+              isSearchEmpty: false
+            })
+          }
+          else{
+            console.log("inside else");
+            var onPositionReceived = (position) => {
+            var latlng = position.coords.latitude+","+position.coords.longitude;
 
-      if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onPositionReceived);
-      }
+            api.getAddressFromLatLng(latlng)
+            .then(res => {
+                this.setState({
+                  search: res.text, 
+                  isSearchEmpty: false
+                })
+            })
+            }
+
+            if(navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(onPositionReceived);
+            }
+          }
+
+      })
+    }
+
+
   } 
 
 
