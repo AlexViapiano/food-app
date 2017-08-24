@@ -8,6 +8,8 @@ import PlaceInfo from '../elements/PlaceInfo';
 import Comments from '../elements/Comments';
 import GoogleComments from '../elements/GoogleComments';
 import LoadingModal from '../modals/LoadingModal';
+import { Link } from 'react-router';
+
 
 
 export default class Place extends Component {
@@ -59,12 +61,6 @@ export default class Place extends Component {
     )
   }
 
- // _handleClick = (prevState) => {
- //  this.setState({
- //      isCommenting: !prevState.isCommenting
- //    });
- // } 
-
  _handlePostComment = (comment) => {
     var placeId = this.props.params.id;
     api.postComment(comment, placeId, auth.getToken())
@@ -95,7 +91,8 @@ export default class Place extends Component {
     else {   
     return (
       <div className="placePage">
-          <br></br>
+        <Link to={`/`} className="searchHomeLink">Change Location</Link>
+
           <div className="map-box">  
             <div className="map-container" >
               {initialCenter !== {} ? <MapContainer bitesInfo={bite} initialCenter={initialCenter} /> : null}  

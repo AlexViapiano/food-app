@@ -28,12 +28,6 @@ class Api {
     .set('Authorization', `token ${token}`)
   )
 
-  getProfile = (token) => (
-    superagent
-    .get(`${API_HOST}/auth/profile`)
-    .set('Authorization', `token ${token}`)
-  )
-
   postAddress = (address) => (
     superagent
     .post(`${API_HOST}/places/search`)

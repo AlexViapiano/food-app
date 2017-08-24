@@ -26,12 +26,20 @@ class Menu extends Component {
     let { closeMenu, show } = this.props;
     const isLoggedIn = auth.isLoggedIn();
     let avatarUrl = (isLoggedIn && auth.getUser()) ? auth.getUser().avatarUrl : "";
+    let firstName = (isLoggedIn && auth.getUser()) ? auth.getUser().firstName : "";
+    let lastName = (isLoggedIn && auth.getUser()) ? auth.getUser().lastName : "";
 
     return (
       <div className={`menu ${show?"show":""}`} onClick={closeMenu}>
         <div className="menu__header">
-            {(isLoggedIn) ? <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
-                : <img src="" alt="" className="menu__avatar"/>}
+
+            {(isLoggedIn) ?
+                <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
+            :  <img src="" alt="" className="menu__avatar"/>}
+            {(isLoggedIn) ?        
+                <p className="loggedInGreeting">Hello, {firstName} {lastName} </p> 
+            : null}     
+
         </div>
 
 
