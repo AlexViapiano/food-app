@@ -23,9 +23,15 @@ class Api {
   )
 
   getUser = (token) => (
-      superagent
-      .get(`${API_HOST}/auth/me`)
-      .set('Authorization', `token ${token}`)
+    superagent
+    .get(`${API_HOST}/auth/me`)
+    .set('Authorization', `token ${token}`)
+  )
+
+  getProfile = (token) => (
+    superagent
+    .get(`${API_HOST}/auth/profile`)
+    .set('Authorization', `token ${token}`)
   )
 
   postAddress = (address) => (

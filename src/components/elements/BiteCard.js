@@ -13,7 +13,7 @@ export default class BiteCard extends Component {
   }
 
   render() {
-    let { name, address, place_id, price_level, rating} = this.props
+    let { name, address, place_id, rating} = this.props
 
     return (
       <div>

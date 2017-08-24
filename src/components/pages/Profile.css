@@ -1,0 +1,16 @@
+.profilePage {
+	padding-top: 2rem;
+	position: fixed;
+	left: 0;
+	width: 100vw;
+	height: 90vh;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	background-color: rgba(255,255,255,0.7);
+}
+
+h1, h3, p, a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
