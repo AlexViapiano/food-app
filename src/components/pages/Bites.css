@@ -72,7 +72,7 @@
 }
 
 .loadMoreButton {
-	background-color: rgba(154,205,50,0.7);
+	background-color: rgb(154,205,50);
 	width: 70vw;
 	border-radius: 12px;
 	margin: 2vh;
@@ -91,7 +91,6 @@
 }
 
 .loadMoreButton:active {
-	background-color:rgb(154,205,50);
 	transform: scale(1.1);
 }
 

@@ -55,7 +55,7 @@ export default class Search extends Component {
   } 
 
 
-  search = (e) => {
+  _search = (e) => {
     e.preventDefault();
     this._handleSearch(this.state.search)
   }
@@ -64,9 +64,14 @@ export default class Search extends Component {
    _handleSearch = (address) => {
     address.length === 0 ? this.setState({
       isSearchEmpty: true
-    }) : history.push(`/bites/${address}`) 
+    }) : history.push(`/bites/${address}`)
   }
-  
+
+  clear = (e) => {
+    this.setState({
+      search: ""
+    })
+  }
 
   _handleChange = (e) => {
     this.setState({
@@ -74,21 +79,29 @@ export default class Search extends Component {
     })
   }
 
+  _handleSubmit = (e) => {
+    e.preventDefault();
+    this._search();
+  }
 
   render() {
     
-  	return(
+    return(
           <div className="searchDiv">
             <h3>Find food nearby:</h3>
-            <form className="searchForm">
-                <input type="text" 
-                  placeholder="your current address" 
-                  className="search-box-input"
-                  value={this.state.search}
-                  onChange={this._handleChange}
-                />
+              <form className="searchForm" onSubmit={this._handleSubmit}>
+                <div className="search-and-clear">
+                  <input type="text" 
+                    placeholder="your current address" 
+                    className="search-box-input"
+                    value={this.state.search}
+                    onChange={this._handleChange}
+                  />
+                  <button type="button" id="clear-search-box"
+                  onClick={this.clear}>x</button>
+                </div>    
                 <button className="search-box-button"
-                onClick={this.search}>Feed Me!</button>
+                onClick={this._search}>Feed Me!</button>
             </form>
             {this.state.isSearchEmpty ? 
             <SearchMessage /> 

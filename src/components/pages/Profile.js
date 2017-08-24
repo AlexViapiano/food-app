@@ -37,6 +37,7 @@ _handleLocation = () => {
     let email = (isLoggedIn && auth.getUser()) ? auth.getUser().email : "";
     let createdAt = (isLoggedIn && auth.getUser()) ? auth.getUser().users_createdAt : "";
     let defaultAddress = (isLoggedIn && auth.getUser()) ? auth.getUser().users_defaultAddress : "";
+
     return (
       <div className="profilePage">
 
