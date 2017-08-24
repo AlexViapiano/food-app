@@ -4,5 +4,4 @@ module.exports = {
 	//API_HOST:"https://bce9e3c0.ngrok.io"
 	// API_HOST:"http://localhost:3001"
 	API_HOST:`https://nitebite-backend.herokuapp.com`
-
 }
