@@ -5,28 +5,40 @@ import './Profile.css';
 
 export default class Profile extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      defaultAddressState: ""
-    };
-}
-
-_handleLocation = () => {
-    let { defaultAddress: {value:defaultAddress}  } = this.refs;
-    let token = auth.getToken();
-    if (defaultAddress) {
-      api.updateDefaultAddress(defaultAddress, token)
-      .then(res => {
-        let address = res.body.defaultAddress;
-        this.setState({
-          defaultAddressState: address
-        })
-        let defAddress = this.state.defaultAddressState
-        alert(`New default address: ${defAddress}`)
-      })
+    constructor(props) {
+        super(props);
+        this.state = {
+          defaultAddressState: ""
+        };
     }
-}
+
+    _handleLocation = () => {
+        let { defaultAddress: {value:defaultAddress}  } = this.refs;
+        let token = auth.getToken();
+        if (defaultAddress) {
+          api.updateDefaultAddress(defaultAddress, token)
+          .then(res => {
+            let address = res.body.defaultAddress;
+            this.setState({
+              defaultAddressState: address
+            })
+            let defAddress = this.state.defaultAddressState
+            alert(`New default address: ${defAddress}`)
+          })
+        }
+    }
+
+    _handleDelete = () => {
+        let token = auth.getToken();
+        
+          api.deleteDefaultAddress(token)
+          .then(res => {
+            this.setState({
+              defaultAddressState: ""
+            })
+            alert(`Deleted default address.`)
+          })
+    }
 
 
   render() {
@@ -74,6 +86,7 @@ _handleLocation = () => {
             className="user-address-input"
             />
             <button onClick={this._handleLocation} className="set-location-button">Set Location</button>
+            <button onClick={this._handleDelete} className="delete-location-button">Delete Location</button>
       </div>
     );
   }

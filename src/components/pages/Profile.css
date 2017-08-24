@@ -112,13 +112,32 @@
 	border-radius:12px;
 	outline: none;
 	padding: none;
-	background-color: #CD5C5C;
+	background-color: #9ACD32;
 	border: none;
 	text-align: center;
 	font-size: 1.2rem;
 	margin-top: 1rem;
 	text-transform: capitalize;
 	margin-bottom: 30px;
+}
+
+.delete-location-button {
+	color: #FFF;
+	width: 87.5vw;
+	height: 3rem;
+	border-radius:12px;
+	outline: none;
+	padding: none;
+	background-color: rgba(255, 0, 0, 0.89);
+	border: none;
+	text-align: center;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	margin-bottom: 30px;
+}
+
+.delete-location-button:active {
+	transform: translateY(10px);
 }
 
 .set-location-button:active {
@@ -143,6 +162,11 @@
 
 .set-location-button {
 	width: 20vw;
+}
+
+.delete-location-button {
+	width: 20vw;
+	margin-left: 5px;
 }
 
 .menu__header {

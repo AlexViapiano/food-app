@@ -90,8 +90,14 @@ class Api {
 
   updateDefaultAddress = (defaultAddress, token) => (
     superagent
-    .patch(`${API_HOST}/auth/users`)
+    .patch(`${API_HOST}/auth/defaultAddress`)
     .send({defaultAddress})
+    .set('Authorization', `token ${token}`)
+  )
+
+  deleteDefaultAddress = (token) => (
+    superagent
+    .post(`${API_HOST}/auth/defaultAddress`)
     .set('Authorization', `token ${token}`)
   )
 
