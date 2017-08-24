@@ -19,7 +19,7 @@ export default class Comments extends Component {
 
           <div className="reviews">
             <h2 className="review-header"> Comments</h2>
-            {comments ? comments.map((comment, idx) => {
+            {comments ? comments.reverse().map((comment, idx) => {
               return(
                 <div className="separate-reviews" key={idx}>
                   <h2 className="user-name-title">{comment.firstName} {comment.lastName}</h2>

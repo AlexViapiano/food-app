@@ -87,7 +87,7 @@ export default class Bites extends Component {
                   />
                 )} 
 
-                {next_page_token !== undefined ? <button onClick={this.handleClick} >load more</button> : null}
+                {next_page_token !== undefined ? <button className="loadMoreButton" onClick={this.handleClick} >load more</button> : null}
               
               </div>
         
