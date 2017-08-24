@@ -4,3 +4,11 @@
 	font-family: 'Raleway', sans-serif;
 	text-decoration: underline; 
 }
+
+.comments-text {
+	margin-bottom: 20px;
+}
+
+.reviews {
+	padding: 20px;
+}
