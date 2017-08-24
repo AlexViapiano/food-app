@@ -16,7 +16,7 @@
 	color: #9ACD32;
 	width: 100%;
 	position: fixed;
-	margin-top: 1vh;
+	margin-top: 1px;
 	padding: 1.5vh 0 2vh 0;
 	z-index: 1000;
 	display: flex;
