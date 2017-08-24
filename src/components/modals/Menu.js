@@ -37,7 +37,7 @@ class Menu extends Component {
                 <img src={avatarUrl} alt="profile-pic" className="menu__avatar"/>
             :  <img src="" alt="" className="menu__avatar"/>}
             {(isLoggedIn) ?        
-                <p className="loggedInGreeting">Hello, {firstName} {lastName} </p> 
+                <p className="loggedInGreeting">Hello, {firstName + " "}  {lastName} </p> 
             : null}     
 
         </div>
