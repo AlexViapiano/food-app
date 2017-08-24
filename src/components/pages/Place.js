@@ -59,12 +59,6 @@ export default class Place extends Component {
     )
   }
 
- // _handleClick = (prevState) => {
- //  this.setState({
- //      isCommenting: !prevState.isCommenting
- //    });
- // } 
-
  _handlePostComment = (comment) => {
     var placeId = this.props.params.id;
     api.postComment(comment, placeId, auth.getToken())

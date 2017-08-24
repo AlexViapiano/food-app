@@ -10,8 +10,12 @@
   visibility: hidden;
   position: fixed;
   top: 15vh;
-  width: 100%;
+  width: 100vw;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu.show {
@@ -22,15 +26,29 @@
 .menu__header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  width: 90%;
+  border-radius: 20px;  
+  font-size: 25px;
+
 }
 
 .menu__avatar {
-  border-radius: 100px
+  border-radius: 100px;
+  margin-right: 5vw;
 }
+
 
 .menu__list {
   display: flex;
   flex-flow: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu__item {
@@ -39,7 +57,8 @@
   color: #fff;
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  margin: 10px 130px;
+  margin: 10px;
+  width: 90%;
   border-radius: 20px;  
   font-size: 25px;
 }
@@ -78,21 +97,27 @@
 
 @media only screen and (min-width: 641px) {
 
-  .menu__item {
-  margin: 10px 200px;
-}
+  .menu__header {
+    width: 40%;
+  }
 
-.logout-button {
-  width: 20vw;
-}
+  .menu__item {
+    margin: 10px 200px;
+    width: 40%;
+  }
+
+
+  .logout-button {
+    width: 20vw;
+  }
 
 }
 
 @media only screen and (min-width: 1200px) {
 
   .menu__item {
-  margin: 10px 400px;
-}
+    margin: 10px 400px;
+  }
 
 }
 

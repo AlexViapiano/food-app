@@ -38,6 +38,7 @@ module.exports = {
     return api.requestLogout(localStorage.token)
     .then(res => delete localStorage.token)
     .then(res => delete localStorage.user)
+    .catch(res => delete localStorage.token)
   },
 
   isLoggedIn() {
