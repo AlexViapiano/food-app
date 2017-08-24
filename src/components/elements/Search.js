@@ -37,8 +37,8 @@ export default class Search extends Component {
   } 
 
 
-  _search() {
-    // e.preventDefault();
+  _search = (e) => {
+    e.preventDefault();
     console.log(this.state.search, 'search')
     this._handleSearch(this.state.search)
   }
@@ -62,6 +62,7 @@ export default class Search extends Component {
     this.setState({
       search: e.target.value
     })
+    // this._search();
     console.log(this.state.search, "handleChange")
   }
 
@@ -72,7 +73,11 @@ export default class Search extends Component {
     // });
     console.log(e.keyCode, e.target.value, "search in handletyping")
      if (e.keyCode===ENTER) {
-
+      // e.preventDefault();
+    //   this.setState({
+    //   isSearchEmpty: false,
+    //   search: e.target.value
+    // });
       this._search()
     }
   }
